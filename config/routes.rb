@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
 
-  resources :users
+  root 'application#index'
+
+  resources :users do
+    resources :reminders
+  end
 
   resources :tasks do
     resources :comments
+    resources :notifications
   end
 
-  resources :notifications
-
-  resources :reminders
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
