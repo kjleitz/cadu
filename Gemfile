@@ -41,6 +41,9 @@ group :development, :test do
 
   # RSpec testing framework
   gem 'rspec-rails', '~> 3.0'
+
+  # Generate fake info
+  gem 'faker'
 end
 
 group :development do
