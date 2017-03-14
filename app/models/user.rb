@@ -13,8 +13,15 @@ class User < ApplicationRecord
 
   enum role: [:client, :assistant, :admin]
 
+  # returns nil if not an assistant, array if so
   def client_tasks
-    clients.map(&:requested_tasks).flatten
+    clients.map(&:requested_tasks).flatten if assistant?
+  end
+
+  def requested_tasks
+    tasks.where(status: 1..3)
+    # could use tasks.select(&:requested?) instead, but I'd prefer to use
+    # 'where' when I can
   end
 
 end
