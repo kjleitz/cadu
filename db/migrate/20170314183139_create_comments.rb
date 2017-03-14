@@ -3,7 +3,7 @@ class CreateComments < ActiveRecord::Migration[5.0]
     create_table :comments do |t|
       t.text :content
       t.belongs_to :task, foreign_key: true
-      t.belongs_to :user, foreign_key: true
+      t.belongs_to :author, foreign_key: true
       t.boolean :pinned, default: false
       t.boolean :edited, default: false
       # `:edited` may not be super necessary; there are already timestamps
