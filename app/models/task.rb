@@ -3,8 +3,10 @@ class Task < ApplicationRecord
   has_many :notifications, :reminders, :comments, :labels_tasks
   has_many :labels, through: :labels_tasks
 
+  enum status: [:idle, :requested, :accepted, :in_progress, :completed]
+
   def assistant
     client.assistant if status > 0
   end
-  
+
 end
