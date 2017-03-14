@@ -6,7 +6,12 @@ class Task < ApplicationRecord
   enum status: [:idle, :requested, :accepted, :in_progress, :completed]
 
   def assistant
-    client.assistant if status > 0
+    client.assistant if requested?
+  end
+
+  # overrides #requested? from enum
+  def requested?
+    [:requested, :accepted, :in_progress].include?(status)
   end
 
 end
