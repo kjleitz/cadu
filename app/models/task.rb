@@ -3,5 +3,6 @@ class Task < ApplicationRecord
   delegate :assistant, to: :client
   has_many :notifications
   has_many :comments
+  has_many :labels_tasks
   has_many :labels, through: :labels_tasks
 end
