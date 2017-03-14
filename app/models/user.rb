@@ -11,8 +11,10 @@ class User < ApplicationRecord
   # As assistant
   has_many :clients, foreign_key: :assistant_id
 
+  enum role: [:client, :assistant, :admin]
+
   def client_tasks
     clients.map(&:requested_tasks).flatten
   end
-  
+
 end
