@@ -1,4 +1,3 @@
 class LabelsTask < ApplicationRecord
-  belongs_to :label
-  belongs_to :task
+  belongs_to :label, :task
 end
