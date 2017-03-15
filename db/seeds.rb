@@ -47,8 +47,10 @@ end
 
 User.client.each do |client|
   rand(2..10).times do
+    yoda_quote = Faker::Yoda.quote
     client.tasks.create(
-      content: Faker::Yoda.quote,
+      title: yoda_quote.split[0..5].join(" ") + "...",
+      content: yoda_quote,
       due_date: Faker::Time.forward(10, :day),
       status: rand(5)
     )
@@ -60,7 +62,7 @@ end
 
 Task.accepted.each do |task|
   task.notifications.create(
-    content: "'#{task.content[0..15]}...' has been accepted by #{task.assistant.name}!",
+    content: "'#{task.title}' has been accepted by #{task.assistant.name}!",
     receiver: [task.client, task.client, task.client, task.assistant].sample,
     status: rand(3)
   )
@@ -68,7 +70,7 @@ end
 
 Task.in_progress.each do |task|
   task.notifications.create(
-    content: "#{task.assistant.name} has begun work on '#{task.content[0..15]}...'!",
+    content: "#{task.assistant.name} has begun work on '#{task.title}'!",
     receiver: [task.client, task.client, task.client, task.assistant].sample,
     status: rand(3)
   )
@@ -76,7 +78,7 @@ end
 
 Task.completed.each do |task|
   task.notifications.create(
-    content: "'#{task.content[0..15]}...' has been completed!",
+    content: "'#{task.title}' has been completed!",
     receiver: [task.client, task.client, task.client, task.assistant].sample,
     status: rand(3)
   )
