@@ -22,8 +22,6 @@ class User < ApplicationRecord
 
   def requested_tasks
     tasks.where(status: 1..3)
-    # could use tasks.select(&:requested?) instead, but I'd prefer to use
-    # 'where' when I can
   end
 
 end
