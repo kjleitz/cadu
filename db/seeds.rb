@@ -54,3 +54,26 @@ User.client.each do |client|
     )
   end
 end
+
+# Notification seeds
+
+Task.accepted.each do |task|
+  task.notifications.create(
+    content: "'#{task.content[0..15]}...' has been accepted by #{task.assistant.name}!",
+    status: rand(3)
+  )
+end
+
+Task.in_progress.each do |task|
+  task.notifications.create(
+    content: "#{task.assistant.name} has begun work on '#{task.content[0..15]}...'!",
+    status: rand(3)
+  )
+end
+
+Task.completed.each do |task|
+  task.notifications.create(
+    content: "'#{task.content[0..15]}...' has been completed!",
+    status: rand(3)
+  )
+end
