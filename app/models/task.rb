@@ -34,7 +34,7 @@ class Task < ApplicationRecord
   end
 
   def status_message
-    STATUS_MESSAGES[status]
+    self.class::STATUS_MESSAGES[status.to_sym]
   end
 
 end
