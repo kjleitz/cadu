@@ -45,4 +45,8 @@ class Task < ApplicationRecord
     }[status]
   end
 
+  def apply_label(label)
+    labels << label unless labels.include?(label)
+  end
+
 end
