@@ -2,6 +2,8 @@ class Comment < ApplicationRecord
   belongs_to :task
   belongs_to :author, class_name: User
 
+  validates :content, :pinned, :edited, presence: true
+
   after_update :set_edited
 
   alias_attribute :pinned?, :pinned
