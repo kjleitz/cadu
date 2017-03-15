@@ -105,3 +105,18 @@ Task.where("status > 0").each do |task|
     )
   end
 end
+
+
+# Label seeds
+
+10.times do
+  Label.create(
+    name: Faker::Company.buzzword.unique
+  )
+end
+
+Task.all.each do |task|
+  rand(4).times do
+    task.labels << Label.all.sample
+  end
+end
