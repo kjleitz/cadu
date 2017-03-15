@@ -28,4 +28,11 @@ class User < ApplicationRecord
     tasks.where(status: 1..3)
   end
 
+  def notify(task, message=nil)
+    notifications.create(
+      task: task,
+      content: message || task.status_message
+    )
+  end
+
 end
