@@ -7,6 +7,10 @@ class Comment < ApplicationRecord
   alias_attribute :pinned?, :pinned
   alias_attribute :edited?, :edited
 
+  def toggle_pin
+    toggle(:pinned)
+  end
+
   private
 
     def set_edited
