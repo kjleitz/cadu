@@ -4,11 +4,11 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :reminders
+    resources :notifications
   end
 
   resources :tasks do
     resources :comments
-    resources :notifications
   end
 
 end
