@@ -31,7 +31,7 @@ class User < ApplicationRecord
   def notify(task, message=nil)
     notifications.create(
       task: task,
-      content: message || task.status_message
+      content: message || "#{task.title} needs your attention."
     )
   end
 
