@@ -9,6 +9,14 @@ class Task < ApplicationRecord
 
   enum status: [:idle, :requested, :accepted, :in_progress, :completed]
 
+  STATUS_MESSAGES = {
+    idle: "This task has been created!",
+    requested: "This task has been requested!",
+    accepted: "Assistance request has been accepted for this task!",
+    in_progress: "Work has begun on this task!",
+    completed: "This task has been completed!"
+  }
+
   def request_assistant
     requested!
   end
@@ -23,6 +31,10 @@ class Task < ApplicationRecord
 
   def mark_complete
     completed!
+  end
+
+  def status_message
+    STATUS_MESSAGES[status]
   end
 
 end
