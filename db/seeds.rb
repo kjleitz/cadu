@@ -109,14 +109,5 @@ end
 
 # Label seeds
 
-10.times do
-  Label.create(
-    name: Faker::Company.buzzword.unique
-  )
-end
-
-Task.all.each do |task|
-  rand(4).times do
-    task.labels << Label.all.sample
-  end
-end
+10.times { Label.create(name: Faker::Company.buzzword.unique) }
+Task.all.each { |task| rand(4).times { task.labels << Label.all.sample } }
