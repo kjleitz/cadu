@@ -55,6 +55,7 @@ User.client.each do |client|
   end
 end
 
+
 # Notification seeds
 
 Task.accepted.each do |task|
@@ -76,4 +77,17 @@ Task.completed.each do |task|
     content: "'#{task.content[0..15]}...' has been completed!",
     status: rand(3)
   )
+end
+
+
+# Reminder seeds
+
+User.client.each do |client|
+  rand(5).times do
+    client.reminders.create(
+      content: "Hey, it's #{client.assistant}. Remember to #{Faker::Hipster.sentence}!",
+      task: [Task.all.sample, nil].sample,
+      status: rand(3)
+    )
+  end
 end
