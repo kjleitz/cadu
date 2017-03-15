@@ -11,6 +11,8 @@ class User < ApplicationRecord
   # As assistant
   has_many :clients, foreign_key: :assistant_id
 
+  has_secure_password
+
   enum role: [:client, :assistant, :admin]
 
   # returns nil if not an assistant, array if so
