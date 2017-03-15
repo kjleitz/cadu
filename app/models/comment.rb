@@ -4,10 +4,10 @@ class Comment < ApplicationRecord
 
   validates :content, :pinned, :edited, presence: true
 
-  after_update :set_edited
-
   alias_attribute :pinned?, :pinned
   alias_attribute :edited?, :edited
+
+  after_update :set_edited
 
   def toggle_pin
     toggle(:pinned)
