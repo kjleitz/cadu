@@ -1,3 +1,5 @@
+# User seeds
+
 alice = User.create(
   name: "Alice Murphy",
   email: "alice@telamericorp.net",
@@ -38,4 +40,17 @@ blake = User.create(
     assistant: anders,
     role: :client
   )
+end
+
+
+# Task seeds
+
+User.client.each do |client|
+  rand(2..10).times do
+    client.tasks.create(
+      content: Faker::RickAndMorty.quote,
+      due_date: Faker::Time.forward(10, :day),
+      status: rand(5)
+    )
+  end
 end
