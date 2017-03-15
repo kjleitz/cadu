@@ -10,7 +10,7 @@ alice = User.create(
 anders = User.create(
   name: "Anders Holmvik",
   email: "ders@gmail.com",
-  password: "p@ssw0rd"
+  password: "p@ssw0rd",
   role: :assistant
 )
 
@@ -25,7 +25,7 @@ adam = User.create(
 blake = User.create(
   name: "Blake Henderson",
   email: "blake@hotmail.com",
-  password: "password"
+  password: "password",
   assistant: alice,
   role: :client
 )
