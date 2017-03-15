@@ -7,6 +7,8 @@ class Task < ApplicationRecord
   has_many :labels_tasks
   has_many :labels, through: :labels_tasks
 
+  validates :title, :content, :due_date, :status, presence: true
+
   enum status: [:idle, :requested, :accepted, :in_progress, :completed]
 
   def request_assistant
