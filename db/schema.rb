@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20170314195034) do
   end
 
   create_table "tasks", force: :cascade do |t|
+    t.string   "title"
     t.text     "content"
     t.datetime "due_date"
     t.integer  "client_id"
