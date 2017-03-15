@@ -3,6 +3,8 @@ class Reminder < ApplicationRecord
   delegate :assistant, to: :client
   belongs_to :task, optional: true
 
+  validates :content, :status, presence: true
+
   enum status: [:unseen, :seen, :dismissed]
 
   def view
