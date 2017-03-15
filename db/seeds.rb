@@ -100,8 +100,8 @@ Task.where("status > 0").each do |task|
     task.comments.create(
       content: Faker::TwinPeaks.quote,
       author: [task.client, task.assistant].sample || task.client,
-      pinned?: Faker::Boolean.boolean(0.2),
-      edited?: Faker::Boolean.boolean(0.1)
+      pinned: Faker::Boolean.boolean(0.2),
+      edited: Faker::Boolean.boolean(0.1)
     )
   end
 end
@@ -109,5 +109,5 @@ end
 
 # Label seeds
 
-10.times { Label.create(name: Faker::Company.buzzword.unique) }
+10.times { Label.create(name: Faker::Company.unique.buzzword) }
 Task.all.each { |task| rand(4).times { task.labels << Label.all.sample } }
