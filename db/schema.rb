@@ -40,9 +40,11 @@ ActiveRecord::Schema.define(version: 20170314195034) do
   create_table "notifications", force: :cascade do |t|
     t.text     "content"
     t.integer  "task_id"
-    t.integer  "status",     default: 0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "receiver_id"
+    t.integer  "status",      default: 0
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["receiver_id"], name: "index_notifications_on_receiver_id"
     t.index ["task_id"], name: "index_notifications_on_task_id"
   end
 
