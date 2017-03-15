@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :comments, foreign_key: :author_id
 
   # As client
-  belongs_to :assistant, class_name: User
+  belongs_to :assistant, class_name: User, optional: true
   has_many :tasks, foreign_key: :client_id
   has_many :reminders, foreign_key: :client_id
 
