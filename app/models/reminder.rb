@@ -5,4 +5,11 @@ class Reminder < ApplicationRecord
 
   enum status: [:unseen, :seen, :dismissed]
 
+  def view
+    seen!
+  end
+
+  def dismiss
+    dismissed!
+  end
 end
