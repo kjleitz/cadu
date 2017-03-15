@@ -9,4 +9,20 @@ class Task < ApplicationRecord
 
   enum status: [:idle, :requested, :accepted, :in_progress, :completed]
 
+  def request_assistant
+    requested!
+  end
+
+  def accept
+    accepted!
+  end
+
+  def begin_work
+    in_progress!
+  end
+
+  def mark_complete
+    completed!
+  end
+
 end
