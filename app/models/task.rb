@@ -9,13 +9,17 @@ class Task < ApplicationRecord
 
   enum status: [:idle, :requested, :accepted, :in_progress, :completed]
 
-  STATUS_MESSAGES = {
-    idle: "This task has been created!",
-    requested: "This task has been requested!",
-    accepted: "Assistance request has been accepted for this task!",
-    in_progress: "Work has begun on this task!",
-    completed: "This task has been completed!"
-  }
+  after_initialize :set_status_messages
+
+  def set_status_messages
+    STATUS_MESSAGES = {
+      "idle"        => "A task titled '#{title}' has been created!",
+      "requested"   => "#{client.name} requires assistance with '#{title}'.",
+      "accepted"    => "Assistance request for '#{title}' has been accepted!",
+      "in_progress" => "Work has begun on '#{title}'.",
+      "completed"   => "#{assistant.name} has completed '#{title}'!"
+    }
+  end
 
   def request_assistant
     requested!
@@ -34,7 +38,7 @@ class Task < ApplicationRecord
   end
 
   def status_message
-    self.class::STATUS_MESSAGES[status.to_sym]
+    STATUS_MESSAGES[status]
   end
 
 end
