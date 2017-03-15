@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :notifications, foreign_key: :receiver_id
 
   has_secure_password
+  validates :name, :email, :role, presence: true
 
   enum role: [:client, :assistant, :admin]
 
