@@ -1,5 +1,5 @@
 class Task < ApplicationRecord
-  belongs_to :client, class: User
+  belongs_to :client, class_name: User
   has_many :notifications, :reminders, :comments, :labels_tasks
   has_many :labels, through: :labels_tasks
 
