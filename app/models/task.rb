@@ -11,18 +11,26 @@ class Task < ApplicationRecord
 
   def request_assistant
     requested!
+    send_status_notification_to(assistant)
   end
 
   def accept
     accepted!
+    send_status_notification_to(client)
   end
 
   def begin_work
     in_progress!
+    send_status_notification_to(client)
   end
 
   def mark_complete
     completed!
+    send_status_notification_to(client)
+  end
+
+  def send_status_notification_to(user)
+    user.notify(self, status_message)
   end
 
   def status_message
@@ -31,7 +39,7 @@ class Task < ApplicationRecord
       "requested"   => "#{client.name} requires assistance with '#{title}'.",
       "accepted"    => "Assistance request for '#{title}' has been accepted!",
       "in_progress" => "Work has begun on '#{title}'.",
-      "completed"   => "#{assistant.name} has completed '#{title}'!"
+      "completed"   => "'#{title}' has been completed!"
     }[status]
   end
 
