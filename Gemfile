@@ -44,6 +44,8 @@ group :development, :test do
 
   # Generate fake info
   gem 'faker'
+
+  gem 'pry'
 end
 
 group :development do
