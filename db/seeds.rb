@@ -48,7 +48,7 @@ end
 User.client.each do |client|
   rand(2..10).times do
     client.tasks.create(
-      content: Faker::RickAndMorty.quote,
+      content: Faker::Yoda.quote,
       due_date: Faker::Time.forward(10, :day),
       status: rand(5)
     )
