@@ -91,3 +91,17 @@ User.client.each do |client|
     )
   end
 end
+
+
+# Comment seeds
+
+Task.where("status > 0").each do |task|
+  rand(5).times do
+    task.comments.create(
+      content: Faker::TwinPeaks.quote,
+      author: [task.client, task.assistant].sample || task.client,
+      pinned?: Faker::Boolean.boolean(0.2),
+      edited?: Faker::Boolean.boolean(0.1)
+    )
+  end
+end
