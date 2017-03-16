@@ -35,6 +35,10 @@ class Task < ApplicationRecord
     send_status_notification_to(client)
   end
 
+  def human_due_date
+    due_date.strftime("%-I:%M %P %A, %b %-d")
+  end
+
   def send_status_notification_to(user)
     user.notify(self, status_message)
   end
