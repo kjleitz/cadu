@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'application#index'
+  root 'tasks#index'
 
   resources :users do
     resources :reminders
