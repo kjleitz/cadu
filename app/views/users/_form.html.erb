@@ -22,18 +22,18 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_digest %>
-    <%= f.text_field :password_digest %>
+    <%= f.label :password %>
+    <%= f.text_field :password %>
   </div>
 
   <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
+    <%= f.label :password_confirmation, "Confirm password" %>
+    <%= f.text_field :password_confirmation %>
   </div>
 
   <div class="field">
-    <%= f.label :role %>
-    <%= f.number_field :role %>
+    <%= f.label :assistant_id, "Assistant" %>
+    <%= f.select :assistant_id, User.assistant.map { |a| [a.name, a.id] }, prompt: "Select an assistant" %>
   </div>
 
   <div class="actions">
