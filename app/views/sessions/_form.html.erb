@@ -1,15 +1,15 @@
-<%= form_for user, url: login_path do |f| %>
-  <div class="field">
+<%= form_for user, url: login_path, class: "form-horizontal" do |f| %>
+  <div class="field form-group">
     <%= f.label :email %>
-    <%= f.text_field :email, required: true %>
+    <%= f.text_field :email, required: true, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :password %>
-    <%= f.password_field :password, required: true %>
+    <%= f.password_field :password, required: true, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="form-group">
+    <%= f.submit "Log in", class: "btn btn-default" %>
   </div>
 <% end %>
