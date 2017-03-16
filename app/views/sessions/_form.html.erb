@@ -1,0 +1,15 @@
+<%= form_for user, url: login_path do |f| %>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password, required: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>
