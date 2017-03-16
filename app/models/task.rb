@@ -11,6 +11,10 @@ class Task < ApplicationRecord
 
   enum status: [:idle, :requested, :accepted, :in_progress, :completed]
 
+  # Placeholder: I don't think this is necessary if I have a custom
+  # #labels_attributes= writer method.
+  # accepts_nested_attributes_for :labels
+
   def request_assistant
     requested!
     send_status_notification_to(assistant)
