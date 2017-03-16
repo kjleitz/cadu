@@ -17,6 +17,8 @@ class User < ApplicationRecord
 
   enum role: [:client, :assistant, :admin]
 
+  after_create :set_role
+
   # Assembles all of an assistant's "to-do" tasks (those
   # requested of her by her clients)
   def client_tasks
@@ -34,6 +36,11 @@ class User < ApplicationRecord
       task: task,
       content: message || "#{task.title} needs your attention."
     )
+  end
+
+  def set_role
+    roles = YAML.load_file(Rails.root.join('config', 'roles.yml'))
+    self.role = roles[email] if roles[email]
   end
 
 end
