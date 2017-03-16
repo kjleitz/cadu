@@ -15,7 +15,7 @@ class Task < ApplicationRecord
   # #labels_attributes= writer method.
   # accepts_nested_attributes_for :labels
 
-  def request_assistant
+  def request_assistance
     requested!
     send_status_notification_to(assistant)
   end
