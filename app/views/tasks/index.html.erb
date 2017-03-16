@@ -1,6 +1,11 @@
 <h1>Tasks</h1>
 
-<%= link_to 'New Task', new_task_path %>
+<%= form_for @task do |f| %>
+  <%= f.hidden_field :client_id %>
+  <div class="new_task_title"><%= f.text_field :title, placeholder: "Task title" %></div>
+  <div class="new_task_content"><%= f.text_area :content, placeholder: "What needs to be done?" %></div>
+  <div class="new_task_submit"><%= f.submit "Create task" %></div>
+<% end %>
 
 <% @tasks.each do |task| %>
   <article class="task_card <%= task.status %>">
