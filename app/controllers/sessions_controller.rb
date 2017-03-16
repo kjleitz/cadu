@@ -5,8 +5,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:email])
-    if user.try(:authenticate, params[:password])
+    user = User.find_by(email: params[:user][:email])
+    if user.try(:authenticate, params[:user][:password])
       session[:user_id] = user.id
       redirect_to root_path, alert: "Signed in as #{user.email}."
     else
