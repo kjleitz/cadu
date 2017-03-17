@@ -1,0 +1,7 @@
+<ul class="notification_list nav nav-sidebar">
+  <% notifications.each do |notification| %>
+  <li class="notification_item <%= notification.status %>">
+    <%= link_to notification.content, task_path(notification.task) %>
+  </li>
+  <% end %>
+</ul>
