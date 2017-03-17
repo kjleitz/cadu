@@ -1,23 +1,30 @@
-<div class="row">
-  <article class="card task_card <%= task.status %> col-md-10">
-    <div class="card-block">
-      <h3 class="card-title task_title"><%= content_tag :strong, task.title %></h3>
-      <p class="card-text task_content"><%= task.content %></p>
+<article class="card task-card <%= task.status %>">
+  <div class="card-header">
+    <h4><%= task.title %></h4>
+    <h6>
       <% task.labels.each do |label| %>
-        <%= link_to label.name, label_path(label), class: "text-muted card-link" %>
+      <%= link_to label.name, label_path(label), class: "text-muted card-link" %>
       <% end %>
-      <div class="task_details">
-        <span class="task_due_floater">Due: <%= task.human_due_date %></span>
-        <span class="task_links_floater">
-          <%= link_to "View", task_path(task) %>
-          <%= link_to "Edit", edit_task_path(task) %>
-        </span>
-      </div>
-      <div class="task_actions">
-        <%= button_to "Request assistance", request_assistance_path(task), class: "btn btn-primary" %>
-        <button class="btn expand_label_form_button">Apply labels</button>
-        <button class="btn expand_comments_button">Expand comments</button>
-      </div>
-    </div>
-  </article>
-</div>
+    </h6>
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Summary</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Full (with comments)</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Edit</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-block">
+    <p><%= task.content %></p>
+  </div>
+  <div class="card-footer">
+    <span class="task-due-floater text-muted">
+      <em>Due <%= task.human_due_date %></em>
+    </span>
+    <%= button_to "Request assistance", request_assistance_path(task), class: "btn btn-primary request-floater" %>
+  </div>
+</article>
