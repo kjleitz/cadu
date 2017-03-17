@@ -1,12 +1,17 @@
-<div class="row">
-  <article class="card new-task col-md-10">
-    <div class="card-block">
-      <%= form_for task do |f| %>
-      <%= f.hidden_field :client_id %>
-      <div class="new-task-title"><%= f.text_field :title, placeholder: "Task title" %></div>
-      <div class="new-task-content"><%= f.text_area :content, placeholder: "What needs to be done?" %></div>
-      <div class="new-task-submit"><%= f.submit "Create task" %></div>
-      <% end %>
-    </div>
-  </article>
-</div>
+<%= form_for task, class: "card new-task-card" do |f| %>
+
+  <%= f.hidden_field :client_id %>
+
+  <div class="card-header">
+    <%= f.text_field :title, placeholder: "Task title", class: "new-task-title" %>
+  </div>
+
+  <div class="card-block">
+    <%= f.text_area :content, placeholder: "What needs to be done?", class: "new-task-content" %>
+  </div>
+
+  <div class="card-footer">
+    <%= f.submit "Create task", class: "btn btn-primary" %>
+  </div>
+
+<% end %>
