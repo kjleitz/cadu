@@ -1,25 +1,23 @@
 <div class="row">
   <article class="card task_card <%= task.status %> col-md-10">
-    <div class="task_title"><%= content_tag :strong, task.title %></div>
-    <div class="task_content"><%= task.content %></div>
-    <div class="task_labels">
-      <ul>
-        <% task.labels.each do |label| %>
-        <li><em><%= link_to label.name, label_path(label) %></em></li>
-        <% end %>
-      </ul>
-    </div>
-    <div class="task_details">
-      <span class="task_due_floater">Due: <%= task.human_due_date %></span>
-      <span class="task_links_floater">
-        <%= link_to "View", task_path(task) %>
-        <%= link_to "Edit", edit_task_path(task) %>
-      </span>
-    </div>
-    <div class="task_actions">
-      <%= button_to "Request assistance", request_assistance_path(task) %>
-      <button class="expand_label_form_button">Apply labels</button>
-      <button class="expand_comments_button">Expand comments</button>
+    <div class="card-block">
+      <h3 class="card-title task_title"><%= content_tag :strong, task.title %></h3>
+      <p class="card-text task_content"><%= task.content %></p>
+      <% task.labels.each do |label| %>
+        <%= link_to label.name, label_path(label), class: "text-muted card-link" %>
+      <% end %>
+      <div class="task_details">
+        <span class="task_due_floater">Due: <%= task.human_due_date %></span>
+        <span class="task_links_floater">
+          <%= link_to "View", task_path(task) %>
+          <%= link_to "Edit", edit_task_path(task) %>
+        </span>
+      </div>
+      <div class="task_actions">
+        <%= button_to "Request assistance", request_assistance_path(task), class: "btn btn-primary" %>
+        <button class="btn expand_label_form_button">Apply labels</button>
+        <button class="btn expand_comments_button">Expand comments</button>
+      </div>
     </div>
   </article>
 </div>
