@@ -1,4 +1,5 @@
-<%= form_for task, class: "card new-task-card" do |f| %>
+<div class="card new-task-card">
+  <%= form_for task do |f| %>
 
   <%= f.hidden_field :client_id %>
 
@@ -14,4 +15,5 @@
     <%= f.submit "Create task", class: "btn btn-primary" %>
   </div>
 
-<% end %>
+  <% end %>
+</div>
