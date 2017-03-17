@@ -23,7 +23,13 @@
 }
 
 .new-task-content {
+  display: block;
   width: 100%;
   border: none;
-  resize: vertical;
+  resize: none;
+  padding: 0.5rem;
+}
+
+.new-task-content:focus {
+  outline: none;
 }
