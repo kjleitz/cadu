@@ -1,3 +1,23 @@
 // Place all the styles related to the tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.task-due-floater {
+  float: left;
+}
+
+.request-floater {
+  float: right;
+}
+
+.card {
+  margin: 0.5rem 0;
+}
+
+.card-block {
+  padding: 0;
+}
+
+.list-group-flush {
+  margin: 0;
+}
