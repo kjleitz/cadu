@@ -4,6 +4,7 @@ class TasksController < ApplicationController
   def index
     @tasks = Task.all
     @task = Task.new(client: current_user)
+    @notifications = current_user.notifications
   end
 
   def show
