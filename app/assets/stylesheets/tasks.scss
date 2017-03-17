@@ -39,6 +39,6 @@
   padding: 0.5rem;
 }
 
-.new-task-content:focus {
-  outline: none;
+.new-task-title:placeholder-shown, .new-task-content:placeholder-shown {
+  font-style: italic;
 }
