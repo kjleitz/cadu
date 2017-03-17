@@ -1,0 +1,10 @@
+<div class="row">
+  <article class="card new_task col-md-10">
+    <%= form_for task do |f| %>
+    <%= f.hidden_field :client_id %>
+    <div class="new_task_title"><%= f.text_field :title, placeholder: "Task title" %></div>
+    <div class="new_task_content"><%= f.text_area :content, placeholder: "What needs to be done?" %></div>
+    <div class="new_task_submit"><%= f.submit "Create task" %></div>
+    <% end %>
+  </article>
+</div>
