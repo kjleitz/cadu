@@ -1,35 +1,34 @@
-<div class="card new-task-card">
-  <%= form_for task do |f| %>
+<div class="card-group">
+  <div class="card new-task-card">
+    <%= form_for task do |f| %>
 
-  <%= f.hidden_field :client_id %>
+    <%= f.hidden_field :client_id %>
 
-  <div class="card-header no-pad">
-    <%= f.text_field :title, placeholder: "Task title", class: "new-task-title" %>
-  </div>
+    <div class="card-header no-pad">
+      <%= f.text_field :title, placeholder: "Task title", class: "new-task-title" %>
+    </div>
 
-  <div class="card-block">
-    <%= f.text_area :content, placeholder: "What needs to be done?", class: "new-task-content" %>
-  </div>
+    <div class="card-block">
+      <%= f.text_area :content, placeholder: "What needs to be done?", class: "new-task-content" %>
+    </div>
 
-  <div class="card-footer">
-    <%= f.submit "Create task", class: "btn btn-primary" %>
-    <span class="new-task-due-floater form-inline">
-      Complete by:&nbsp;
-      <%= f.datetime_select :due_date,
-                            {
-                              start_year: Time.now.year,
-                              order: [:month, :day, :year],
-                              default: 2.hours.from_now.localtime,
-                              ampm: true,
-                              minute_step: 15
-                            },
-                            {
-                              class: "form-control"
-                            } %>
-    </span>
-  </div>
-
-</select>
-
-  <% end %>
+    <div class="card-footer">
+      <%= f.submit "Create task", class: "btn btn-primary" %>
+      <span class="new-task-due-floater form-inline">
+        Complete by:&nbsp;
+        <%= f.datetime_select :due_date,
+        {
+          start_year: Time.now.year,
+          order: [:month, :day, :year],
+          default: 2.hours.from_now.localtime,
+          ampm: true,
+          minute_step: 15
+        },
+        {
+          class: "form-control"
+            } %>
+          </span>
+        </div>
+      <% end %>
+    </div>
 </div>
