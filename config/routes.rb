@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :tasks do
-    resources :comments
+    resources :comments, shallow: true
   end
 
   resources :labels
