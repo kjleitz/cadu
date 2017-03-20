@@ -64,4 +64,11 @@ class Task < ApplicationRecord
     end
   end
 
+  def labels_ids=(ids)
+    labels.clear
+    ids.each do |id|
+      labels << Label.find(id) unless label_ids.include?(id)
+    end
+  end
+
 end
