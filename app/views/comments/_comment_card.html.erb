@@ -6,7 +6,7 @@
   <div class="card-block">
     <div class="row">
       <div class="comment-image col-md-2">
-        <img src="https://placehold.it/75x75" alt="<%= comment.author.name %>">
+        <img src="https://placehold.it/75x75/<%= random_color_for(comment.author) %>" alt="<%= comment.author.name %>">
       </div>
       <div class="comment-content col-md-10">
         <p><%= comment.content %></p>
