@@ -2,6 +2,6 @@
 
 <ul class="nav nav-sidebar">
   <% notifications.each do |notification| %>
-    <li class="notification-item"><%= link_to notification.content, task_path(notification.task) %></li>
+    <%= link_to content_tag(:li, notification.content, class: "notification-item"), task_path(notification.task), class: "notification-link" %>
   <% end %>
 </ul>
