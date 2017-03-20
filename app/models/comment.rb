@@ -2,7 +2,7 @@ class Comment < ApplicationRecord
   belongs_to :task
   belongs_to :author, class_name: User
 
-  validates :content, :pinned, :edited, presence: true
+  validates :content, presence: true
 
   alias_attribute :pinned?, :pinned
   alias_attribute :edited?, :edited
