@@ -6,10 +6,23 @@
 
       <div class="card-header no-pad">
         <%= f.text_field :title, placeholder: "Task title", class: "new-task-title" %>
+        <% if tabs %>
+          <ul class="nav nav-tabs card-header-tabs edit-tabs">
+            <li class="nav-item">
+              <%= link_to "Summary", tasks_path + "#task_#{task.id}", class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Full (with comments)", task_path(task), class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Edit", edit_task_path(task), class: "nav-link active" %>
+            </li>
+          </ul>
+        <% end %>
       </div>
 
       <div class="card-block">
-        <%= f.text_area :content, placeholder: "What needs to be done?", class: "new-task-content" %>
+        <%= f.text_area :content, placeholder: "What needs to be done?", class: "new-task-content", rows: 3 %>
       </div>
 
       <div class="card-footer">
@@ -35,10 +48,10 @@
         <em><%= link_to "or, create new labels", new_label_path %></em>
       </div>
       <div class="card-block">
-        <%= f.collection_select :label_ids, Label.all, :id, :name, {}, {class: "label-select", multiple: true} %>
+        <%= f.collection_select :label_ids, Label.all, :id, :name, {}, {class: "label-select", multiple: true, size: tabs ? 6 : 4} %>
       </div>
       <div class="card-footer">
-        <%= f.submit "Create task", class: "btn btn-primary float-right" %>
+        <%= f.submit class: "btn btn-primary float-right" %>
       </div>
     </div>
   </div>
