@@ -3,16 +3,15 @@
     <%= f.hidden_field :task_id %>
     <%= f.hidden_field :author_id, value: current_user.id %>
     <div class="card-header">
-      <span class="card-subtitle float-right"><em class="text-muted"><%= "New comment" if comment.new_record? %></em></span>
-      <h6 class="card-title"><strong><%= current_user.name %>:</strong></h6>
+      <h6 class="card-title"><strong><%= comment.new_record? ? "New comment" : "Edit comment" %>:</strong></h6>
     </div>
     <div class="card-block">
       <div class="row">
         <div class="comment-image col-md-2">
           <img src="https://placehold.it/75x75" alt="<%= current_user.name %>">
         </div>
-        <div class="comment-content col-md-10">
-          <%= f.text_area :content, placeholder: "Write your comment here...", class: "new-task-content", rows: 3 %>
+        <div class="new-comment-content col-md-10">
+          <%= f.text_area :content, placeholder: "Write your comment here...", rows: 3 %>
         </div>
       </div>
     </div>
