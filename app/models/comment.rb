@@ -14,7 +14,7 @@ class Comment < ApplicationRecord
   end
 
   def human_created_at
-    created_at.strftime("%-I:%M %P %A, %b %-d")
+    created_at.strftime("%A, %b %-d at %-I:%M %P")
   end
 
   private
