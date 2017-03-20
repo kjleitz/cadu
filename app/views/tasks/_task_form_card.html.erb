@@ -13,7 +13,7 @@
       </div>
 
       <div class="card-footer">
-        <span class="new-task-due-floater form-inline">
+        <span class="float-right form-inline">
           Complete by:&nbsp;
           <%= f.datetime_select :due_date,
           {
@@ -38,7 +38,7 @@
         <%= f.collection_select :label_ids, Label.all, :id, :name, {}, {class: "label-select", multiple: true} %>
       </div>
       <div class="card-footer">
-        <%= f.submit "Create task", class: "btn btn-primary" %>
+        <%= f.submit "Create task", class: "btn btn-primary float-right" %>
       </div>
     </div>
   </div>
