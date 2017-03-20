@@ -30,8 +30,9 @@
       </div>
     </div>
     <div class="card col-md-3">
-      <div class="card-header label-header">
-        Labels (<%= user_os_mac? ? "⌘" : "ctrl" %> + click for multiple)
+      <div class="card-header label-header text-center">
+        Labels (<%= user_os_mac? ? "⌘" : "ctrl" %> + click for multiple)<br>
+        <em><%= link_to "or, create new labels", new_label_path %></em>
       </div>
       <div class="card-block">
         <%= f.collection_select :label_ids, Label.all, :id, :name, {}, {class: "label-select", multiple: true} %>
