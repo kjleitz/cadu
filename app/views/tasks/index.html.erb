@@ -14,7 +14,7 @@
     <%= render partial: 'task_form_card', locals: {task: @task} %>
 
     <% @tasks.each do |task| %>
-      <%= render partial: 'task_card', locals: {task: task} %>
+      <%= render partial: 'task_card', locals: {task: task, tab: :index} %>
     <% end %>
   </div>
 
