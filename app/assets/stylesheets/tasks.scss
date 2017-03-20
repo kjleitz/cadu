@@ -35,6 +35,14 @@
   padding: 0.5rem 0;
 }
 
+.match-height {
+  height: 3.5rem;
+}
+
+.right-card .card-block {
+  border-left: 1px solid rgba(0,0,0,.125);
+}
+
 .label-select {
   display: block;
   width: 100%;
@@ -89,4 +97,20 @@
 
 .edit-tabs {
   margin: 0;
+}
+
+.left-card {
+  border-right: none;
+}
+
+.right-card {
+  border-left: none;
+}
+
+.left-card .card-footer:last-child {
+  border-bottom-right-radius: 0;
+}
+
+.right-card .card-footer:last-child {
+  border-bottom-left-radius: 0;
 }
