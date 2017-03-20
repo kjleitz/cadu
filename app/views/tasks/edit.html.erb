@@ -1,5 +1,10 @@
 <div class="row">
   <div class="col-md-8 offset-md-2">
     <%= render partial: 'task_form_card', locals: {task: @task, tabs: true} %>
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <%= render partial: 'comments/comment_card', collection: @comments, as: :comment %>
+      </div>
+    </div>
   </div>
 </div>
