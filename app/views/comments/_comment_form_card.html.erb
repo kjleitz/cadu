@@ -1,15 +1,15 @@
-<%= form_for comment, url: task_comments_path do |f| %>
+<%= form_for [task, comment] do |f| %>
   <article class="card comment-card">
     <%= f.hidden_field :task_id %>
-    <%= f.hidden_field :author_id, current_user.id %>
+    <%= f.hidden_field :author_id, value: current_user.id %>
     <div class="card-header">
-      <span class="card-subtitle float-right"><em class="text-muted"><%= comment.human_created_at %></em></span>
-      <h6 class="card-title"><strong><%= comment.author.name %></strong> <span class="text-muted">wrote:</span></h6>
+      <span class="card-subtitle float-right"><em class="text-muted"><%= "New comment" if comment.new_record? %></em></span>
+      <h6 class="card-title"><strong><%= current_user.name %>:</strong></h6>
     </div>
     <div class="card-block">
       <div class="row">
         <div class="comment-image col-md-2">
-          <img src="https://placehold.it/75x75" alt="<%= comment.author.name %>">
+          <img src="https://placehold.it/75x75" alt="<%= current_user.name %>">
         </div>
         <div class="comment-content col-md-10">
           <%= f.text_area :content, placeholder: "Write your comment here...", class: "new-task-content", rows: 3 %>
