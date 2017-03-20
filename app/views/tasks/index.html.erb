@@ -1,21 +1,7 @@
-<div class="row">
+<h2><%= current_user.name %>'s tasks</h2>
 
-  <div class="col-md-2 sidebar">
+<%= render partial: 'task_form_card', locals: {task: @task, tabs: false} %>
 
-    <h2>Notifications</h2>
-
-    <%= render partial: 'notifications/list', locals: {notifications: @notifications} %>
-  </div>
-
-  <div class="col-md-8">
-
-    <h2>Tasks</h2>
-
-    <%= render partial: 'task_form_card', locals: {task: @task, tabs: false} %>
-
-    <% @tasks.each do |task| %>
-      <%= render partial: 'task_card', locals: {task: task, tab: :index} %>
-    <% end %>
-  </div>
-
-</div>
+<% @tasks.each do |task| %>
+  <%= render partial: 'task_card', locals: {task: task, tab: :index} %>
+<% end %>
