@@ -28,10 +28,11 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update(comment_params)
-      redirect_to @comment, notice: 'Comment was successfully updated.'
+      flash[:message] = 'Comment was successfully updated.'
     else
-      render :edit
+      flash[:error] = @comment.errors.full_messages.join(". ") + "."
     end
+    redirect_to task_path(@comment.task)
   end
 
   def destroy
