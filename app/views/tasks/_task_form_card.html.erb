@@ -1,6 +1,6 @@
-<div class="card-group">
-  <%= form_for task do |f| %>
-    <div class="card new-task-card">
+<%= form_for task do |f| %>
+  <div class="card-group new-task-card-group">
+    <div class="card col-md-9">
 
       <%= f.hidden_field :client_id %>
 
@@ -13,7 +13,6 @@
       </div>
 
       <div class="card-footer">
-        <%= f.submit "Create task", class: "btn btn-primary" %>
         <span class="new-task-due-floater form-inline">
           Complete by:&nbsp;
           <%= f.datetime_select :due_date,
@@ -26,9 +25,20 @@
           },
           {
             class: "form-control"
-              } %>
+          } %>
         </span>
       </div>
     </div>
-  <% end %>
-</div>
+    <div class="card col-md-3">
+      <div class="card-header label-header">
+        Labels (<%= user_os_mac? ? "⌘" : "ctrl" %> + click for multiple)
+      </div>
+      <div class="card-block">
+        <%= f.collection_select :label_ids, Label.all, :id, :name, {}, {class: "label-select", multiple: true} %>
+      </div>
+      <div class="card-footer">
+        <%= f.submit "Create task", class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+<% end %>
