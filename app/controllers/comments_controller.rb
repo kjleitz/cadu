@@ -19,10 +19,11 @@ class CommentsController < ApplicationController
   def create
     @comment = @task.comments.build(comment_params)
     if @comment.save
-      redirect_to @comment, notice: 'Comment was successfully created.'
+      flash[:message] = 'Comment was successfully created.'
     else
-      render :new
+      flash[:error] = @comment.errors.full_messages.join(". ") + "."
     end
+    redirect_to task_path(@task)
   end
 
   def update
