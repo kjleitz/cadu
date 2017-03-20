@@ -31,6 +31,21 @@
   font-size: 1.5rem;
 }
 
+.label-header {
+  padding: 0.5rem;
+}
+
+.label-select {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.label-select:hover {
+  cursor: pointer;
+}
+
 .new-task-content {
   display: block;
   width: 100%;
@@ -41,4 +56,8 @@
 
 .new-task-title:placeholder-shown, .new-task-content:placeholder-shown {
   font-style: italic;
+}
+
+.new-task-card-group .card {
+  padding: 0;
 }
