@@ -11,7 +11,7 @@
 
     <h2>Tasks</h2>
 
-    <%= render partial: 'task_form_card', locals: {task: @task} %>
+    <%= render partial: 'task_form_card', locals: {task: @task, tabs: false} %>
 
     <% @tasks.each do |task| %>
       <%= render partial: 'task_card', locals: {task: task, tab: :index} %>
