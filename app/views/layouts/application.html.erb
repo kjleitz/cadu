@@ -12,17 +12,20 @@
   <body>
     <main class="container-fluid">
 
-      <section id="messages" class="row">
-        <%= content_tag(:div, flash[:error], :id => "flash_error", class: "alert alert-danger col-md-8 col-md-offset-2") if flash[:error] %>
-        <%= content_tag(:div, flash[:notice], :id => "flash_notice", class: "alert alert-info col-md-8 col-md-offset-2") if flash[:notice] %>
-        <%= content_tag(:div, flash[:alert], :id => "flash_alert", class: "alert alert-warning col-md-8 col-md-offset-2") if flash[:alert] %>
-        <%= content_tag(:div, flash[:message], :id => "flash_message", class: "alert alert-success col-md-8 col-md-offset-2") if flash[:message] %>
-      </section>
+      <%= render 'messages' %>
 
-      <%= yield %>
+      <div class="row">
+        <div class="col-md-2">
+          <%= render partial: "notifications/sidebar", locals: {notifications: current_user.notifications} %>
+        </div>
+
+        <div class="col-md-8">
+          <%= yield %>
+        </div>
+      </div>
 
     </main>
-    
+
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
