@@ -2,9 +2,8 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy, :request_assistance]
 
   def index
-    @tasks = Task.all
+    @tasks = current_user.tasks.order(created_at: :desc)
     @task = Task.new(client: current_user)
-    @notifications = current_user.notifications
   end
 
   def show
