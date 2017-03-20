@@ -1,5 +1,5 @@
 <%= form_for [task, comment] do |f| %>
-  <article class="card comment-card">
+  <article class="card comment-card new-comment-card">
     <%= f.hidden_field :task_id %>
     <%= f.hidden_field :author_id, value: current_user.id %>
     <div class="card-header">
