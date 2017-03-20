@@ -19,11 +19,47 @@ body {
   margin: 2.5rem 0;
 }
 
-.nav-sidebar {
-  display: block;
-  margin: 0;
+#tasks-header {
+  padding: 1rem;
+}
 
-  li {
+.notification-sidebar {
+  padding: 0;
+  background-color: #f7f7f9;
+  border: 1px solid rgba(0,0,0,.125);
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+
+  #notifications-header {
+    padding: 1rem;
+  }
+
+  .nav-sidebar {
     display: block;
+    margin: 0;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+
+    .notification-link {
+      text-decoration: none;
+
+      li {
+        display: block;
+        padding: 0.5rem;
+        padding-left: 1rem;
+        border-top: 1px solid rgba(0,0,0,.125);
+        background-color: white;
+      }
+    }
+
+    .notification-link:hover {
+      li {
+        color: #f7f7f9;
+        background-color: #757575;
+      }
+    }
+
+    .notification-link:visited {
+      color: black;
+    }
   }
 }
