@@ -1,0 +1,9 @@
+<article class="card comment-card">
+  <div class="card-header">
+    <span class="card-subtitle float-right"><em class="text-muted"><%= comment.human_created_at %></em></span>
+    <h6 class="card-title"><strong><%= comment.author.name %></strong> <span class="text-muted">wrote:</span></h6>
+  </div>
+  <div class="card-block">
+    <img src="https://placehold.it/75x75" alt="<%= comment.author.name %>">
+  </div>
+</article>
