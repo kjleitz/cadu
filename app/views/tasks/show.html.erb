@@ -1,11 +1,7 @@
+<%= render partial: 'task_card', locals: {task: @task, tab: :show} %>
 <div class="row">
-  <div class="col-md-8 offset-md-2">
-    <%= render partial: 'task_card', locals: {task: @task, tab: :show} %>
-    <div class="row">
-      <div class="col-md-10 offset-md-1">
-        <%= render partial: 'comments/comment_card', collection: @comments, as: :comment %>
-        <%= render partial: 'comments/comment_form_card', locals: {task: @task, comment: @new_comment} %>
-      </div>
-    </div>
+  <div class="col-md-10 offset-md-1">
+    <%= render partial: 'comments/comment_card', collection: @comments, as: :comment %>
+    <%= render partial: 'comments/comment_form_card', locals: {task: @task, comment: @new_comment} %>
   </div>
 </div>
