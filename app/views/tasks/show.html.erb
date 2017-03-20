@@ -1,4 +1,5 @@
-<%= render partial: 'task_card', locals: {task: @task, tab: :show} %>
-
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <%= render partial: 'task_card', locals: {task: @task, tab: :show} %>
+  </div>
+</div>
