@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:index, :new, :create]
 
   def index
     @comments = Comment.all
@@ -41,6 +42,10 @@ class CommentsController < ApplicationController
 
     def set_comment
       @comment = Comment.find(params[:id])
+    end
+
+    def set_task
+      @task = Task.find(params[:task_id])
     end
 
     def comment_params
