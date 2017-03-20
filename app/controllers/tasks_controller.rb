@@ -17,6 +17,7 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @comments = @task.comments.order(:created_at)
   end
 
   def create
