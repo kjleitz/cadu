@@ -1,3 +1,4 @@
+<a id="task_<%= task.id %>">
 <article class="card task-card <%= task.status %>">
   <div class="card-header">
     <h4><%= task.title %></h4>
@@ -8,13 +9,16 @@
     </h6>
     <ul class="nav nav-tabs card-header-tabs">
       <li class="nav-item">
-        <a class="nav-link active" href="#">Summary</a>
+        <%= link_to "Summary", tasks_path + "#task_#{task.id}", class: "nav-link #{"active" if tab == :index}" %>
+        <!-- <a class="nav-link active" href="#">Summary</a> -->
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Full (with comments)</a>
+        <%= link_to "Full (with comments)", task_path(task), class: "nav-link #{"active" if tab == :show}" %>
+        <!-- <a class="nav-link" href="#">Full (with comments)</a> -->
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Edit</a>
+        <%= link_to "Edit", edit_task_path(task), class: "nav-link #{"active" if tab == :edit}" %>
+        <!-- <a class="nav-link" href="#">Edit</a> -->
       </li>
     </ul>
   </div>
@@ -28,3 +32,4 @@
     <%= button_to "Request assistance", request_assistance_path(task), class: "btn btn-primary request-floater" %>
   </div>
 </article>
+</a>
