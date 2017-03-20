@@ -36,8 +36,9 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    task = @comment.task
     @comment.destroy
-    redirect_to comments_url, notice: 'Comment was successfully destroyed.'
+    redirect_to task_path(task), notice: 'Comment was successfully destroyed.'
   end
 
   private
