@@ -1,0 +1,7 @@
+<h3>Notifications</h3>
+
+<ul class="nav nav-sidebar">
+  <% notifications.each do |notification| %>
+    <li class="notification-item"><%= link_to notification.content, task_path(notification.task) %></li>
+  <% end %>
+</ul>
