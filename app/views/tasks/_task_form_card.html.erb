@@ -51,7 +51,7 @@
         <%= f.collection_select :label_ids, Label.all, :id, :name, {}, {class: "label-select", multiple: true, size: tabs ? 6 : 4} %>
       </div>
       <div class="card-footer card-group-footer-right">
-        <%= f.submit class: "btn btn-primary float-right" %>
+        <%= f.submit class: "btn btn-primary float-left" %>
       </div>
     </div>
   </div>
