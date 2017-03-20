@@ -125,7 +125,7 @@
 //************************//
 
 .comment-card {
-  margin: 0.25 0;
+  margin: 0.25rem 0;
 
   .card-footer {
     font-size: inherit;
@@ -146,6 +146,11 @@
   p {
     margin: 0.5rem;
   }
+}
+
+.new-comment-card {
+  border-width: medium;
+  margin-top: 2rem;
 }
 
 .new-comment-content {
