@@ -10,15 +10,12 @@
     <ul class="nav nav-tabs card-header-tabs">
       <li class="nav-item">
         <%= link_to "Summary", tasks_path + "#task_#{task.id}", class: "nav-link #{"active" if tab == :index}" %>
-        <!-- <a class="nav-link active" href="#">Summary</a> -->
       </li>
       <li class="nav-item">
         <%= link_to "Full (with comments)", task_path(task), class: "nav-link #{"active" if tab == :show}" %>
-        <!-- <a class="nav-link" href="#">Full (with comments)</a> -->
       </li>
       <li class="nav-item">
         <%= link_to "Edit", edit_task_path(task), class: "nav-link #{"active" if tab == :edit}" %>
-        <!-- <a class="nav-link" href="#">Edit</a> -->
       </li>
     </ul>
   </div>
