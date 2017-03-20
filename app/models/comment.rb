@@ -13,6 +13,10 @@ class Comment < ApplicationRecord
     toggle(:pinned)
   end
 
+  def human_created_at
+    created_at.strftime("%-I:%M %P %A, %b %-d")
+  end
+
   private
 
     def set_edited
