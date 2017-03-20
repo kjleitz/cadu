@@ -126,6 +126,10 @@
 
 .comment-card {
   margin: 0.25 0;
+
+  .card-footer {
+    font-size: inherit;
+  }
 }
 
 .comment-image {
