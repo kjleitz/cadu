@@ -3,21 +3,21 @@ class CommentsController < ApplicationController
   before_action :set_task, only: [:index, :new, :create]
 
   def index
-    @comments = Comment.all
+    @comments = @task.comments
   end
 
   def show
   end
 
   def new
-    @comment = Comment.new
+    @comment = @task.comments.build
   end
 
   def edit
   end
 
   def create
-    @comment = Comment.new(comment_params)
+    @comment = @task.comments.build(comment_params)
     if @comment.save
       redirect_to @comment, notice: 'Comment was successfully created.'
     else
