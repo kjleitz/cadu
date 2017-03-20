@@ -3,7 +3,7 @@
     <%= f.hidden_field :task_id %>
     <%= f.hidden_field :author_id, value: current_user.id %>
     <div class="card-header">
-      <h6 class="card-title"><strong><%= comment.new_record? ? "New comment" : "Edit comment" %>:</strong></h6>
+      <h6 class="card-title"><strong><%= comment.new_record? ? "New comment" : "Edit comment" %> for <em>"<%= task.title %>":</em></strong></h6>
     </div>
     <div class="card-block">
       <div class="row">
