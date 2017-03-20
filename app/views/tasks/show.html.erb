@@ -1,24 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @task.content %>
-</p>
-
-<p>
-  <strong>Due date:</strong>
-  <%= @task.due_date %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @task.user %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @task.status %>
-</p>
+<%= render partial: 'task_card', locals: {task: @task, tab: :show} %>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>
