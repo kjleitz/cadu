@@ -27,6 +27,7 @@ body {
   padding: 0;
   background-color: #f7f7f9;
   border: 1px solid rgba(0,0,0,.125);
+  border-left: none;
   border-top-right-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
 
@@ -50,9 +51,28 @@ body {
         background-color: white;
       }
 
+      li.task-accepted {
+        background-color: #fcf8e3;
+        border-color: #faf2cc;
+        color: #8a6d3b;
+      }
+
+      li.task-in_progress {
+        background-color: #dff0d8;
+        border-color: #d0e9c6;
+        color: #3c763d;
+      }
+
+      li.task-completed {
+        background-color: #d9edf7;
+        border-color: #bcdff1;
+        color: #31708f;
+      }
+
       li.seen {
         font-style: italic;
         background-color: inherit;
+        border-color: rgba(0, 0, 0, 0.125);
       }
 
       li.seen::after {
