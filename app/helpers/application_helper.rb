@@ -8,4 +8,8 @@ module ApplicationHelper
     Random.new(record.id).rand(16**5...16**6).to_s(16)
   end
 
+  def current_path
+    request.url
+  end
+
 end
