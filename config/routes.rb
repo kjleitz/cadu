@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'tasks#index'
 
   resources :users do
-    resources :reminders
+    resources :reminders, shallow: true
     resources :notifications
   end
 
