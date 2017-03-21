@@ -1,11 +1,23 @@
 <h3 id="reminders-header" class="text-center">Reminders</h3>
 
-<% reminders.each do |reminder| %>
+<div class="reminders-nav-area">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a href="#" class="nav-link active">New</a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link text-muted">Dismissed</a>
+    </li>
+  </ul>
+</div>
+
+<div class="reminder-card-list">
+  <% reminders.each do |reminder| %>
   <article class="card reminder-card <%= reminder.status %>">
     <ul class="list-group list-group-flush">
       <li class="list-group-item reminder-content"><%= reminder.content %></li>
       <% if reminder.task %>
-        <li class="list-group-item reminder-task"><em>About: "<%= link_to reminder.task.title, task_path(reminder.task) %>"</em></li>
+      <li class="list-group-item reminder-task"><em>About: "<%= link_to reminder.task.title, task_path(reminder.task) %>"</em></li>
       <% end %>
       <li class="list-group-item reminder-created-at"><%= reminder.human_created_at %></li>
     </ul>
@@ -13,4 +25,5 @@
       <%= button_to "Dismiss", reminder_path(reminder), class: "btn float-right" %>
     </div>
   </article>
-<% end %>
+  <% end %>
+</div>
