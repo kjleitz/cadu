@@ -25,6 +25,7 @@ body {
 
 .notification-sidebar {
   padding: 0;
+  padding-top: 0.5rem;
   background-color: #f7f7f9;
   border: 1px solid rgba(0,0,0,.125);
   border-left: none;
@@ -90,6 +91,34 @@ body {
 
     .notification-link:visited {
       color: black;
+    }
+  }
+}
+
+.reminder-sidebar {
+  padding: 0.5rem;
+  background-color: #f7f7f9;
+  border: 1px solid rgba(0,0,0,.125);
+  border-right: none;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+
+  #reminders-header {
+    padding: 1rem;
+  }
+
+  .reminder-card {
+
+    .list-group {
+      margin: 0;
+
+      .reminder-created-at {
+        font-size: 0.75rem;
+      }
+
+      li:last-child {
+        border-bottom: none;
+      }
     }
   }
 }
