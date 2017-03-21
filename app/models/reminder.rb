@@ -16,6 +16,6 @@ class Reminder < ApplicationRecord
   end
 
   def human_created_at
-    created_at.strftime("%A, %b %-d at %-I:%M %P")
+    created_at.strftime("%a, %b %-d - %-I:%M %P")
   end
 end
