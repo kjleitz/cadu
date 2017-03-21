@@ -13,4 +13,9 @@ class Notification < ApplicationRecord
   def dismiss
     dismissed!
   end
+
+  def self.viewing_order
+    where.not(status: :seen).order(:created_at) + where(status: :seen).order(updated_at: :desc)
+  end
+
 end
