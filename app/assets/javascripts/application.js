@@ -15,6 +15,14 @@
 //= require turbolinks
 //= require_tree .
 
+
+/* * * * * * * * * * * * * * * * * * * *
+ *  YES, I KNOW HOW TERRIBLE THIS      *
+ *  JAVASCRIPT IS. PLEASE DON'T JUDGE  *
+ *  ME, I SWEAR I'LL FIX IT LATER      *
+ * * * * * * * * * * * * * * * * * * * */
+
+
 function addClassById(addHook, addClass) {
   let addElem = document.getElementById(addHook);
   let nAdded = addElem.className.indexOf(addClass);
