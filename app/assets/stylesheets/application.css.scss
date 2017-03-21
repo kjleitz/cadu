@@ -96,7 +96,7 @@ body {
 }
 
 .reminder-sidebar {
-  padding: 0.5rem;
+  padding: 0.5rem 0;
   background-color: #f7f7f9;
   border: 1px solid rgba(0,0,0,.125);
   border-right: none;
@@ -107,18 +107,44 @@ body {
     padding: 1rem;
   }
 
-  .reminder-card {
+  .nav-tabs {
+    margin: 0;
 
-    .list-group {
-      margin: 0;
+    li:first-child {
+      padding-left: 0.5rem;
+    }
 
-      .reminder-created-at {
-        font-size: 0.75rem;
-      }
+    a.nav-link.text-muted:hover {
+      background-color: rgba(0,0,0,.125);
+      border-color: rgba(0,0,0,.250);
+      border-bottom-color: rgba(0,0,0,0);
+    }
 
-      li:last-child {
-        border-bottom: none;
+    a.active {
+      background-color: #f7f7f9;
+      border-bottom: 1px solid #f7f7f9;
+      font-weight: bold;
+    }
+  }
+
+  .reminder-card-list {
+    padding: 0 0.5rem;
+    background-color: #f7f7f9;
+
+    .reminder-card {
+
+      .list-group {
+        margin: 0;
+
+        .reminder-created-at {
+          font-size: 0.75rem;
+        }
+
+        li:last-child {
+          border-bottom: none;
+        }
       }
     }
   }
+
 }
