@@ -5,10 +5,13 @@
     <ul class="list-group list-group-flush">
       <li class="list-group-item reminder-content"><%= reminder.content %></li>
       <% if reminder.task %>
-        <li class="list-group-item reminder-task"><em>About: "<%= reminder.task.title %>"</em></li>
+        <li class="list-group-item reminder-task"><em>About: "<%= link_to reminder.task.title, task_path(reminder.task) %>"</em></li>
       <% end %>
-      <li class="list-group-item reminder-created-at"></li>
+      <li class="list-group-item reminder-created-at">Sent <%= reminder.human_created_at %></li>
     </ul>
+    <div class="card-footer">
+      <%= button_to "Dismiss", reminder_path(reminder), class: "btn btn-primary" %>
+    </div>
   </article>
 <% end %>
 
