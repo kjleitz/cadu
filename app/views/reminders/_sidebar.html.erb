@@ -1,7 +1,15 @@
 <h3 id="notifications-header" class="text-center">Reminders</h3>
 
 <% reminders.each do |reminder| %>
-
+  <article class="card reminder-card <%= reminder.status %>">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item reminder-content"><%= reminder.content %></li>
+      <% if reminder.task %>
+        <li class="list-group-item reminder-task"><em>About: "<%= reminder.task.title %>"</em></li>
+      <% end %>
+      <li class="list-group-item reminder-created-at"></li>
+    </ul>
+  </article>
 <% end %>
 
 <!-- <ul class="nav nav-sidebar">
