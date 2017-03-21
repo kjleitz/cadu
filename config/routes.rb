@@ -20,6 +20,6 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  post '/reminders/:id/dismiss', to: 'reminders#dismiss'
+  post '/reminders/:id/dismiss', to: 'reminders#dismiss', as: :dismiss_reminder
 
 end
