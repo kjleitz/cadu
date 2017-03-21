@@ -3,27 +3,42 @@
 <div class="reminders-nav-area">
   <ul class="nav nav-tabs">
     <li class="nav-item">
-      <a href="#" class="nav-link active">New</a>
+      <a href="" class="nav-link active" id="new-reminders-tab-link">New</a>
     </li>
     <li class="nav-item">
-      <a href="#" class="nav-link text-muted">Dismissed</a>
+      <a href="" class="nav-link text-muted" id="dismissed-reminders-tab-link">Dismissed</a>
     </li>
   </ul>
 </div>
 
-<div class="reminder-card-list">
-  <% reminders.each do |reminder| %>
+<div class="reminder-card-list" id="new-reminder-card-list">
+  <% reminders.seen.each do |reminder| %>
   <article class="card reminder-card <%= reminder.status %>">
     <ul class="list-group list-group-flush">
       <li class="list-group-item reminder-content"><%= reminder.content %></li>
+      <%# if reminder.task %>
+      <%= link_to content_tag(:li, "Concerning '#{reminder.task.title}'", class: "list-group-item reminder-task"), task_path(reminder.task), class: "concerning-link" if reminder.task %>
+      <!-- <li class="list-group-item reminder-task">About <em>"<%# reminder.task.title %>"</em></li> -->
+      <%# end %>
+      <li class="list-group-item reminder-created-at"><%= reminder.human_created_at %></li>
+    </ul>
+    <div class="card-footer">
+      <%= button_to "Dismiss", dismiss_reminder_path(reminder), class: "btn btn-primary float-right" %>
+    </div>
+  </article>
+  <% end %>
+</div>
+
+<div class="reminder-card-list hidden-xs-up" id="dismissed-reminder-card-list">
+  <% reminders.dismissed.each do |reminder| %>
+  <article class="card reminder-card <%= reminder.status %>">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item reminder-content"><em><%= reminder.content %></em></li>
       <% if reminder.task %>
       <li class="list-group-item reminder-task"><em>About: "<%= link_to reminder.task.title, task_path(reminder.task) %>"</em></li>
       <% end %>
       <li class="list-group-item reminder-created-at"><%= reminder.human_created_at %></li>
     </ul>
-    <div class="card-footer">
-      <%= button_to "Dismiss", dismiss_reminder_path(reminder), class: "btn float-right" %>
-    </div>
   </article>
   <% end %>
 </div>
