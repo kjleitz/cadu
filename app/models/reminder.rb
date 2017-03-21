@@ -14,4 +14,8 @@ class Reminder < ApplicationRecord
   def dismiss
     dismissed!
   end
+
+  def human_created_at
+    created_at.strftime("%A, %b %-d at %-I:%M %P")
+  end
 end
