@@ -145,6 +145,24 @@ body {
             border-top: 1px solid rgba(0,0,0,.125);
             font-size: 0.75rem;
           }
+
+          li.task-accepted {
+            background-color: #fcf8e3;
+            border-color: #faf2cc;
+            color: #8a6d3b;
+          }
+
+          li.task-in_progress {
+            background-color: #dff0d8;
+            border-color: #d0e9c6;
+            color: #3c763d;
+          }
+
+          li.task-completed {
+            background-color: #d9edf7;
+            border-color: #bcdff1;
+            color: #31708f;
+          }
         }
 
         .concerning-link:hover {
