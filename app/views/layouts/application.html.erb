@@ -16,7 +16,7 @@
 
       <div class="row">
         <div class="col-md-2 sidebar notification-sidebar">
-          <%= render partial: "notifications/sidebar", locals: {notifications: current_user.notifications.order(:created_at)} %>
+          <%= render partial: "notifications/sidebar", locals: {notifications: current_user.notifications.viewing_order} %>
         </div>
 
         <div class="col-md-8">
