@@ -136,6 +136,25 @@ body {
       .list-group {
         margin: 0;
 
+        .concerning-link {
+          text-decoration: none;
+          background-color: white;
+
+          li {
+            border-radius: 0;
+            border-top: 1px solid rgba(0,0,0,.125);
+            font-size: 0.75rem;
+          }
+        }
+
+        .concerning-link:hover {
+
+          li {
+            background-color: rgba(0,0,0,.125);
+            color: black;
+          }
+        }
+
         .reminder-created-at {
           font-size: 0.75rem;
         }
@@ -146,5 +165,8 @@ body {
       }
     }
   }
+}
 
+.btn {
+  cursor: pointer;
 }
