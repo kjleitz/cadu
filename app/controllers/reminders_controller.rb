@@ -3,6 +3,7 @@ class RemindersController < ApplicationController
 
   def dismiss
     @reminder.dismiss
+    redirect_to request.referer
   end
 
   private
