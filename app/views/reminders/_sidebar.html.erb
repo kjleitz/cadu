@@ -1,4 +1,4 @@
-<h3 id="notifications-header" class="text-center">Reminders</h3>
+<h3 id="reminders-header" class="text-center">Reminders</h3>
 
 <% reminders.each do |reminder| %>
   <article class="card reminder-card <%= reminder.status %>">
@@ -7,10 +7,10 @@
       <% if reminder.task %>
         <li class="list-group-item reminder-task"><em>About: "<%= link_to reminder.task.title, task_path(reminder.task) %>"</em></li>
       <% end %>
-      <li class="list-group-item reminder-created-at">Sent <%= reminder.human_created_at %></li>
+      <li class="list-group-item reminder-created-at"><%= reminder.human_created_at %></li>
     </ul>
     <div class="card-footer">
-      <%= button_to "Dismiss", reminder_path(reminder), class: "btn btn-primary" %>
+      <%= button_to "Dismiss", reminder_path(reminder), class: "btn float-right" %>
     </div>
   </article>
 <% end %>
