@@ -18,4 +18,8 @@ class Reminder < ApplicationRecord
   def human_created_at
     created_at.strftime("%a, %b %-d - %-I:%M %P")
   end
+
+  def self.not_dismissed
+    where.not(status: :dismissed)
+  end
 end

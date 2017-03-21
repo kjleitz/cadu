@@ -12,14 +12,11 @@
 </div>
 
 <div class="reminder-card-list" id="new-reminder-card-list">
-  <% reminders.seen.each do |reminder| %>
+  <% reminders.not_dismissed.each do |reminder| %>
   <article class="card reminder-card <%= reminder.status %>">
     <ul class="list-group list-group-flush">
       <li class="list-group-item reminder-content"><%= reminder.content %></li>
-      <%# if reminder.task %>
       <%= link_to content_tag(:li, "Concerning '#{reminder.task.title}'", class: "list-group-item reminder-task"), task_path(reminder.task), class: "concerning-link" if reminder.task %>
-      <!-- <li class="list-group-item reminder-task">About <em>"<%# reminder.task.title %>"</em></li> -->
-      <%# end %>
       <li class="list-group-item reminder-created-at"><%= reminder.human_created_at %></li>
     </ul>
     <div class="card-footer">
