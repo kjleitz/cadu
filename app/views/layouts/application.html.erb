@@ -19,11 +19,11 @@
           <%= render partial: "notifications/sidebar", locals: {notifications: current_user.notifications.viewing_order} %>
         </div>
 
-        <div class="col-md-8">
+        <div class="col-md-7">
           <%= yield %>
         </div>
 
-        <div class="col-md-2 sidebar reminder-sidebar">
+        <div class="col-md-3 sidebar reminder-sidebar">
           <%= render partial: "reminders/sidebar", locals: {reminders: current_user.reminders} %>
         </div>
       </div>
