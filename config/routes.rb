@@ -14,12 +14,11 @@ Rails.application.routes.draw do
   resources :labels
 
   post '/task/:id/request_assistance', to: 'tasks#request_assistance', as: :request_assistance
+  post '/reminders/:id/dismiss', to: 'reminders#dismiss', as: :dismiss_reminder
 
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-
-  post '/reminders/:id/dismiss', to: 'reminders#dismiss', as: :dismiss_reminder
 
 end
