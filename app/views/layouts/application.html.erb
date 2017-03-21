@@ -22,6 +22,10 @@
         <div class="col-md-8">
           <%= yield %>
         </div>
+
+        <div class="col-md-2 sidebar reminder-sidebar">
+          <%= render partial: "reminders/sidebar", locals: {reminders: current_user.reminders} %>
+        </div>
       </div>
 
     </main>
