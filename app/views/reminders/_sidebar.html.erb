@@ -31,9 +31,7 @@
   <article class="card reminder-card <%= reminder.status %>">
     <ul class="list-group list-group-flush">
       <li class="list-group-item reminder-content"><em><%= reminder.content %></em></li>
-      <% if reminder.task %>
-      <li class="list-group-item reminder-task"><em>About: "<%= link_to reminder.task.title, task_path(reminder.task) %>"</em></li>
-      <% end %>
+      <%= link_to content_tag(:li, "Concerning '#{reminder.task.title}'", class: "list-group-item reminder-task"), task_path(reminder.task), class: "concerning-link" if reminder.task %>
       <li class="list-group-item reminder-created-at"><%= reminder.human_created_at %></li>
     </ul>
   </article>
