@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy, :request_assistance]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :request_assistance, :mark_complete]
 
   def index
     @tasks = current_user.tasks.order(created_at: :desc)
@@ -45,6 +45,10 @@ class TasksController < ApplicationController
     @task.request_assistance
     flash[:message] = "Assistance with '#{@task.title}' requested!"
     redirect_to tasks_path
+  end
+
+  def mark_complete
+    @task.mark_complete
   end
 
   private
