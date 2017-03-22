@@ -49,6 +49,7 @@ class TasksController < ApplicationController
 
   def mark_complete
     @task.mark_complete
+    redirect_to request.referer
   end
 
   private
