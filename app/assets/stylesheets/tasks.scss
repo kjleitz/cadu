@@ -26,6 +26,7 @@ $text-blue: #31708f;
   display: block;
   margin-top: -2.5rem;
   padding-top: 2.5rem;
+  z-index: -10;
 }
 
 .task-card-anchor:hover {
@@ -42,6 +43,14 @@ $text-blue: #31708f;
     width: 3rem;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: 1.5rem;
+    text-align: center;
+  }
+
+  .status-circle.requested::after {
+    // background-color: $border-red;
+    content: "• • •";
+    line-height: calc(3rem - 2px);
+    color: rgba(0,0,0,.5);
   }
 
   .status-circle.accepted {
