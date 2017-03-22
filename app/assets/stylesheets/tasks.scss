@@ -18,6 +18,18 @@ $bg-blue: #d9edf7;
 $border-blue: #bcdff1;
 $text-blue: #31708f;
 
+$bg-status-accepted: $bg-yellow
+$border-status-accepted: $border-yellow
+$text-status-accepted: $text-yellow
+
+$bg-status-in_progress: $bg-blue
+$border-status-in_progress: $border-blue
+$text-status-in_progress: $text-blue
+
+$bg-status-completed: $bg-green
+$border-status-completed: $border-green
+$text-status-completed: $text-green
+
 .no-pad {
   padding: 0;
 }
