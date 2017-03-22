@@ -81,21 +81,21 @@ body {
       }
 
       li.task-accepted {
-        background-color: $bg-yellow;
-        border-color: $border-yellow;
-        color: $text-yellow;
+        background-color: $bg-status-accepted;
+        border-color: $border-status-accepted;
+        color: $text-status-accepted;
       }
 
       li.task-in_progress {
-        background-color: $bg-green;
-        border-color: $border-green;
-        color: $text-green;
+        background-color: $bg-status-in_progress;
+        border-color: $border-status-in_progress;
+        color: $text-status-in_progress;
       }
 
       li.task-completed {
-        background-color: $bg-blue;
-        border-color: $border-blue;
-        color: $text-blue;
+        background-color: $bg-status-completed;
+        border-color: $border-status-completed;
+        color: $text-status-completed;
       }
 
       li.seen {
@@ -179,21 +179,21 @@ body {
           }
 
           li.task-accepted {
-            background-color: $bg-yellow;
-            border-color: $border-yellow;
-            color: $text-yellow;
+            background-color: $bg-status-accepted;
+            border-color: $border-status-accepted;
+            color: $text-status-accepted;
           }
 
           li.task-in_progress {
-            background-color: $bg-green;
-            border-color: $border-green;
-            color: $text-green;
+            background-color: $bg-status-in_progress;
+            border-color: $border-status-in_progress;
+            color: $text-status-in_progress;
           }
 
           li.task-completed {
-            background-color: $bg-blue;
-            border-color: $border-blue;
-            color: $text-blue;
+            background-color: $bg-status-completed;
+            border-color: $border-status-completed;
+            color: $text-status-completed;
           }
         }
 
