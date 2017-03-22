@@ -1,7 +1,11 @@
 <a id="task_<%= task.id %>" class="task-card-anchor">
 <article class="card task-card">
   <div class="card-header">
-    <div class="status-circle <%= task.status %>"></div>
+    <div class="status-circle-area <%= task.status %>">
+      <div class="status-circle completed"></div>
+      <div class="status-circle in_progress"></div>
+      <div class="status-circle accepted"></div>
+    </div>
     <h4><%= task.title %></h4>
     <h6>
       <% task.labels.each do |label| %>
