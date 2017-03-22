@@ -1,7 +1,8 @@
 <a id="task_<%= task.id %>" class="task-card-anchor">
-<article class="card task-card <%= task.status %>">
+<article class="card task-card">
   <div class="card-header">
     <h4><%= task.title %></h4>
+    <div class="status-circle <%= task.status %>"></div>
     <h6>
       <% task.labels.each do |label| %>
       <%= link_to label.name, label_path(label), class: "text-muted card-link" %>
