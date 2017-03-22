@@ -14,6 +14,22 @@
  *= require_self
  */
 
+$bg-red: #f2dede;
+$border-red: #ebcccc;
+$text-red: #a94442;
+
+$bg-yellow: #fcf8e3;
+$border-yellow: #faf2cc;
+$text-yellow: #8a6d3b;
+
+$bg-green: #dff0d8;
+$border-green: #d0e9c6;
+$text-green: #3c763d;
+
+$bg-blue: #d9edf7;
+$border-blue: #bcdff1;
+$text-blue: #31708f;
+
 body {
   width: 100%;
   margin: 2.5rem 0;
@@ -53,21 +69,21 @@ body {
       }
 
       li.task-accepted {
-        background-color: #fcf8e3;
-        border-color: #faf2cc;
-        color: #8a6d3b;
+        background-color: $bg-yellow;
+        border-color: $border-yellow;
+        color: $text-yellow;
       }
 
       li.task-in_progress {
-        background-color: #dff0d8;
-        border-color: #d0e9c6;
-        color: #3c763d;
+        background-color: $bg-green;
+        border-color: $border-green;
+        color: $text-green;
       }
 
       li.task-completed {
-        background-color: #d9edf7;
-        border-color: #bcdff1;
-        color: #31708f;
+        background-color: $bg-blue;
+        border-color: $border-blue;
+        color: $text-blue;
       }
 
       li.seen {
@@ -147,27 +163,25 @@ body {
           }
 
           li.task-idle, li.task-requested {
-            background-color: #f4e8dc;
-            border-color: #e5ceb7;
-            color: #8a6d3b;
+            background-color: rgba(0,0,0,.025);
           }
 
           li.task-accepted {
-            background-color: #fcf8e3;
-            border-color: #faf2cc;
-            color: #8a6d3b;
+            background-color: $bg-yellow;
+            border-color: $border-yellow;
+            color: $text-yellow;
           }
 
           li.task-in_progress {
-            background-color: #dff0d8;
-            border-color: #d0e9c6;
-            color: #3c763d;
+            background-color: $bg-green;
+            border-color: $border-green;
+            color: $text-green;
           }
 
           li.task-completed {
-            background-color: #d9edf7;
-            border-color: #bcdff1;
-            color: #31708f;
+            background-color: $bg-blue;
+            border-color: $border-blue;
+            color: $text-blue;
           }
         }
 
