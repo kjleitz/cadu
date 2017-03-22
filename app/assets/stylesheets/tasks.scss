@@ -126,6 +126,18 @@
   border-bottom-color: rgba(0,0,0,0);
 }
 
+.card-group {
+
+  .card-footer {
+    height: 3rem;
+    padding: 0.5rem 1.25rem;
+
+    select.form-control {
+      height: 2rem;
+    }
+  }
+}
+
 
 //************************//
 //        COMMENTS        //
