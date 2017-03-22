@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$bg-red: #f2dede;
+$border-red: #ebcccc;
+$text-red: #a94442;
+
 $bg-yellow: #fcf8e3;
 $border-yellow: #faf2cc;
 $text-yellow: #8a6d3b;
@@ -34,10 +38,22 @@ $text-blue: #31708f;
   .status-circle {
     margin-top: 0.5rem;
     float: right;
-    height: 2rem;
-    width: 2rem;
+    height: 3rem;
+    width: 3rem;
     border: 1px solid rgba(0,0,0,.125);
-    border-radius: 1rem;
+    border-radius: 1.5rem;
+  }
+
+  .status-circle.accepted {
+    background-color: $border-yellow;
+  }
+
+  .status-circle.in_progress {
+    background-color: $border-green;
+  }
+
+  .status-circle.completed {
+    background-color: $border-blue;
   }
 }
 
