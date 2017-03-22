@@ -75,21 +75,21 @@ $text-status-completed: $text-green
   .status-circle-area.accepted, .status-circle-area.in_progress, .status-circle-area.completed {
 
     .status-circle.accepted {
-      background-color: $border-yellow;
+      background-color: $border-status-accepted;
     }
   }
 
   .status-circle-area.in_progress, .status-circle-area.completed {
 
     .status-circle.in_progress {
-      background-color: $border-green;
+      background-color: $border-status-in_progress;
     }
   }
 
   .status-circle-area.completed {
 
     .status-circle.completed {
-      background-color: $border-blue;
+      background-color: $border-status-completed;
     }
   }
 }
