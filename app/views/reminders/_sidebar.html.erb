@@ -17,7 +17,7 @@
     <ul class="list-group list-group-flush">
       <li class="list-group-item reminder-content"><%= reminder.content %></li>
       <li class="list-group-item reminder-created-at"><%= reminder.human_created_at %></li>
-      <%= link_to content_tag(:li, "Concerning '#{reminder.task.title}'", class: "list-group-item reminder-task task-#{reminder.task.status}"), task_path(reminder.task), class: "concerning-link" if reminder.task %>
+      <%= link_to content_tag(:li, "Concerning '#{reminder.task.title}' #{'(' + reminder.task.status.humanize.downcase + ')' unless reminder.task.status == "idle"}", class: "list-group-item reminder-task task-#{reminder.task.status}"), task_path(reminder.task), class: "concerning-link" if reminder.task %>
     </ul>
     <div class="card-footer">
       <%= button_to "Dismiss", dismiss_reminder_path(reminder), class: "btn float-right" %>
