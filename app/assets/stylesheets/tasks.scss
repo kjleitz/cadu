@@ -36,33 +36,49 @@ $text-blue: #31708f;
 
 .task-card {
 
-  .status-circle {
+  .status-circle-area {
     margin-top: 0.5rem;
     float: right;
-    height: 3rem;
-    width: 3rem;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: 1.5rem;
-    text-align: center;
+
+    .status-circle {
+      float: right;
+      margin: 0.25rem;
+      height: 2rem;
+      width: 2rem;
+      border: 1px solid rgba(0,0,0,.125);
+      border-radius: 1rem;
+      text-align: center;
+    }
   }
 
-  .status-circle.requested::after {
-    // background-color: $border-red;
-    content: "• • •";
-    line-height: calc(3rem - 2px);
-    color: rgba(0,0,0,.5);
+  .status-circle-area.requested {
+
+    .status-circle.accepted::after {
+      content: "•••";
+      line-height: calc(2rem - 2px);
+      color: rgba(0,0,0,.5);
+    }
   }
 
-  .status-circle.accepted {
-    background-color: $border-yellow;
+  .status-circle-area.accepted, .status-circle-area.in_progress, .status-circle-area.completed {
+
+    .status-circle.accepted {
+      background-color: $border-yellow;
+    }
   }
 
-  .status-circle.in_progress {
-    background-color: $border-green;
+  .status-circle-area.in_progress, .status-circle-area.completed {
+
+    .status-circle.in_progress {
+      background-color: $border-green;
+    }
   }
 
-  .status-circle.completed {
-    background-color: $border-blue;
+  .status-circle-area.completed {
+
+    .status-circle.completed {
+      background-color: $border-blue;
+    }
   }
 }
 
