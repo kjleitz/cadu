@@ -43,8 +43,7 @@ class TasksController < ApplicationController
 
   def request_assistance
     @task.request_assistance
-    flash[:message] = "Assistance with '#{@task.title}' requested!"
-    redirect_to tasks_path
+    redirect_to tasks_path, message: "Assistance with '#{@task.title}' requested!"
   end
 
   def mark_complete
