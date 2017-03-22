@@ -1,6 +1,6 @@
-<section id="messages" class="row">
-  <%= content_tag(:div, flash[:error], :id => "flash_error", class: "alert alert-danger col-md-8 col-md-offset-2") if flash[:error] %>
-  <%= content_tag(:div, flash[:notice], :id => "flash_notice", class: "alert alert-info col-md-8 col-md-offset-2") if flash[:notice] %>
-  <%= content_tag(:div, flash[:alert], :id => "flash_alert", class: "alert alert-warning col-md-8 col-md-offset-2") if flash[:alert] %>
-  <%= content_tag(:div, flash[:message], :id => "flash_message", class: "alert alert-success col-md-8 col-md-offset-2") if flash[:message] %>
+<section id="messages">
+  <%= content_tag(:div, flash[:error], :id => "flash_error", class: "alert alert-danger") if flash[:error] %>
+  <%= content_tag(:div, flash[:notice], :id => "flash_notice", class: "alert alert-info") if flash[:notice] %>
+  <%= content_tag(:div, flash[:alert], :id => "flash_alert", class: "alert alert-warning") if flash[:alert] %>
+  <%= content_tag(:div, flash[:message], :id => "flash_message", class: "alert alert-success") if flash[:message] %>
 </section>
