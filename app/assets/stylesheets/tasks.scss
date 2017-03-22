@@ -6,6 +6,17 @@
   padding: 0;
 }
 
+.task-card-anchor {
+  display: block;
+  margin-top: -2.5rem;
+  padding-top: 2.5rem;
+}
+
+.task-card-anchor:hover {
+  text-decoration: none;
+  background-color: transparent;
+}
+
 .task-due-floater {
   float: left;
 }
