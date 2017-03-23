@@ -20,7 +20,7 @@
       <%= link_to content_tag(:li, "Concerning '#{reminder.task.title}' #{'(' + reminder.task.status.humanize.downcase + ')' unless reminder.task.status == "idle"}", class: "list-group-item reminder-task task-#{reminder.task.status}"), task_path(reminder.task), class: "concerning-link" if reminder.task %>
     </ul>
     <div class="card-footer">
-      <%= button_to "Dismiss", dismiss_reminder_path(reminder), class: "btn float-right" %>
+      <%= button_to "Dismiss", dismiss_reminder_path(reminder), class: "btn btn-danger float-right" %>
     </div>
   </article>
   <% end %>
