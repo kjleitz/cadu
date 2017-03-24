@@ -25,7 +25,7 @@ class Task < ApplicationRecord
     send_status_notification_to(client)
   end
 
-  def begin_work
+  def start
     in_progress!
     send_status_notification_to(client)
   end
