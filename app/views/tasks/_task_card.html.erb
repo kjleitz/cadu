@@ -31,8 +31,12 @@
     <span class="task-due-floater text-muted">
       <em>Due <%= task.human_due_date %></em>
     </span>
-    <%= button_to "Mark Complete", complete_task_path(task), class: "btn btn-success float-right" %>
-    <%= button_to "Request Assistance", request_assistance_path(task), class: "btn btn-primary request-floater" %>
+    <% if task.completed? %>
+      <%= button_to "Remove Completed Task", task_path(task), method: :delete, class: "btn btn-danger float-right" %>
+    <% else %>
+      <%= button_to "Mark Complete", complete_task_path(task), class: "btn btn-success float-right" %>
+      <%= button_to "Request Assistance", request_assistance_path(task), class: "btn btn-primary request-floater" %>
+    <% end %>
   </div>
 </article>
 </a>
