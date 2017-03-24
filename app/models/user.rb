@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :reminders, foreign_key: :client_id
 
   # As assistant
-  has_many :clients, foreign_key: :assistant_id
+  has_many :clients, foreign_key: :assistant_id, class_name: User
 
   # As general user
   has_many :comments, foreign_key: :author_id
@@ -23,7 +23,7 @@ class User < ApplicationRecord
   # Assembles all of an assistant's "to-do" tasks (those
   # requested of her by her clients)
   def client_tasks
-    clients.map(&:requested_tasks).flatten
+    clients.map(&:delegated_tasks).flatten
   end
 
   # Scopes tasks which have, at some point, been requested
