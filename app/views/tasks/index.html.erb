@@ -1,6 +1,6 @@
 <h2 id="tasks-header" class="text-center"><%= current_user.name %>'s tasks</h2>
 
-<%= render partial: 'task_form_card', locals: {task: @task, tabs: false} %>
+<%= render partial: 'task_form_card', locals: {task: @task, tabs: false} if current_user.client? %>
 
 <% @tasks.each do |task| %>
   <%= render partial: 'task_card', locals: {task: task, tab: :index} %>
