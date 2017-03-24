@@ -2,8 +2,12 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy, :request_assistance, :mark_complete]
 
   def index
-    @tasks = current_user.tasks.order(created_at: :desc)
-    @task = Task.new(client: current_user)
+    if current_user.assistant?
+      @tasks = current_user.client_tasks.order(due_date: :desc)
+    else
+      @tasks = current_user.tasks.order(created_at: :desc)
+      @task = Task.new(client: current_user)
+    end
   end
 
   def show
