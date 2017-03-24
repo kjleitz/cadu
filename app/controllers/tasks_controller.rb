@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy, :request_assistance, :mark_complete]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :request_assistance, :accept, :start, :mark_complete]
 
   def index
     if current_user.assistant?
@@ -48,6 +48,11 @@ class TasksController < ApplicationController
   def request_assistance
     @task.request_assistance
     redirect_to tasks_path, message: "Assistance with '#{@task.title}' requested!"
+  end
+
+  def accept
+    @task.accept
+    redirect_to tasks_path, message: "Assistance request for '#{@task.title}' accepted!"
   end
 
   def mark_complete
