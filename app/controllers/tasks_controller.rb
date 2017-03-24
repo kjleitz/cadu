@@ -42,7 +42,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to tasks_url, notice: 'Task was successfully destroyed.'
+    redirect_to tasks_url, notice: 'Task was successfully deleted.'
   end
 
   def request_assistance
@@ -55,9 +55,14 @@ class TasksController < ApplicationController
     redirect_to tasks_path, message: "Assistance request for '#{@task.title}' accepted!"
   end
 
+  def start
+    @task.start
+    redirect_to tasks_path, message: "'#{@task.title}' is in progress!"
+  end
+
   def mark_complete
     @task.mark_complete
-    redirect_to request.referer, notice: "Task marked complete!"
+    redirect_to request.referer, notice: "'#{@task.title}' has been completed!"
   end
 
   private
