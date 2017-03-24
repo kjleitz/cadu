@@ -25,6 +25,9 @@
     </ul>
   </div>
   <div class="card-block">
+    <% if current_user.assistant? %>
+      <h6 class="task-client-header">Task from <%= link_to task.client.name, user_path(task.client) %>:</h6>
+    <% end %>
     <p><%= task.content %></p>
   </div>
   <div class="card-footer">
