@@ -23,7 +23,9 @@ class User < ApplicationRecord
   # Assembles all of an assistant's "to-do" tasks (those
   # requested of her by her clients)
   def client_tasks
-    clients.map(&:delegated_tasks).flatten
+    clients.inject(nil) do |memo, client|
+      memo ? memo.merge(client.delegated_tasks) : client.delegated_tasks
+    end
   end
 
   # Scopes tasks which have, at some point, been requested
