@@ -24,7 +24,7 @@ class User < ApplicationRecord
   # requested of her by her clients)
   def client_tasks
     clients.inject(nil) do |memo, client|
-      memo ? memo.merge(client.delegated_tasks) : client.delegated_tasks
+      memo ? memo.or(client.delegated_tasks) : client.delegated_tasks
     end
   end
 
