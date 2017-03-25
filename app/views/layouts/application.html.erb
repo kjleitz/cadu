@@ -24,7 +24,7 @@
         </div>
 
         <div class="col-md-3 sidebar reminder-sidebar">
-          <%= render partial: "reminders/sidebar", locals: {reminders: current_user.send(current_user.assistant? ? :client_reminders : :reminders} %>
+          <%= render partial: "reminders/sidebar", locals: {reminders: current_user.send(current_user.assistant? ? :client_reminders : :reminders)} %>
         </div>
       </div>
 
