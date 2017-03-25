@@ -45,6 +45,14 @@ class TasksController < ApplicationController
     redirect_to tasks_url, notice: 'Task was successfully deleted.'
   end
 
+  # Maybe the following actions should ultimately be part of #update. But, I
+  # think that since notifications should be triggered with the associated
+  # method calls on @task, and actions should be kept slim, I would prefer to
+  # have these status changes solidified into their own actions, rather than
+  # have a big conditional in #update. A redesign might allow notifications to
+  # be sent based on status change alone, allowing a slim #update and removal
+  # of these paths, but for now I'm going to let it be.
+
   def request_assistance
     @task.request_assistance
     redirect_to tasks_path, message: "Assistance with '#{@task.title}' requested!"
