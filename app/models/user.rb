@@ -23,9 +23,11 @@ class User < ApplicationRecord
   # Assembles all of an assistant's "to-do" tasks (those
   # requested of her by her clients)
   def client_tasks
-    clients.inject(nil) do |memo, client|
-      memo ? memo.or(client.delegated_tasks) : client.delegated_tasks
-    end
+    Task.joins(:client).where(users: {assistant_id: id}, status: 1..3)
+  end
+
+  def client_reminders
+    Reminder.joins(:client).where(users: {assistant_id: id})
   end
 
   # Scopes tasks which have, at some point, been requested
