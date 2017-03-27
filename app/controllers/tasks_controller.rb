@@ -70,7 +70,7 @@ class TasksController < ApplicationController
 
   def mark_complete
     @task.mark_complete
-    redirect_to request.referer, message: "'#{@task.title}' has been completed!"
+    redirect_to request.referer, notice: "'#{@task.title}' has been completed!"
   end
 
   private
