@@ -1,0 +1,5 @@
+<h2 class="text-center main-heading">Tasks labeled '<%= @label.name %>'</h2>
+
+<% @tasks.each do |task| %>
+  <%= render partial: 'task_card', locals: {task: task, tab: :index, return_path: label_path(@label)} %>
+<% end %>
