@@ -3,11 +3,10 @@ class RemindersController < ApplicationController
   before_action :set_user, only: [:new, :create]
 
   def new
-    @reminder = @user.reminders.build
+    @reminder = @user.reminders.build(task_id: params[:task_id])
   end
 
   def create
-
   end
 
   def dismiss
