@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path, alert: "Signed in as #{user.email}."
     else
-      redirect_to login_path, alert: "Incorrect email/password combination."
+      redirect_to login_path, error: "Incorrect email/password combination."
     end
   end
 
