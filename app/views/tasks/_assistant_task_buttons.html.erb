@@ -1,4 +1,4 @@
-<%= link_to "Remind Client", new_user_reminder_path(task.client), class: "btn btn-warning float-right" %>
+<%= link_to "Remind Client", new_user_reminder_path(task.client, task_id: task.id), class: "btn btn-warning float-right" %>
 <% if task.requested? %>
   <%= button_to "Accept Task", accept_task_path(task), class: "btn btn-primary float-right" %>
 <% elsif task.accepted? %>
