@@ -1,4 +1,4 @@
-<%= render partial: 'task_card', locals: {task: @task, tab: :show, return_path: tasks_path} %>
+<%= render partial: 'task_card', locals: {task: @task, tab: :show} %>
 <div class="row">
   <div class="col-md-10 offset-md-1">
     <%= render partial: 'comments/comment_card', collection: @comments, as: :comment %>
