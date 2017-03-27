@@ -18,7 +18,25 @@
 
 body {
   width: 100%;
-  margin: 0;
+  margin: 4rem 0;
+}
+
+#top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(0,0,0,.125);
+  background-color: #f7f7f9;
+
+  .navbar-brand {
+    font-weight: bold;
+  }
+
+  a:hover {
+    background-color: transparent;
+  }
 }
 
 .main-heading {
