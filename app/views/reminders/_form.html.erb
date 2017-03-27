@@ -1,0 +1,29 @@
+<article class="card new-reminder-card">
+  <%= form_for reminder do |f| %>
+    <div class="card-header">
+      <h6 class="card-title">New reminder:</h6>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <%= f.textarea :content %>
+      </li>
+      <li class="list-group-item">
+        <%= f.label :client_id, "For:" %>
+        <%= f.select :client_id, current_user.clients.map { |c| [c.name, c.id] }, class: "form-control" %>
+      </li>
+      <li class="list-group-item">
+        <em>(optional)</em>
+        <%= f.label :task_id, "Concerns task:" %>
+        <%= f.text_field :task_id, list: "reminder-tasks" %>
+        <datalist id="reminder-tasks">
+          <% current_user.client_tasks.each do |task| %>
+            <%= content_tag :option, task.title, value: task.id %>
+          <% end %>
+        </datalist>
+      </li>
+    </ul>
+    <div class="card-footer">
+      <%= button_to "Send", reminders_path, class: "btn btn-info float-right" %>
+    </div>
+  <% end %>
+</article>
