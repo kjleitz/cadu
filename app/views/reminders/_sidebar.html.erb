@@ -12,6 +12,7 @@
 </div>
 
 <div class="reminder-card-list" id="new-reminder-card-list">
+  <%= render partial: 'reminders/form', locals: {reminder: Reminder.new} if current_user.assistant? %>
   <% reminders.not_dismissed.each do |reminder| %>
   <article class="card reminder-card <%= reminder.status %>">
     <ul class="list-group list-group-flush">
