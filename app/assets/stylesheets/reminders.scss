@@ -1,3 +1,20 @@
 // Place all the styles related to the reminders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.new-reminder-card {
+
+  textarea {
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.125);
+    resize: none;
+    padding: 0.5rem;
+  }
+
+  .concerning-task {
+    margin: 1rem;
+    width: auto;
+  }
+
+
+}
