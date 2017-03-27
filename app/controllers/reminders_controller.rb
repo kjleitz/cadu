@@ -3,7 +3,7 @@ class RemindersController < ApplicationController
   before_action :set_user, only: [:new, :create]
 
   def new
-    @reminder = Reminder.new
+    @reminder = @user.reminders.build
   end
 
   def create
