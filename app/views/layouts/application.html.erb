@@ -29,7 +29,7 @@
             <%= render partial: "reminders/sidebar", locals: {reminders: current_user.send(current_user.assistant? ? :client_reminders : :reminders)} %>
           </div>
         <% else %>
-          <div class="col-md-8 offset-md-2">
+          <div class="col-md-8 offset-md-2 non-user-area">
             <%= render partial: 'layouts/messages' %>
             <%= yield %>
           </div>
