@@ -1,11 +1,11 @@
 <article class="card new-reminder-card">
-  <%= form_for reminder do |f| %>
+  <%= form_for [user, reminder] do |f| %>
     <div class="card-header">
       <h6 class="card-title">New reminder:</h6>
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">
-        <%= f.textarea :content %>
+        <%= f.text_area :content %>
       </li>
       <li class="list-group-item">
         <%= f.label :client_id, "For:" %>
@@ -23,7 +23,7 @@
       </li>
     </ul>
     <div class="card-footer">
-      <%= button_to "Send", reminders_path, class: "btn btn-info float-right" %>
+      <%= f.submit "Send Reminder", class: "btn btn-info float-right" %>
     </div>
   <% end %>
 </article>
