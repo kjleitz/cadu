@@ -2,7 +2,7 @@
 <% if task.requested? %>
   <%= button_to "Accept Task", accept_task_path(task), class: "btn btn-primary float-right" %>
 <% elsif task.accepted? %>
-  <%= button_to "Begin Work", start_task_path(task), class: "btn btn-primary request-floater" %>
+  <%= button_to "Begin Work", start_task_path(task), class: "btn btn-info request-floater" %>
 <% elsif task.in_progress? %>
   <%= button_to "Mark Complete", complete_task_path(task), class: "btn btn-success float-right" %>
 <% end %>
