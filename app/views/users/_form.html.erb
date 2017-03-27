@@ -11,32 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :name %>
-    <%= f.text_field :name, autocomplete: "name", required: true %>
+    <%= f.text_field :name, autocomplete: "name", required: true, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :email %>
-    <%= f.email_field :email, required: true %>
+    <%= f.email_field :email, required: true, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :password %>
-    <%= f.password_field :password, required: true %>
+    <%= f.password_field :password, required: true, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :password_confirmation, "Confirm password" %>
-    <%= f.password_field :password_confirmation, required: true %>
+    <%= f.password_field :password_confirmation, required: true, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :assistant_id, "Assistant" %>
-    <%= f.select :assistant_id, User.assistant.map { |a| [a.name, a.id] }, prompt: "Select an assistant" %>
+    <%= f.select :assistant_id, User.assistant.map { |a| [a.name, a.id] }, {prompt: "Select an assistant"}, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <br><%= f.submit "Sign up", class: "btn btn-primary" %>
   </div>
 <% end %>
