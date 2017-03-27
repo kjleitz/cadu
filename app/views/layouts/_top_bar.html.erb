@@ -1,6 +1,9 @@
 <nav id="top-bar" class="navbar navbar-light navbar-toggleable-md">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapsible" aria-controls="navbarCollapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
   <%= link_to "Cadu", root_path, class: "navbar-brand" %>
-  <div class="collapse navbar-collapse">
+  <div class="collapse navbar-collapse" id="navbarCollapsible">
     <div class="navbar-nav">
       <% if logged_in? %>
         <%= link_to "Tasks", tasks_path, class: "nav-item nav-link" %>
