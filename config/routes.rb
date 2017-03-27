@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'tasks#index'
 
   resources :users do
+    resources :reminders, shallow: true
     resources :notifications
   end
 
@@ -10,7 +11,6 @@ Rails.application.routes.draw do
     resources :comments, shallow: true
   end
 
-  resources :reminders
   resources :labels
 
   post '/task/:id/request_assistance', to: 'tasks#request_assistance', as: :request_assistance
