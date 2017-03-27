@@ -62,7 +62,7 @@ end
 
 Task.accepted.each do |task|
   task.notifications.create!(
-    content: "'#{task.title}' has been accepted by #{task.assistant.name}!",
+    content: task.status_message,
     receiver: [task.client, task.client, task.client, task.assistant].sample,
     status: rand(3)
   )
@@ -70,7 +70,7 @@ end
 
 Task.in_progress.each do |task|
   task.notifications.create!(
-    content: "#{task.assistant.name} has begun work on '#{task.title}'!",
+    content: task.status_message,
     receiver: [task.client, task.client, task.client, task.assistant].sample,
     status: rand(3)
   )
@@ -78,7 +78,7 @@ end
 
 Task.completed.each do |task|
   task.notifications.create!(
-    content: "'#{task.title}' has been completed!",
+    content: task.status_message,
     receiver: [task.client, task.client, task.client, task.assistant].sample,
     status: rand(3)
   )
