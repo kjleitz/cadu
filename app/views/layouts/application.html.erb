@@ -15,18 +15,25 @@
     <main class="container-fluid">
 
       <div class="row">
-        <div class="col-md-2 sidebar notification-sidebar">
-          <%= render partial: "notifications/sidebar", locals: {notifications: current_user.notifications.viewing_order} %>
-        </div>
+        <% if logged_in? %>
+          <div class="col-md-2 sidebar notification-sidebar">
+            <%= render partial: "notifications/sidebar", locals: {notifications: current_user.notifications.viewing_order} %>
+          </div>
 
-        <div class="col-md-7">
-          <%= render partial: 'layouts/messages' %>
-          <%= yield %>
-        </div>
+          <div class="col-md-7">
+            <%= render partial: 'layouts/messages' %>
+            <%= yield %>
+          </div>
 
-        <div class="col-md-3 sidebar reminder-sidebar">
-          <%= render partial: "reminders/sidebar", locals: {reminders: current_user.send(current_user.assistant? ? :client_reminders : :reminders)} %>
-        </div>
+          <div class="col-md-3 sidebar reminder-sidebar">
+            <%= render partial: "reminders/sidebar", locals: {reminders: current_user.send(current_user.assistant? ? :client_reminders : :reminders)} %>
+          </div>
+        <% else %>
+          <div class="col-md-8 offset-md-2">
+            <%= render partial: 'layouts/messages' %>
+            <%= yield %>
+          </div>
+        <% end %>
       </div>
 
     </main>
