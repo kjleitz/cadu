@@ -7,6 +7,12 @@ class RemindersController < ApplicationController
   end
 
   def create
+    @reminder = @user.reminders.build(reminder_params)
+    if @reminder.save
+      redirect_to tasks_path, notice: "Reminder sent."
+    else
+      render :new, alert: "Something went wrong!"
+    end
   end
 
   def dismiss
@@ -22,6 +28,10 @@ class RemindersController < ApplicationController
 
     def set_user
       @user = User.find(params[:user_id])
+    end
+
+    def reminder_params
+      params.require(:reminder).permit(:content, :task_id)
     end
 
 end
