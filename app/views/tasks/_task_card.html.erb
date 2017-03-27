@@ -1,4 +1,4 @@
-<a id="task_<%= task.id %>" class="task-card-anchor">
+<a id="task_<%= task.id %>" class="task-card-anchor"></a>
 <article class="card task-card">
   <div class="card-header">
     <div class="status-circle-area <%= task.status %>">
@@ -39,4 +39,3 @@
     <%= render partial: "#{current_user.role}_task_buttons", locals: {task: task} %>
   </div>
 </article>
-</a>
