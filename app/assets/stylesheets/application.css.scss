@@ -133,6 +133,20 @@ body {
     padding: 0 0.5rem;
     background-color: #f7f7f9;
 
+    .reminder-link-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 1rem;
+
+      li {
+        padding: 0.25rem;
+
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
+
     .reminder-card {
 
       .list-group {
