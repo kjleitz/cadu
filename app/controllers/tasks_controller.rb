@@ -55,22 +55,22 @@ class TasksController < ApplicationController
 
   def request_assistance
     @task.request_assistance
-    redirect_to tasks_path, message: "Assistance with '#{@task.title}' requested!"
+    redirect_to tasks_path, notice: "Assistance with '#{@task.title}' requested!"
   end
 
   def accept
     @task.accept
-    redirect_to tasks_path, message: "Assistance request for '#{@task.title}' accepted!"
+    redirect_to tasks_path, notice: "Assistance request for '#{@task.title}' accepted!"
   end
 
   def start
     @task.start
-    redirect_to tasks_path, message: "'#{@task.title}' is in progress!"
+    redirect_to tasks_path, notice: "'#{@task.title}' is in progress!"
   end
 
   def mark_complete
     @task.mark_complete
-    redirect_to request.referer, notice: "'#{@task.title}' has been completed!"
+    redirect_to request.referer, message: "'#{@task.title}' has been completed!"
   end
 
   private
