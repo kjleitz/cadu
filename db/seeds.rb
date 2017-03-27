@@ -91,7 +91,7 @@ User.client.each do |client|
   rand(5).times do
     client.reminders.create!(
       content: "Hey, it's #{client.assistant.name}. Remember to #{Faker::Hipster.sentence}!",
-      task: [Task.all.sample, nil].sample,
+      task: [client.tasks.sample, nil].sample,
       status: rand(3)
     )
   end
