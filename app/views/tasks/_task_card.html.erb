@@ -19,9 +19,11 @@
       <li class="nav-item">
         <%= link_to "View (#{task.comments.any? ? pluralize(task.comments.count, "comment") : "no comments yet"})", task_path(task), class: "nav-link #{tab == :show ? "active" : "text-muted"}" %>
       </li>
-      <li class="nav-item">
-        <%= link_to "Edit", edit_task_path(task), class: "nav-link #{tab == :edit ? "active" : "text-muted"}" %>
-      </li>
+      <% if current_user.client? %>
+        <li class="nav-item">
+          <%= link_to "Edit", edit_task_path(task), class: "nav-link #{tab == :edit ? "active" : "text-muted"}" %>
+        </li>
+      <% end %>
     </ul>
   </div>
   <div class="card-block">
