@@ -1,9 +1,13 @@
 class RemindersController < ApplicationController
   before_action :set_reminder, only: [:dismiss]
-  before_action :set_user, only: [:new]
+  before_action :set_user, only: [:new, :create]
 
   def new
     @reminder = Reminder.new
+  end
+
+  def create
+
   end
 
   def dismiss
