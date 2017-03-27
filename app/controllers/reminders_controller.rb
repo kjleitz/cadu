@@ -8,7 +8,7 @@ class RemindersController < ApplicationController
 
   def dismiss
     @reminder.dismiss
-    redirect_to request.referer
+    redirect_to request.referer, notice: "Reminder dismissed."
   end
 
   private
