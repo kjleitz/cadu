@@ -28,7 +28,11 @@
       <%= link_to content_tag(:li, "Concerning '#{reminder.task.title}' #{'(' + reminder.task.status.humanize.downcase + ')' unless reminder.task.status == "idle"}", class: "list-group-item reminder-task task-#{reminder.task.status}"), task_path(reminder.task), class: "concerning-link" if reminder.task %>
     </ul>
     <div class="card-footer">
-      <%= button_to "Undo", reminder_path(reminder), method: :delete, class: "btn btn-danger float-right" %>
+      <% if current_user.assistant? %>
+        <%= button_to "Undo", reminder_path(reminder), method: :delete, class: "btn btn-danger float-right" %>
+      <% else %>
+        <%= button_to "Dismiss", dismiss_reminder_path(reminder), class: "btn btn-danger float-right" %>
+      <% end %>
     </div>
   </article>
   <% end %>
