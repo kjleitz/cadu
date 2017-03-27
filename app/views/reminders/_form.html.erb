@@ -1,16 +1,12 @@
-<article class="card new-reminder-card">
-  <%= form_for [user, reminder] do |f| %>
+<%= form_for [user, reminder] do |f| %>
+  <article class="card new-reminder-card">
     <div class="card-header">
-      <h6 class="card-title">New reminder:</h6>
+      <h4>Send <%= user.name %> a reminder</h4>
     </div>
-    <%= f.text_area :content, rows: 3 %>
-    <div class="form-group">
-      <%= f.label :task_id, "Concerns task:" %>
-      <%= f.collection_select :task_id, user.delegated_tasks, :id, :title %>
-      <em>(optional)</em>
-    </div>
+    <%= f.text_area :content, rows: 3, placeholder: "Write your reminder here..." %>
+    <%= f.collection_select :task_id, user.delegated_tasks, :id, :title, {include_blank: "Select an associated task (optional)"}, class: "form-control concerning-task" %>
     <div class="card-footer">
       <%= f.submit "Send Reminder", class: "btn btn-primary float-right" %>
     </div>
-  <% end %>
-</article>
+  </article>
+<% end %>
