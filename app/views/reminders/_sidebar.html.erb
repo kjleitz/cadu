@@ -14,7 +14,7 @@
 <div class="reminder-card-list" id="new-reminder-card-list">
   <% if current_user.assistant? %>
   <span class="reminder-link-list-title">Send a reminder to:</span>
-    <ul>
+    <ul class="reminder-link-list">
       <% current_user.clients.each do |client| %>
         <li><%= link_to client.name, new_user_reminder_path(client) %></li>
       <% end %>
