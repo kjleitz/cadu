@@ -47,10 +47,16 @@ end
 
 User.client.each do |client|
   rand(2..10).times do
+    command = [
+      Faker::Hacker.verb.capitalize},
+      ["the", "some", "my", "my pet's"].sample,
+      Faker::Hacker.adjective unless rand(2).zero?,
+      Faker::Hacker.noun
+    ].join(" ") + "."
     yoda_quote = Faker::Yoda.quote
     client.tasks.create!(
-      title: yoda_quote.split[0..5].join(" ") + "...",
-      content: yoda_quote,
+      title: command,
+      content: yoda_quote + " But also, don't forget to #{command.downcase}",
       due_date: Faker::Time.forward(10, :day),
       status: rand(5)
     )
@@ -64,7 +70,7 @@ Task.accepted.each do |task|
   task.notifications.create!(
     content: task.status_message,
     receiver: [task.client, task.client, task.client, task.assistant].sample,
-    status: rand(3)
+    status: rand(2)
   )
 end
 
@@ -72,7 +78,7 @@ Task.in_progress.each do |task|
   task.notifications.create!(
     content: task.status_message,
     receiver: [task.client, task.client, task.client, task.assistant].sample,
-    status: rand(3)
+    status: rand(2)
   )
 end
 
@@ -80,7 +86,7 @@ Task.completed.each do |task|
   task.notifications.create!(
     content: task.status_message,
     receiver: [task.client, task.client, task.client, task.assistant].sample,
-    status: rand(3)
+    status: rand(2)
   )
 end
 
