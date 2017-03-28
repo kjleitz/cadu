@@ -32,7 +32,7 @@ main {
 
 #top-bar {
   border-bottom: 1px solid rgba(0,0,0,.125);
-  background-color: #f7f7f9;
+  background-color: $bg-gray;
 
   .navbar-brand {
     font-weight: bold;
@@ -57,7 +57,7 @@ main {
   padding-top: 0.5rem;
   padding-bottom: 1rem;
   margin-bottom: auto;
-  background-color: #f7f7f9;
+  background-color: $bg-gray;
   border: 1px solid rgba(0,0,0,.125);
   border-left: none;
   border-top-right-radius: 0.25rem;
@@ -130,7 +130,7 @@ main {
   padding: 0.5rem 0;
   padding-bottom: 1rem;
   margin-bottom: auto;
-  background-color: #f7f7f9;
+  background-color: $bg-gray;
   border: 1px solid rgba(0,0,0,.125);
   border-right: none;
   border-top-left-radius: 0.25rem;
@@ -154,15 +154,15 @@ main {
     }
 
     a.active {
-      background-color: #f7f7f9;
-      border-bottom: 1px solid #f7f7f9;
+      background-color: $bg-gray;
+      border-bottom: 1px solid $bg-gray;
       // font-weight: bold;
     }
   }
 
   .reminder-card-list {
     padding: 0 0.5rem;
-    background-color: #f7f7f9;
+    background-color: $bg-gray;
 
     .reminder-link-list {
       list-style: none;
