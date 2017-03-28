@@ -28,6 +28,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to @task, notice: 'Task was successfully created.'
     else
+      @tasks = current_user.tasks.order(created_at: :desc)
       render :index
     end
   end
