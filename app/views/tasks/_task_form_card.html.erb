@@ -22,7 +22,7 @@
       </div>
 
       <div class="card-block">
-        <%= f.text_area :content, placeholder: "What needs to be done?", class: "new-task-content", rows: 3 %>
+        <%= f.text_area :content, placeholder: "What needs to be done?", class: "new-task-content", rows: 5 %>
       </div>
 
       <div class="card-footer card-group-footer-left">
@@ -49,6 +49,7 @@
       </div>
       <div class="card-block">
         <%= f.collection_select :label_ids, Label.all, :id, :name, {}, {class: "label-select", multiple: true, size: tabs ? 6 : 4} %>
+        <div class="new-labels-label">New labels: (separate with commas)</div>
       </div>
       <div class="card-footer card-group-footer-right">
         <%= f.submit class: "btn btn-primary float-right" %>
