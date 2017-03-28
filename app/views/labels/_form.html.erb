@@ -1,13 +1,13 @@
-<div class="card">
-  <div class="card-block">
-    <%= form_for label do |f| %>
+<%= form_for label do |f| %>
+  <div class="card new-label-card">
+    <div class="card-block">
       <div class="form-group">
-        <%= f.label :name %>
+        <%= f.label :name%>
         <%= f.text_field :name, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.submit class: "form-control btn btn-primary" %>
+        <%= f.submit class: "btn btn-primary" %>
       </div>
-    <% end %>
+    </div>
   </div>
-</div>
+<% end %>
