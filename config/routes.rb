@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root 'tasks#index'
 
   resources :users do
+    post 'notifications/:id/view', to: 'notifications#view', as: :notification_view
     resources :reminders, shallow: true
-    resources :notifications
   end
 
   resources :tasks do
@@ -17,7 +17,6 @@ Rails.application.routes.draw do
 
   resources :labels
 
-  post '/users/:user_id/notifications/:id/view', to: 'notifications#view', as: :view_notification
 
   post '/reminders/:id/dismiss', to: 'reminders#dismiss', as: :dismiss_reminder
 
