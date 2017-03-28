@@ -1,28 +1,20 @@
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %> <em>(<%= @user.role %>)</em>
-</p>
+<div class="card user-card">
+  <h4>Name</h4>
+  <p><%= @user.name %> <em>(<%= @user.role %>)</em></p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+  <h4>Email</h4>
+  <p><%= @user.email %></p>
 
-<% if @user.client? %>
-  <p>
-    <strong>Assistant:</strong>
-    <%= @user.assistant.name %>
-  </p>
-<% else %>
-  <p>
-    <strong>Clients:</strong>
+  <% if @user.client? %>
+    <h4>Assistant</h4>
+    <p><%= @user.assistant.name %></p>
+  <% else %>
+    <h4>Clients</h4>
     <ul>
       <% @user.clients.each do |client| %>
         <%= content_tag :li, link_to(client.name, user_path(client)) %>
       <% end %>
     </ul>
-  </p>
-<% end %>
-
-<p><%= link_to 'Edit', edit_user_path(@user) if current_user == @user %></p>
-<p><%= link_to 'Back', users_path unless current_user.client? %></p>
+  <% end %>
+  <p><%= link_to 'Edit', edit_user_path(@user) if current_user == @user %></p>
+</div>
