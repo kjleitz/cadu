@@ -1,4 +1,4 @@
-<h2 class="text-center main-heading"><%= current_user.name %>'s tasks</h2>
+<h2 class="text-center main-heading"><%= current_user.client? ? "#{current_user.name}'s" : "Client" %> tasks</h2>
 
 <%= render partial: 'task_form_card', locals: {task: @task, tabs: false} if current_user.client? %>
 
