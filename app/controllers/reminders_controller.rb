@@ -1,5 +1,5 @@
 class RemindersController < ApplicationController
-  before_action :set_reminder, only: [:dismiss]
+  before_action :set_reminder, only: [:dismiss, :destroy]
   before_action :set_user, only: [:new, :create]
 
   def new
@@ -13,6 +13,11 @@ class RemindersController < ApplicationController
     else
       render :new, alert: "Something went wrong!"
     end
+  end
+
+  def destroy
+    @reminder.destroy
+    redirect_to root_path, alert: "Reminder successfully removed."
   end
 
   def dismiss
