@@ -21,6 +21,10 @@ body {
   margin: 0;
 }
 
+.non-user-area {
+  margin-top: 2rem;
+}
+
 main {
   margin-top: 2rem;
 }
@@ -237,6 +241,7 @@ main {
   color: white;
 }
 
-.non-user-area {
-  margin-top: 2rem;
+.field_with_errors {
+  height: 100%;
+  width: 100%;
 }
