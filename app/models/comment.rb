@@ -9,6 +9,10 @@ class Comment < ApplicationRecord
 
   after_update :set_edited
 
+  def audience
+    author.client? ? author.assistant : author
+  end
+
   def toggle_pin
     toggle(:pinned)
   end
