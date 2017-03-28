@@ -50,7 +50,7 @@ User.client.each do |client|
     command = [
       Faker::Hacker.verb.capitalize,
       ["the", "some", "my", "my pet's"].sample,
-      Faker::Hacker.adjective unless rand(2).zero?,
+      Faker::Hacker.adjective,
       Faker::Hacker.noun
     ].join(" ") + "."
     yoda_quote = Faker::Yoda.quote
