@@ -101,7 +101,7 @@
   .card {
     padding: 0;
 
-    .match-height {
+    .no-tabs-match-height {
       height: 3.5rem;
     }
 
@@ -134,7 +134,7 @@
     .new-task-content {
       display: block;
       width: 100%;
-      height: 100%;
+      height: 7rem;
       border: none;
       resize: none;
       padding: 0.5rem;
@@ -166,10 +166,14 @@
       padding: 0.5rem 0;
     }
 
+    .tabs-match-height {
+      padding-top: 2rem;
+    }
+
     .label-select {
       display: block;
       width: 100%;
-      height: 100%;
+      height: 4rem;
       border: none;
       overflow-y: scroll;
     }
@@ -204,9 +208,23 @@
     .new-labels-label {
       padding: 0.2rem;
       font-size: 0.75rem;
+      height: 1.5rem;
       background-color: $bg-gray;
       border-top: 1px solid rgba(0,0,0,.125);
       border-bottom: 1px solid rgba(0,0,0,.125);
+    }
+
+    .new-labels-input {
+      height: 1.5rem;
+      border: none;
+
+      input {
+        display: block;
+        border: none;
+        width: 100%;
+        height: 100%;
+        padding: 0 0.5rem;
+      }
     }
 
     .card-footer:last-child {
