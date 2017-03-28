@@ -6,6 +6,10 @@ class Notification < ApplicationRecord
 
   enum status: [:unseen, :seen, :dismissed]
 
+  scope :unseen, -> { where(status: :unseen).order(created_at: :desc) }
+  scope :seen, -> { where(status: :seen).order(updated_at: :desc) }
+  scope :viewing_order, -> { unseen + seen }
+
   def view
     seen!
   end
@@ -16,10 +20,6 @@ class Notification < ApplicationRecord
 
   def human_created_at
     created_at.strftime("%-I:%M %P %b %-d")
-  end
-
-  def self.viewing_order
-    where.not(status: :seen).order(:created_at) + where(status: :seen).order(updated_at: :desc)
   end
 
 end
