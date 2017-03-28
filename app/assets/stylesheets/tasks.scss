@@ -146,7 +146,6 @@
     }
 
     .card-header-tabs .nav-item a.nav-link.text-muted:hover {
-      // color: #f7f7f9;
       background-color: rgba(0,0,0,.125);
       border-color: rgba(0,0,0,.250);
       border-bottom-color: rgba(0,0,0,0);
@@ -241,7 +240,7 @@
 .new-comment-card {
   border-width: medium;
   margin-top: 2rem;
-  
+
   .new-comment-content {
     padding-left: 0;
 
