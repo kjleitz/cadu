@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :users do
     post 'notifications/:id/view', to: 'notifications#view', as: :notification_view
-    resources :reminders, shallow: true do
+    resources :reminders, only: [:new, :create, :destroy], shallow: true do
       post 'dismiss', to: 'reminders#dismiss', as: :dismiss
     end
   end
@@ -14,10 +14,10 @@ Rails.application.routes.draw do
     post 'accept', to: 'tasks#accept', as: :accept
     post 'start', to: 'tasks#start', as: :start
     post 'mark_complete', to: 'tasks#mark_complete', as: :complete
-    resources :comments, shallow: true
+    resources :comments, only: [:create, :destroy], shallow: true
   end
 
-  resources :labels
+  resources :labels, only: [:index, :show, :new, :create]
 
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
