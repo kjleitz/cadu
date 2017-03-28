@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   resources :users do
     post 'notifications/:id/view', to: 'notifications#view', as: :notification_view
-    resources :reminders, shallow: true
+    resources :reminders, shallow: true do
+      post 'dismiss', to: 'reminders#dismiss', as: :dismiss
+    end
   end
 
   resources :tasks do
@@ -18,7 +20,6 @@ Rails.application.routes.draw do
   resources :labels
 
 
-  post '/reminders/:id/dismiss', to: 'reminders#dismiss', as: :dismiss_reminder
 
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
