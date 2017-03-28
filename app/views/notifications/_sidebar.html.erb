@@ -9,7 +9,8 @@
         raw("#{notification.content}<br><em>#{notification.human_created_at}</em>"),
         class: "notification-item #{notification.status} task-#{notification.task.status}"
       ),
-      task_path(notification.task),
+      user_notification_view_path(notification.user, notification),
+      method: :post,
       class: "notification-link"
     )
     %>
