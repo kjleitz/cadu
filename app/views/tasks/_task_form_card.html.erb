@@ -42,18 +42,23 @@
         </span>
       </div>
     </div>
+
     <div class="card right-card col-md-4">
+
       <div class="card-header label-header text-center <%= "match-height" unless tabs %>">
         Labels (<%= user_os_mac? ? "⌘" : "ctrl" %> + click for multiple)<br>
         <em><%= link_to "or, create new labels", new_label_path %></em>
       </div>
+
       <div class="card-block">
         <%= f.collection_select :label_ids, Label.all, :id, :name, {}, {class: "label-select", multiple: true, size: tabs ? 6 : 4} %>
-        <div class="new-labels-label">New labels: (separate with commas)</div>
+        <div class="new-labels-label text-center">New labels: (separate with commas)</div>
       </div>
+
       <div class="card-footer card-group-footer-right">
         <%= f.submit class: "btn btn-primary float-right" %>
       </div>
+
     </div>
   </div>
 <% end %>
