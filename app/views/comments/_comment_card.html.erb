@@ -1,6 +1,7 @@
 <article class="card comment-card">
   <div class="card-header">
-    <span class="card-subtitle float-right"><em class="text-muted"><%= comment.human_created_at %></em></span>
+    <span class="card-subtitle float-right text-right"><em class="text-muted"><%= comment.human_created_at %></em><br>
+      <%= link_to "Delete", comment_path(comment), method: :delete, class: "text-center" if current_user == comment.author %></span>
     <h6 class="card-title"><strong><%= comment.author.name %></strong> <span class="text-muted">wrote:</span></h6>
   </div>
   <div class="card-block">
