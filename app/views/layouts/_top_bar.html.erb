@@ -6,11 +6,12 @@
   <div class="collapse navbar-collapse" id="navbarCollapsible">
     <div class="navbar-nav">
       <% if logged_in? %>
-        <%= link_to "Tasks", tasks_path, class: "nav-item nav-link" %>
+        <%= link_to "Tasks", tasks_path, class: "nav-item nav-link #{"active" if current_page?(tasks_path)}" %>
+        <%= link_to "My Profile", user_path(current_user), class: "nav-item nav-link #{"active" if current_page?(user_path(current_user))}" %>
         <%= link_to "Log out", logout_path, method: :delete, class: "nav-item nav-link" %>
       <% else %>
-        <%= link_to "Log in", login_path, class: "nav-item nav-link" %>
-        <%= link_to "Sign up", signup_path, class: "nav-item nav-link" %>
+        <%= link_to "Log in", login_path, class: "nav-item nav-link #{"active" if current_page?(login_path)}" %>
+        <%= link_to "Sign up", signup_path, class: "nav-item nav-link #{"active" if current_page?(signup_path)}" %>
       <% end %>
     </div>
   </div>
