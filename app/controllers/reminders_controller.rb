@@ -28,7 +28,7 @@ class RemindersController < ApplicationController
   private
 
     def set_reminder
-      @reminder = Reminder.find(params[:id])
+      @reminder = Reminder.find(params[:reminder_id] || params[:id])
     end
 
     def set_user
