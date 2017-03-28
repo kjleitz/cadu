@@ -5,6 +5,16 @@
         <%= f.label :name, "Label name:" %>
         <%= f.text_field :name, class: "form-control" %>
       </div>
+      <div class="form-check associated-tasks">
+        <%= f.label :task_ids, "Associated tasks:" %>
+        <%= f.collection_check_boxes :task_ids, current_user.send(current_user.assistant? ? :client_tasks : :tasks), :id, :title do |b| %>
+          <%= b.check_box class: "form-check-input" %>
+          <%= b.label(class: "form-check-label") do %>
+            <%= b.text %>
+            <%= "(#{b.object.client.name})" if current_user.assistant? %>
+          <% end %>
+        <% end %>
+      </div>
       <div class="form-group">
         <%= f.submit class: "btn btn-primary" %>
       </div>
