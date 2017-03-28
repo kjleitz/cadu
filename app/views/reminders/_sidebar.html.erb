@@ -31,7 +31,7 @@
       <% if current_user.assistant? %>
         <%= button_to "Undo", reminder_path(reminder), method: :delete, class: "btn btn-danger float-right" %>
       <% else %>
-        <%= button_to "Dismiss", dismiss_reminder_path(reminder), class: "btn btn-danger float-right" %>
+        <%= button_to "Dismiss", reminder_dismiss_path(reminder), class: "btn btn-danger float-right" %>
       <% end %>
     </div>
   </article>
