@@ -8,15 +8,14 @@ Rails.application.routes.draw do
   end
 
   resources :tasks do
+    post 'request_assistance', to: 'tasks#request_assistance', as: :request_assistance
+    post 'accept', to: 'tasks#accept', as: :accept
+    post 'start', to: 'tasks#start', as: :start
+    post 'mark_complete', to: 'tasks#mark_complete', as: :complete
     resources :comments, shallow: true
   end
 
   resources :labels
-
-  post '/task/:id/request_assistance', to: 'tasks#request_assistance', as: :request_assistance
-  post '/task/:id/accept', to: 'tasks#accept', as: :accept_task
-  post '/task/:id/start', to: 'tasks#start', as: :start_task
-  post '/task/:id/mark_complete', to: 'tasks#mark_complete', as: :complete_task
 
   post '/users/:user_id/notifications/:id/view', to: 'notifications#view', as: :view_notification
 
