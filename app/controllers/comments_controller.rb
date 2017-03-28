@@ -1,20 +1,20 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  before_action :set_task, only: [:index, :new, :create]
+  before_action :set_comment, only: [:destroy]
+  before_action :set_task, only: [:create]
 
-  def index
-    @comments = @task.comments
-  end
+  # def index
+  #   @comments = @task.comments
+  # end
 
-  def show
-  end
+  # def show
+  # end
 
-  def new
-    @comment = @task.comments.build
-  end
+  # def new
+  #   @comment = @task.comments.build
+  # end
 
-  def edit
-  end
+  # def edit
+  # end
 
   def create
     @comment = @task.comments.build(comment_params)
@@ -26,14 +26,14 @@ class CommentsController < ApplicationController
     redirect_to task_path(@task)
   end
 
-  def update
-    if @comment.update(comment_params)
-      flash[:message] = 'Comment was successfully updated.'
-    else
-      flash[:error] = @comment.errors.full_messages.join(". ") + "."
-    end
-    redirect_to task_path(@comment.task)
-  end
+  # def update
+  #   if @comment.update(comment_params)
+  #     flash[:message] = 'Comment was successfully updated.'
+  #   else
+  #     flash[:error] = @comment.errors.full_messages.join(". ") + "."
+  #   end
+  #   redirect_to task_path(@comment.task)
+  # end
 
   def destroy
     task = @comment.task
