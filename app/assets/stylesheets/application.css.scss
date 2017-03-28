@@ -27,6 +27,7 @@ body {
 
 main {
   margin-top: 2rem;
+  margin-bottom: 50%;
 }
 
 #top-bar {
@@ -54,6 +55,8 @@ main {
 .notification-sidebar {
   padding: 0;
   padding-top: 0.5rem;
+  padding-bottom: 1rem;
+  margin-bottom: auto;
   background-color: #f7f7f9;
   border: 1px solid rgba(0,0,0,.125);
   border-left: none;
@@ -125,6 +128,8 @@ main {
 
 .reminder-sidebar {
   padding: 0.5rem 0;
+  padding-bottom: 1rem;
+  margin-bottom: auto;
   background-color: #f7f7f9;
   border: 1px solid rgba(0,0,0,.125);
   border-right: none;
