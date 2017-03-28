@@ -5,6 +5,10 @@ class LabelsController < ApplicationController
     @labels = Label.all
   end
 
+  def new
+    @label = Label.new
+  end
+
   def show
     @tasks = @label.tasks.where(client_id: current_user.assistant? ? current_user.clients.pluck(:id) : current_user.id)
   end
