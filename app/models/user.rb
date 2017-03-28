@@ -18,6 +18,8 @@ class User < ApplicationRecord
 
   enum role: [:client, :assistant, :admin]
 
+  scope :alphabetical, -> { order(:name) }
+
   after_create :set_role
 
   # Assembles all of an assistant's "to-do" tasks (those
