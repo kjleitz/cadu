@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   post '/task/:id/start', to: 'tasks#start', as: :start_task
   post '/task/:id/mark_complete', to: 'tasks#mark_complete', as: :complete_task
 
+  post '/users/:user_id/notifications/:id/view', to: 'notifications#view', as: :view_notification
+
   post '/reminders/:id/dismiss', to: 'reminders#dismiss', as: :dismiss_reminder
 
   get '/signup', to: 'users#new'
