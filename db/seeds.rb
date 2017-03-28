@@ -128,7 +128,7 @@ end
 # Comment seeds
 
 Task.where("status > 0").each do |task|
-  rand(5).times do
+  rand(8).times do
     task.comments.create!(
       content: Faker::TwinPeaks.quote,
       author: [task.client, task.assistant].sample || task.client,
