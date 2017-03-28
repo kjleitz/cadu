@@ -21,22 +21,24 @@
     <%= f.email_field :email, required: true, class: "form-control" %>
   </div>
 
-<% if user.new_record? %>
-  <div class="field form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, required: true, class: "form-control" %>
-  </div>
+  <% if user.new_record? %>
+    <div class="field form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, required: true, class: "form-control" %>
+    </div>
 
-  <div class="field form-group">
-    <%= f.label :password_confirmation, "Confirm password" %>
-    <%= f.password_field :password_confirmation, required: true, class: "form-control" %>
-  </div>
-<% end %>
+    <div class="field form-group">
+      <%= f.label :password_confirmation, "Confirm password" %>
+      <%= f.password_field :password_confirmation, required: true, class: "form-control" %>
+    </div>
+  <% end %>
 
-  <div class="field form-group">
-    <%= f.label :assistant_id, "Assistant" %>
-    <%= f.select :assistant_id, User.assistant.map { |a| [a.name, a.id] }, {prompt: "Select an assistant"}, class: "form-control" %>
-  </div>
+  <% unless user.assistant? %>
+    <div class="field form-group">
+      <%= f.label :assistant_id, "Assistant" %>
+      <%= f.select :assistant_id, User.assistant.map { |a| [a.name, a.id] }, {prompt: "Select an assistant"}, class: "form-control" %>
+    </div>
+  <% end %>
 
   <div class="form-group">
     <br><%= f.submit(user.new_record? ? "Sign up" : "Save", class: "btn btn-primary") %>
