@@ -1,6 +1,4 @@
 class Reminder < ApplicationRecord
-  default_scope { order(created_at: :desc) }
-
   belongs_to :client, class_name: User
   delegate :assistant, to: :client
   belongs_to :task, optional: true
@@ -8,6 +6,9 @@ class Reminder < ApplicationRecord
   validates :content, :status, presence: true
 
   enum status: [:unseen, :seen, :dismissed]
+
+  scope :not_dismissed, -> { where.not(status: :dismissed).order(created_at: :desc) }
+  scope :dismissed, -> { where(status: :dismissed).order(updated_at: :desc) }
 
   def view
     seen!
@@ -21,7 +22,4 @@ class Reminder < ApplicationRecord
     created_at.strftime("%a, %b %-d - %-I:%M %P")
   end
 
-  def self.not_dismissed
-    where.not(status: :dismissed)
-  end
 end
