@@ -20,6 +20,7 @@ class CommentsController < ApplicationController
     @comment = @task.comments.build(comment_params)
     if @comment.save
       flash[:message] = 'Comment was successfully created.'
+      @comment.audience.notify(@comment.task, "#{@comment.author.name} commented on '#{@comment.task.title}'.")
     else
       flash[:error] = @comment.errors.full_messages.join(". ") + "."
     end
