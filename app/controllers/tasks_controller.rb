@@ -28,7 +28,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to @task, notice: 'Task was successfully created.'
     else
-      render :new
+      render :index
     end
   end
 
