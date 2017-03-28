@@ -13,7 +13,7 @@
     </thead>
 
     <tbody>
-      <% @users.each do |user| %>
+      <% @users.alphabetical.each do |user| %>
         <tr>
           <td><%= user.name %></td>
           <td><%= user.email %></td>
