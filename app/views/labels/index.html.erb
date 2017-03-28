@@ -1,0 +1,9 @@
+<h2>Labels</h2>
+
+<div class="card labels-card">
+  <ul>
+    <% @labels.each do |label| %>
+      <%= content_tag :li, link_to(label.name, label_path(label)) %>
+    <% end %>
+  </ul>
+</div>
