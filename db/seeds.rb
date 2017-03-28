@@ -49,7 +49,7 @@ User.client.each do |client|
   rand(2..10).times do
     command = [
       Faker::Hacker.verb.capitalize,
-      ["the", "some", "my", "my pet's"].sample,
+      ["the", "some kind of", "my", "my pet's"].sample,
       Faker::Hacker.adjective,
       Faker::Hacker.noun
     ].join(" ") + "."
