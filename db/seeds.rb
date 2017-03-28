@@ -48,7 +48,7 @@ end
 User.client.each do |client|
   rand(2..10).times do
     command = [
-      Faker::Hacker.verb.capitalize},
+      Faker::Hacker.verb.capitalize,
       ["the", "some", "my", "my pet's"].sample,
       Faker::Hacker.adjective unless rand(2).zero?,
       Faker::Hacker.noun
@@ -95,8 +95,29 @@ end
 
 User.client.each do |client|
   rand(5).times do
+    command = [
+      [
+        "Hey, it's #{client.assistant.name}.",
+        "#{client.assistant.name} here... ",
+        "Yo buddy!",
+        "Hey dude, gotta remind you about something.",
+        "THIS IS IMPORTANT!"
+      ].sample,
+      [
+        "Remember to",
+        "Don't forget:",
+        "Definitely"
+      ].sample,
+      Faker::Hacker.verb,
+      ["the", "some", "your", "your pet's"].sample,
+      Faker::Hacker.noun,
+      "if you haven't been",
+      Faker::Hacker.ingverb,
+      ["lately", "much", "yourself", "enough", "things yet"].sample
+    ].join(" ") + "."
+
     client.reminders.create!(
-      content: "Hey, it's #{client.assistant.name}. Remember to #{Faker::Hipster.sentence.downcase}",
+      content: command,
       task: [client.tasks.sample, nil].sample,
       status: rand(3)
     )
