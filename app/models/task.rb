@@ -59,11 +59,9 @@ class Task < ApplicationRecord
     labels << label unless labels.include?(label)
   end
 
-  def labels_attributes=(labels_attributes)
-    labels.clear
-    labels_attributes.each do |label_attributes|
-      apply_label(Label.find_or_create_by(label_attributes))
-    end
+  def labels_attributes=(label_attributes)
+    label_names = label_attributes["0"]["name"].split(",").map(&:strip)
+    label_names.each { |name| apply_label(Label.find_or_create_by(name: name)) }
   end
 
   def label_ids=(ids)
