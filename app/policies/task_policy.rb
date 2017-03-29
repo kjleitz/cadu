@@ -1,5 +1,9 @@
 class TaskPolicy < ApplicationPolicy
 
+  def index?
+    user
+  end
+
   class Scope < Scope
     def resolve
       if user.client?
