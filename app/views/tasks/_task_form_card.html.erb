@@ -6,7 +6,7 @@
 
       <div class="card-header <%= "no-" unless tabs %>tabs-height">
         <%= f.text_field :title, placeholder: "Task title", class: "new-task-title" %>
-        <%= render partial: 'tabs', locals: {task: task} if tabs %>
+        <%= render partial: 'tasks/tabs', locals: {task: task} if tabs %>
       </div>
 
       <div class="card-block">
