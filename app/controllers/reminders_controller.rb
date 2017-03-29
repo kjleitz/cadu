@@ -22,7 +22,7 @@ class RemindersController < ApplicationController
 
   def dismiss
     @reminder.dismiss
-    redirect_to request.referer, notice: "Reminder dismissed."
+    redirect_to request.referrer, notice: "Reminder dismissed."
   end
 
   private
