@@ -37,6 +37,10 @@ class Task < ApplicationRecord
     send_status_notification_to(client)
   end
 
+  def delegated?
+    status.between?(1..3)
+  end
+
   def human_due_date
     due_date.strftime("%-I:%M %P %A, %b %-d")
   end
