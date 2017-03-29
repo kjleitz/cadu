@@ -12,7 +12,7 @@
         <%= link_to label.name, label_path(label), class: "text-muted card-link" %>
       <% end %>
     </h6>
-    <%= render partial: 'tabs', locals: {task: task} %>
+    <%= render partial: 'tasks/tabs', locals: {task: task} %>
   </div>
   <div class="card-block">
     <% if current_user.assistant? %>
