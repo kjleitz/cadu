@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+  # after_action :verify_authorized, except: :index
+  # after_action :verify_policy_scoped, only: :index
+
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
