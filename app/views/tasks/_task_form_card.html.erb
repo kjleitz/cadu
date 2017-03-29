@@ -15,7 +15,7 @@
 
       <div class="card-footer card-group-footer-left">
         <span class="float-left form-inline">
-          Complete by:&nbsp;
+          <span class="extra-info">Due:&nbsp;</span>
           <%= f.datetime_select :due_date,
           {
             start_year: Time.now.year,
@@ -40,7 +40,7 @@
 
       <div class="card-block <%= "tabs-height" if tabs %>">
         <%= f.collection_select :label_ids, Label.all, :id, :name, {}, {class: "label-select", multiple: true, size: 4} %>
-        <div class="new-labels-label text-center">More labels: (separate with commas)</div>
+        <div class="new-labels-label text-center">More labels: <span class="extra-info">(separate with commas)</span></div>
         <div class="new-labels-input">
           <%= f.fields_for :labels, task.labels.build do |lbl| %>
           <%= lbl.text_field :name %>
