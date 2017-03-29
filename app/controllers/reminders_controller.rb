@@ -1,5 +1,6 @@
 class RemindersController < ApplicationController
   before_action :set_reminder, only: [:dismiss, :destroy]
+  before_action :authorize_reminder, only: [:dismiss, :destroy]
   before_action :set_user, only: [:new, :create]
 
   def new
@@ -31,6 +32,10 @@ class RemindersController < ApplicationController
 
     def set_reminder
       @reminder = Reminder.find(params[:reminder_id] || params[:id])
+    end
+
+    def authorize_reminder
+      authorize @reminder
     end
 
     def set_user
