@@ -60,8 +60,8 @@ class Task < ApplicationRecord
   end
 
   def labels_attributes=(label_attributes)
-    label_names = label_attributes["0"]["name"].split(",").map(&:strip)
-    label_names.each { |name| apply_label(Label.find_or_create_by(name: name)) }
+    names = label_attributes["0"]["name"].split(",").map(&:strip).reject(&:blank?)
+    names.each { |name| apply_label(Label.find_or_create_by(name: name)) }
   end
 
   def label_ids=(ids)
