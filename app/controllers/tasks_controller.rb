@@ -2,6 +2,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy, :request_assistance, :accept, :start, :mark_complete]
 
   def index
+    authorize Task
     if current_user.assistant?
       @tasks = current_user.client_tasks.order(due_date: :desc)
     else
