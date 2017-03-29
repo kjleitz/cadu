@@ -4,10 +4,12 @@ class RemindersController < ApplicationController
 
   def new
     @reminder = @user.reminders.build(task_id: params[:task_id])
+    authorize @reminder
   end
 
   def create
     @reminder = @user.reminders.build(reminder_params)
+    authorize @reminder
     if @reminder.save
       redirect_to tasks_path, notice: "Reminder sent."
     else
