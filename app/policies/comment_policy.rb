@@ -1,7 +1,7 @@
 class CommentPolicy < ApplicationPolicy
 
   def create?
-    user.admin? || user == record.task.client || user == record.task.assistant
+    user.admin? || user == record.task.client || user == record.task.assistant && record.task.delegated?
   end
 
   def destroy?
