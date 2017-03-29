@@ -38,7 +38,7 @@ class Task < ApplicationRecord
   end
 
   def delegated?
-    status.between?(1, 3)
+    ["requested", "accepted", "in_progress"].include?(status)
   end
 
   def human_due_date
