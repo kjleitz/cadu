@@ -33,6 +33,7 @@ main {
 #top-bar {
   border-bottom: 1px solid rgba(0,0,0,.125);
   background-color: $bg-gray;
+  z-index: 10;
 
   .navbar-brand {
     font-weight: bold;
