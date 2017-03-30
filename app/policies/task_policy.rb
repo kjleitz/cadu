@@ -5,7 +5,7 @@ class TaskPolicy < ApplicationPolicy
   end
 
   def show?
-    is_client? || is_assistant?
+    record_client? || record_assistant?
   end
 
   def create?
@@ -21,19 +21,19 @@ class TaskPolicy < ApplicationPolicy
   end
 
   def request_assistance?
-    is_client?
+    record_client?
   end
 
   def accept?
-    is_assistant?
+    record_assistant?
   end
 
   def start?
-    is_assistant?
+    record_assistant?
   end
 
   def mark_complete?
-    is_client? || is_assistant?
+    record_client? || record_assistant?
   end
 
   class Scope < Scope
