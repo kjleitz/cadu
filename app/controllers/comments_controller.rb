@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
       @comment.audience.notify(@comment.task, "#{@comment.author.name} commented on '#{@comment.task.title}'.")
     else
       flash[:error] = @comment.errors.full_messages.join(". ") + "."
+      render 'tasks/show'
     end
     redirect_to task_path(@task)
   end
