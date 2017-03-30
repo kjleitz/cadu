@@ -6,13 +6,12 @@ class CommentsController < ApplicationController
     @comment = @task.comments.build(comment_params)
     authorize @comment
     if @comment.save
-      flash[:message] = 'Comment was successfully created.'
       @comment.audience.notify(@comment.task, "#{@comment.author.name} commented on '#{@comment.task.title}'.")
+      redirect_to task_path(@task), notice: 'Comment was successfully created.'
     else
       flash[:error] = @comment.errors.full_messages.join(". ") + "."
       render 'tasks/show'
     end
-    redirect_to task_path(@task)
   end
 
   def destroy
