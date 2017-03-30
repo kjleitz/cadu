@@ -36,14 +36,6 @@ class TaskPolicy < ApplicationPolicy
     is_client? || is_assistant?
   end
 
-  def is_client?
-    user.admin? || user == record.client
-  end
-
-  def is_assistant?
-    user.admin? || user == record.assistant
-  end
-
   class Scope < Scope
     def resolve
       if user.client?
