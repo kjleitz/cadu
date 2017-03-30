@@ -13,8 +13,7 @@ class TasksController < ApplicationController
   end
 
   def show
-    @comments = @task.comments.order(:created_at)
-    @new_comment = @task.comments.build
+    @comment = @task.comments.build
   end
 
   def new
