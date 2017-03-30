@@ -11,7 +11,7 @@ class Task < ApplicationRecord
 
   enum status: [:idle, :requested, :accepted, :in_progress, :completed]
 
-  default_scope { order(created_at: :desc) }
+  default_scope { order(due_date: :desc) }
 
   # Placeholder: I don't think this is necessary if I have a custom
   # #labels_attributes= writer method.
