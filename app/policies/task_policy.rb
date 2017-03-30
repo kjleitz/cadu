@@ -20,6 +20,22 @@ class TaskPolicy < ApplicationPolicy
     create?
   end
 
+  def request_assistance?
+    user.admin? || user == record.client
+  end
+
+  def accept?
+    user.admin? || user == record.assistant
+  end
+
+  def start?
+    accept?
+  end
+
+  def mark_complete?
+    request_assistance? || accept?
+  end
+
   class Scope < Scope
     def resolve
       if user.client?
