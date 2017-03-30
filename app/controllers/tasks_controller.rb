@@ -12,6 +12,7 @@ class TasksController < ApplicationController
   end
 
   def show
+    authorize @task
     @comments = @task.comments.order(:created_at)
     @new_comment = @task.comments.build
   end
@@ -26,6 +27,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    authorize @task
     if @task.save
       redirect_to @task, notice: 'Task was successfully created.'
     else
@@ -35,6 +37,7 @@ class TasksController < ApplicationController
   end
 
   def update
+    authorize @task
     if @task.update(task_params)
       redirect_to @task, notice: 'Task was successfully updated.'
     else
@@ -43,6 +46,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    authorize @task
     @task.destroy
     redirect_to tasks_url, notice: 'Task was successfully deleted.'
   end
