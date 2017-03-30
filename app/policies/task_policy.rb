@@ -4,6 +4,22 @@ class TaskPolicy < ApplicationPolicy
     user
   end
 
+  def show?
+    user.admin? || user == record.client || user == record.assistant
+  end
+
+  def create?
+    user.admin? || (user.client? && user == record.client)
+  end
+
+  def update?
+    create?
+  end
+
+  def destroy?
+    create?
+  end
+
   class Scope < Scope
     def resolve
       if user.client?
