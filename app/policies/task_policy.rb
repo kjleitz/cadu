@@ -9,7 +9,7 @@ class TaskPolicy < ApplicationPolicy
   end
 
   def create?
-    user.admin? || (user.client? && user == record.client)
+    user.admin? || (user.client? && record_client?)
   end
 
   def update?
