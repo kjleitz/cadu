@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy, :request_assistance, :accept, :start, :mark_complete]
+  before_action :authorize_task, only: [:show, :edit, :update, :destroy, :request_assistance, :accept, :start, :mark_complete]
 
   def index
     authorize Task
@@ -12,7 +13,6 @@ class TasksController < ApplicationController
   end
 
   def show
-    authorize @task
     @comments = @task.comments.order(:created_at)
     @new_comment = @task.comments.build
   end
@@ -37,7 +37,6 @@ class TasksController < ApplicationController
   end
 
   def update
-    authorize @task
     if @task.update(task_params)
       redirect_to @task, notice: 'Task was successfully updated.'
     else
@@ -46,7 +45,6 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    authorize @task
     @task.destroy
     redirect_to tasks_url, notice: 'Task was successfully deleted.'
   end
@@ -83,6 +81,10 @@ class TasksController < ApplicationController
 
     def set_task
       @task = Task.find(params[:task_id] || params[:id])
+    end
+
+    def authorize_task
+      authorize @task
     end
 
     def task_params
