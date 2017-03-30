@@ -34,11 +34,11 @@ class ApplicationPolicy
     false
   end
 
-  def is_client?
+  def record_client?
     user.admin? || user == record.client
   end
 
-  def is_assistant?
+  def record_assistant?
     user.admin? || user == record.assistant
   end
 
