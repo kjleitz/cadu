@@ -1,15 +1,15 @@
 class ReminderPolicy < ApplicationPolicy
 
   def create?
-    user.admin? || user == record.assistant
+    user.admin? || record_assistant?
   end
 
   def dismiss?
-    user.admin? || user == record.client
+    user.admin? || record_client?
   end
 
   def destroy?
-    user.admin? || user == record.assistant
+    user.admin? || record_assistant?
   end
 
   class Scope < Scope
