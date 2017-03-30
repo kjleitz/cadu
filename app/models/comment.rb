@@ -9,6 +9,8 @@ class Comment < ApplicationRecord
 
   after_update :set_edited
 
+  default_scope { order(:created_at) }
+
   def audience
     author.client? ? task.assistant : task.client
   end
