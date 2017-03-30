@@ -4,24 +4,16 @@ class TasksController < ApplicationController
 
   def index
     authorize Task
-    if current_user.assistant?
-      @tasks = current_user.client_tasks.order(due_date: :desc)
-    else
-      @tasks = current_user.tasks.order(created_at: :desc)
-      @task = Task.new(client: current_user)
-    end
+    @tasks = policy_scope(Task)
+    @task = current_user.tasks.build if current_user.client?
   end
 
   def show
     @comment = @task.comments.build
   end
 
-  def new
-    @task = Task.new
-  end
-
   def edit
-    @comments = @task.comments.order(:created_at)
+    @comments = @task.comments
   end
 
   def create
@@ -30,7 +22,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to @task, notice: 'Task was successfully created.'
     else
-      @tasks = current_user.tasks.order(created_at: :desc)
+      @tasks = policy_scope(Task)
       render :index
     end
   end
