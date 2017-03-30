@@ -14,7 +14,15 @@ class ReminderPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      scope
+      if user.client?
+        scope.where(client_id: user.id)
+      elsif user.assistant?
+        scope.joins(:client).where(users: {assistant_id: user.id})
+      elsif user.admin?
+        scope
+      else
+        scope.none
+      end
     end
   end
 end
