@@ -1,7 +1,7 @@
 class UserPolicy < ApplicationPolicy
 
   def index?
-    user.admin? || user.assistant?
+    user
   end
 
   def show?
@@ -18,7 +18,13 @@ class UserPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      scope
+      if user.client? || user.assistant?
+        scope.where(id: [user.id, user.assistant_id])
+      elsif user.admin?
+        scope.all
+      else
+        scope.none
+      end
     end
   end
 end
