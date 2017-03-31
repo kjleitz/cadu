@@ -18,10 +18,11 @@
           <td><%= user.name %></td>
           <td><%= user.email %></td>
           <td><%= user.role %></td>
-          <td><%= user.client? ? link_to(user.assistant.name, user_path(user.assistant)) : "N/A" %></td>
-          <td><%= link_to 'Show', user %></td>
-          <td><%= link_to 'Edit', edit_user_path(user) %></td>
-          <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <!-- hot damn, look at this terrible nested ternary conditional -->
+          <td><%= user.client? ? (policy(user.assistant).show? ? link_to(user.assistant.name, user_path(user.assistant)) : user.assistant.name) : "N/A" %></td>
+          <td><%= link_to 'Show', user if policy(user).show? %></td>
+          <td><%= link_to 'Edit', edit_user_path(user) if policy(user).update? %></td>
+          <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } if policy(user).destroy? %></td>
         </tr>
       <% end %>
     </tbody>
