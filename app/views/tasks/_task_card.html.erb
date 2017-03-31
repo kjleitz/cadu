@@ -1,5 +1,6 @@
 <a id="task_<%= task.id %>" class="task-card-anchor"></a>
 <article class="card task-card">
+
   <div class="card-header">
     <div class="status-circle-area <%= task.status %>">
       <div class="status-circle completed"></div>
@@ -14,16 +15,17 @@
     </h6>
     <%= render partial: 'tasks/tabs', locals: {task: task} %>
   </div>
+
   <div class="card-block">
-    <% if current_user.assistant? %>
+    <% unless current_user.client? %>
       <h6 class="task-client-header">Task from <%= link_to task.client.name, user_path(task.client) %>:</h6>
     <% end %>
     <p><%= task.content %></p>
   </div>
+
   <div class="card-footer">
-    <span class="task-due-floater text-muted">
-      <em>Due <%= task.human_due_date %></em>
-    </span>
+    <span class="task-due-floater text-muted"><em>Due <%= task.human_due_date %></em></span>
     <%= render partial: "tasks/#{current_user.role}_task_buttons", locals: {task: task} %>
   </div>
+
 </article>
