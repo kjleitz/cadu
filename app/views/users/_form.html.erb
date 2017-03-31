@@ -36,7 +36,7 @@
   <% unless user.assistant? %>
     <div class="field form-group">
       <%= f.label :assistant_id, "Assistant" %>
-      <%= f.select :assistant_id, User.assistant.map { |a| [a.name, a.id] }, {prompt: "Select an assistant"}, class: "form-control" %>
+      <%= f.collection_select :assistant_id, User.assistant, :id, :name, {prompt: "Select an assistant"}, class: "form-control" %>
     </div>
   <% end %>
 
