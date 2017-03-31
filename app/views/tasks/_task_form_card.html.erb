@@ -43,7 +43,7 @@
         <div class="new-labels-label text-center">More labels: <span class="extra-info">(separate with commas)</span></div>
         <div class="new-labels-input">
           <%= f.fields_for :labels, task.labels.build do |lbl| %>
-          <%= lbl.text_field :name %>
+            <%= lbl.text_field :name %>
           <% end %>
         </div>
       </div>
