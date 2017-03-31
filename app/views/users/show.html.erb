@@ -1,22 +1,27 @@
 <div class="card user-card">
   <h4>Name</h4>
   <p><%= @user.name %> <em>(<%= @user.role %>)</em></p>
-
   <h4>Email</h4>
   <p><%= @user.email %></p>
 
   <% if @user.client? %>
+
     <h4>Assistant</h4>
     <p><%= @user.assistant.name %></p>
+
   <% else %>
+
     <h4>Clients</h4>
     <ul>
       <% @user.clients.each do |client| %>
-        <%= content_tag :li, link_to(client.name, user_path(client)) %>
+        <%= content_tag(:li, policy(client).show? ? link_to(client.name, user_path(client)) : client.name) %>
       <% end %>
     </ul>
+
   <% end %>
-  <p><%= link_to('Edit', edit_user_path(@user)) + " | " if current_user == @user %><%= link_to 'Users', users_path %></p>
+
+  <p><%= link_to('Edit', edit_user_path(@user)) + " | " if policy(@user).update? %><%= link_to 'Users', users_path %></p>
+
 </div>
 
-<%= render partial: 'tasks/task_card', collection: @user.delegated_tasks, as: :task, locals: {tab: :index} if current_user.assistant? %>
+<%= render partial: 'tasks/task_card', collection: policy_scope(@user.tasks), as: :task, locals: {tab: :index} %>
