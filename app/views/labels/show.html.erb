@@ -3,6 +3,4 @@
 <%= link_to "Back to labels", labels_path %>
 <br><br>
 
-<% @tasks.each do |task| %>
-  <%= render partial: 'tasks/task_card', locals: {task: task, tab: :index} %>
-<% end %>
+<%= render partial: 'tasks/task_card', collection: @tasks, as: :task, locals: {tab: :index} %>
