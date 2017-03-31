@@ -6,12 +6,13 @@
       <a href="" class="nav-link active" id="new-reminders-tab-link"><%= current_user.client? ? "New" : "Sent" %></a>
     </li>
     <li class="nav-item">
-      <a href="" class="nav-link text-muted" id="dismissed-reminders-tab-link">Dismissed<%= " by client" if current_user.assistant? %></a>
+      <a href="" class="nav-link text-muted" id="dismissed-reminders-tab-link">Dismissed<%= " by client" unless current_user.client? %></a>
     </li>
   </ul>
 </div>
 
 <div class="reminder-card-list" id="new-reminder-card-list">
+
   <% if current_user.assistant? %>
     <ul class="reminder-link-list">
       <% current_user.clients.each do |client| %>
@@ -19,34 +20,11 @@
       <% end %>
     </ul>
   <% end %>
-  <% reminders.not_dismissed.each do |reminder| %>
-  <article class="card reminder-card <%= reminder.status %>">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item reminder-content"><%= reminder.content %></li>
-      <%= content_tag(:li, raw("Sent to&nbsp;#{link_to reminder.client.name, user_path(reminder.client)}"), class: "list-group-item reminder-client") if current_user.assistant? %>
-      <li class="list-group-item reminder-created-at"><%= reminder.human_created_at %></li>
-      <%= link_to content_tag(:li, "Concerning '#{reminder.task.title}' #{'(' + reminder.task.status.humanize.downcase + ')' unless reminder.task.status == "idle"}", class: "list-group-item reminder-task task-#{reminder.task.status}"), task_path(reminder.task), class: "concerning-link" if reminder.task %>
-    </ul>
-    <div class="card-footer">
-      <% if current_user.assistant? %>
-        <%= button_to "Undo", reminder_path(reminder), method: :delete, class: "btn btn-danger float-right" %>
-      <% else %>
-        <%= button_to "Dismiss", reminder_dismiss_path(reminder), class: "btn btn-danger float-right" %>
-      <% end %>
-    </div>
-  </article>
-  <% end %>
+
+  <%= render partial: 'reminders/reminder_card', collection: reminders.not_dismissed, as: :reminder %>
+  
 </div>
 
 <div class="reminder-card-list hidden-xs-up" id="dismissed-reminder-card-list">
-  <% reminders.dismissed.each do |reminder| %>
-  <article class="card reminder-card <%= reminder.status %>">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item reminder-content"><em><%= reminder.content %></em></li>
-      <%= content_tag(:li, raw("Sent to&nbsp;#{link_to reminder.client.name, user_path(reminder.client)}"), class: "list-group-item reminder-client") if current_user.assistant? %>
-      <li class="list-group-item reminder-created-at"><%= reminder.human_created_at %></li>
-      <%= link_to content_tag(:li, "Concerning '#{reminder.task.title}'", class: "list-group-item reminder-task task-#{reminder.task.status}"), task_path(reminder.task), class: "concerning-link" if reminder.task %>
-    </ul>
-  </article>
-  <% end %>
+  <%= render partial: 'reminders/reminder_card', collection: reminders.dismissed, as: :reminder %>
 </div>
