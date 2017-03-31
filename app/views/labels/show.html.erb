@@ -1,6 +1,5 @@
 <h2 class="text-center main-heading">Tasks labeled '<%= @label.name %>'</h2>
 
-<%= link_to "Back to labels", labels_path %>
-<br><br>
+<%= link_to "Back to labels", labels_path %><br><br>
 
 <%= render partial: 'tasks/task_card', collection: @tasks, as: :task, locals: {tab: :index} %>
