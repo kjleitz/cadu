@@ -1,7 +1,7 @@
 class ReminderPolicy < ApplicationPolicy
 
   def create?
-    if record.task && !(user == record.task.assistant)
+    if record.task && !(record.client == record.task.client)
       false
     else
       user.admin? || record_assistant?
