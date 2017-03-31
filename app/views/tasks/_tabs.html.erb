@@ -5,7 +5,7 @@
   <li class="nav-item">
     <%= link_to "View (#{task.comments.any? ? pluralize(task.comments.count, "comment") : "no comments yet"})", task_path(task), class: "nav-link #{current_page?(task_path(task)) ? "active" : "text-muted"}" %>
   </li>
-  <% if current_user.client? %>
+  <% if policy(task).update? %>
     <li class="nav-item">
       <%= link_to "Edit", edit_task_path(task), class: "nav-link #{current_page?(edit_task_path(task)) ? "active" : "text-muted"}" %>
     </li>
