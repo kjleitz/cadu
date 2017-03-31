@@ -19,7 +19,7 @@ class LabelsController < ApplicationController
   end
 
   def show
-    @tasks = @label.tasks.where(client_id: current_user.assistant? ? current_user.clients.pluck(:id) : current_user.id)
+    @tasks = policy_scope(@label.tasks)
   end
 
   private
