@@ -1,5 +1,9 @@
 <h2 class="text-center main-heading">Labels</h2>
 
+<div class="text-center">
+  <%= link_to "Add a new label", new_label_path %><br><br>
+</div>
+
 <div class="card labels-card">
   <ul>
     <% @labels.each do |label| %>
