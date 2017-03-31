@@ -1,7 +1,11 @@
 class ReminderPolicy < ApplicationPolicy
 
   def create?
-    user.admin? || record_assistant?
+    if record.task && !(user == record.task.assistant)
+      false
+    else
+      user.admin? || record_assistant?
+    end
   end
 
   def dismiss?
