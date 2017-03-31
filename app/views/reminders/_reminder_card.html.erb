@@ -7,11 +7,8 @@
   </ul>
   <% unless reminder.dismissed? %>
     <div class="card-footer">
-      <% if policy(reminder).destroy? %>
-        <%= button_to "Undo", reminder_path(reminder), method: :delete, class: "btn btn-danger float-right" %>
-      <% elsif policy(reminder).dismiss? %>
-        <%= button_to "Dismiss", reminder_dismiss_path(reminder), class: "btn btn-danger float-right" %>
-      <% end %>
+      <%= button_to "Undo", reminder_path(reminder), method: :delete, class: "btn btn-danger float-right" if policy(reminder).destroy? %>
+      <%= button_to "Dismiss", reminder_dismiss_path(reminder), class: "btn btn-danger float-right" if policy(reminder).dismiss? %>
     </div>
   <% end %>
 </article>
