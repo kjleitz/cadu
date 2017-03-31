@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   def index
     authorize Task
     @tasks = policy_scope(Task)
-    @task = current_user.tasks.build if current_user.client?
+    @task = current_user.tasks.build
   end
 
   def show
