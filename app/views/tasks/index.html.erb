@@ -1,7 +1,5 @@
 <h2 class="text-center main-heading"><%= current_user.client? ? "#{current_user.name}'s" : "Client" %> tasks</h2>
 
-<%= render partial: 'task_form_card', locals: {task: @task, tabs: false} if current_user.client? %>
+<%= render partial: 'task_form_card', locals: {task: @task, tabs: false} if policy(@task).create? %>
 
-<% @tasks.each do |task| %>
-  <%= render partial: 'task_card', locals: {task: task, tab: :index} %>
-<% end %>
+<%= render partial: 'task_card', collection: @tasks, as: :task, locals: {tab: :index} %>
