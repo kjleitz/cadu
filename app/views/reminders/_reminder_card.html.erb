@@ -1,0 +1,17 @@
+<article class="card reminder-card <%= reminder.status %>">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item reminder-content"><%= reminder.dismissed? ? content_tag(:em, reminder.content) : reminder.content %></li>
+    <%= content_tag(:li, raw("Sent to&nbsp;#{link_to reminder.client.name, user_path(reminder.client)}"), class: "list-group-item reminder-client") unless current_user.client? %>
+    <li class="list-group-item reminder-created-at"><%= reminder.human_created_at %></li>
+    <%= link_to content_tag(:li, "Concerning '#{reminder.task.title}' #{'(' + reminder.task.status.humanize.downcase + ')'}", class: "list-group-item reminder-task task-#{reminder.task.status}"), task_path(reminder.task), class: "concerning-link" if reminder.task %>
+  </ul>
+  <% unless reminder.dismissed? %>
+    <div class="card-footer">
+      <% if policy(reminder).destroy? %>
+        <%= button_to "Undo", reminder_path(reminder), method: :delete, class: "btn btn-danger float-right" %>
+      <% elsif policy(reminder).dismiss? %>
+        <%= button_to "Dismiss", reminder_dismiss_path(reminder), class: "btn btn-danger float-right" %>
+      <% end %>
+    </div>
+  <% end %>
+</article>
