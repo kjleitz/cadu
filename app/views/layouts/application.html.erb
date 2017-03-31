@@ -15,6 +15,7 @@
     <main class="container-fluid">
 
       <div class="row">
+
         <% if logged_in? %>
           <div class="col-md-2 sidebar notification-sidebar">
             <%= render partial: "notifications/sidebar", locals: {notifications: policy_scope(Notification).viewing_order} %>
@@ -28,11 +29,14 @@
           <div class="col-md-3 sidebar reminder-sidebar">
             <%= render partial: "reminders/sidebar", locals: {reminders: policy_scope(Reminder)} %>
           </div>
+
         <% else %>
+
           <div class="col-md-8 offset-md-2 non-user-area">
             <%= render partial: 'layouts/messages' %>
             <%= yield %>
           </div>
+
         <% end %>
       </div>
 
