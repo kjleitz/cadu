@@ -38,9 +38,10 @@ gem 'bcrypt', '~> 3.1.7'
 # For authorization policies
 gem 'pundit', '~> 1.0'
 
-# For omniauth and authentication by facebook
+# For omniauth and authentication by facebook/google
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
