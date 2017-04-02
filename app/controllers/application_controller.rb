@@ -19,11 +19,12 @@ class ApplicationController < ActionController::Base
   private
 
     def user_not_authorized
-      if logged_in?
-        flash[:alert] = "You are not authorized to perform this action."
+      if !logged_in?
+        redirect_to login_path, alert: "You must be logged in to access Cadu."
+      elsif current_user.client? && !current_user.assistant
+        redirect_to edit_user_path(current_user), alert: "Please select an assistant from the drop-down menu below."
       else
-        flash[:alert] = "You must be logged in to access Cadu."
+        redirect_to request.referrer || root_path, alert: "You are not authorized to perform this action."
       end
-      redirect_to(request.referrer || root_path)
     end
 end
