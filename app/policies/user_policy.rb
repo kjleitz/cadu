@@ -1,11 +1,11 @@
 class UserPolicy < ApplicationPolicy
 
   def index?
-    user
+    user unless no_assistant?
   end
 
   def show?
-    user.admin? || user == record || user.assistant == record || record_assistant?
+    (user.admin? || user == record || user.assistant == record || record_assistant?) unless no_assistant?
   end
 
   def update?
