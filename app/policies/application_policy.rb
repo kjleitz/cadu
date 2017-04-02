@@ -42,6 +42,10 @@ class ApplicationPolicy
     user.admin? || user == record.assistant
   end
 
+  def no_assistant?
+    user.client? && !user.assistant
+  end
+
   def scope
     Pundit.policy_scope!(user, record.class)
   end
