@@ -1,7 +1,7 @@
 class TaskPolicy < ApplicationPolicy
 
   def index?
-    user
+    user unless no_assistant?
   end
 
   def show?
