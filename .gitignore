@@ -19,3 +19,7 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Omniauth creds
+facebook_oauth_credentials
+google_oauth_credentials
