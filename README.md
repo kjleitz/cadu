@@ -2,16 +2,15 @@
 
 ## The task manager for a modern personal assistant
 
+Cadu is 
 
-
-<a name="installation"></a>
 ## Installation
 
 ### What you need
 
-- Cadu was written and tested with Ruby 2.3.1, but may or may not run on versions higher or lower than this... YMMV
-- This project may or may not work on Windows, but it should be expected to run on Linux or macOS (these instructions are for macOS/Linux)
-- In addition to Ruby, you need to have bundler installed (`gem install bundler`)
+- Cadu was written and tested with Ruby 2.3.1, but may or may not run on versions higher or lower than this... your mileage may vary
+- This project may or may not work on Windows, but it should be expected to run just fine on Linux and macOS (these instructions are for macOS/Linux)
+- In addition to Ruby (see info on how to install Ruby [here](https://www.ruby-lang.org/en/documentation/installation/)—using RVM is recommended), you need to have bundler installed (`gem install bundler`)
 
 ### Download the project
 
@@ -30,7 +29,7 @@ $ bundle install
 
 ### Setting up client and assistant accounts
 
-You must create a file called `roles.yml` in the `/config` directory:
+You must create a file called `roles.yml` in the `config/` directory:
 
 ```
 $ touch config/roles.yml
@@ -39,7 +38,7 @@ $ touch config/roles.yml
 Open this file and edit it to set permissions for your users **before** they create accounts. For example, if you are the site administrator and you have two assistants (Jess and John) who want to start accepting clients, you might construct a `roles.yml` file like this:
 
 ```yaml
-# /config/roles.yml
+# config/roles.yml
 
 you@example.com: admin
 jess@example.com: assistant
@@ -61,12 +60,12 @@ $ rake db:migrate
 
 #### Setting up a dummy database
 
-**IMPORTANT: Only follow this subsection (_"Setting up a dummy database"_) if you want to create dummy data so you can test the application. If you do this with a production database you may lose/alter existing data, or cause bugs.** 
+**IMPORTANT: Only follow this subsection (_"Setting up a dummy database"_) if you want to create dummy data so you can test the application. If you do this with a production database you may lose/alter existing data, and/or cause bugs.** 
 
-Add the following to your `/config/roles.yml` file:
+Add the following to your `config/roles.yml` file:
 
 ```yaml
-# /config/roles.yml
+# config/roles.yml
 
 assistant@test.com: assistant
 alice@telamericorp.net: assistant
@@ -132,6 +131,11 @@ $ rails s
 
 Navigate to `http://locahost:3000` and you can begin using Cadu!
 
+<a name="setting_role"></a>
+### Setting user roles post-signup
+
+If you neglected to add an email address to the `config/roles.yml` file
+
 ## How to use Cadu
 
 ### As a client
@@ -187,7 +191,7 @@ The functionality and navigation as an assistant is very similar to the experien
 
 #### Account creation
 
-Before you create your account (whether by signing up with your email, logging in through Facebook/Google, etc.), it must be created with the email address you have discussed with the site administrator. The site administrator needs to associate the "assistant" role with your email address in the `/config/roles.yml` file. Once this has been done, you may create your account normally. If you are asked to select an assistant from a drop-down menu, leave it unselected.
+Before you create your account (whether by signing up with your email, logging in through Facebook/Google, etc.), it must be created with the email address you have discussed with the site administrator. The site administrator needs to associate the "assistant" role with your email address in the `config/roles.yml` file. Once this has been done, you may create your account normally. If you are asked to select an assistant from a drop-down menu, leave it unselected.
 
 #### Navigation
 
