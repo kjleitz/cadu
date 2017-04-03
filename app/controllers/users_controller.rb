@@ -24,6 +24,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to @user, notice: 'User was successfully created.'
     else
+      flash_errors_for @user
       render :new
     end
   end
@@ -32,6 +33,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to @user, notice: 'User was successfully updated.'
     else
+      flash_errors_for @user
       render :edit
     end
   end
