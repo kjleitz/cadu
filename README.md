@@ -134,6 +134,49 @@ Navigate to `http://locahost:3000` and you can begin using Cadu!
 
 ## How to use Cadu
 
+### As a client
+
+#### Account creation
+
+Once you have navigated to the site, you will be redirected to a login page, unless you are already logged in. Either log in to an existing account, sign up with your email address (the form can be accessed by clicking "Sign up" in the top navigation bar), or log in with Facebook or Google. If you log in with Facebook or Google, you will be redirected to a page where you can edit your profile and select an assistant from a drop-down list. Whether you choose an assistant from the signup page or the edit page, you must do so before you proceed.
+
+#### Navigation
+
+Click the "Tasks" link in the top bar to see your task list. You can create new tasks with the form at the top of the page, and you can view your existing tasks (ordered by next due) below.
+
+Click the "Labels" link in the top bar to see a list of all the existing labels available to you, and you can click them to view all the tasks you have created that fall under that label. You can also click "Add a new label" to create a new one and associate it with existing tasks.
+
+Click the "My profile" link in the top bar to see your user information, including your name, email, and assigned assistant. You can click the "Edit" link to edit your information, or "Users" to find your assistant's profile. 
+
+Click the "Log out" link in the top bar to log out.
+
+#### Tasks
+
+You can create a task by clicking the "Tasks" link in the top bar, and then filling out the form at the top of the page. A task requires a title, contents, and a due date. The due date defaults to two hours in the future. You can select existing labels from the scrollable box on the right, and you can select (or deselect) individual labels with cmd+click (on macOS) or ctrl+click (on Windows). You can also type labels as a comma-separated list in the input box below the scrollable box, and it will create new labels or use existing ones when they are found.
+
+Once you create a task, you will be brought to the individual viewing page for that task. You can write comments here, which will be shared between only your assistant and yourself (as long as you have requested assistance on the task). This is a good area for discussing the task, should it need extra information. You will receive a notification if your assistant comments on one of your tasks. 
+
+You can edit the task if you click the "Edit" tab. Here you can change the title, the contents, the due date, and the labels.
+
+To return to the task index, you can either click the "Summary" tab (which will keep you scrolled to the position of the task in the main list) or click the "Tasks" link in the top bar. Here, there is a list of your tasks. If you click the "Request Assistance" button on any task, it will allow your assistant to view the task, accept the request, mark it as "in progress", and mark it complete. You will be notified of each of these events (with a notification), and you can also track the progress of each task by checking the circles at the top right of each task card:
+
+- `(...) (   ) (   )` - task has been requested, but your assistant has not yet accepted it
+- `(yellow) (   ) (   )` - task has been accepted
+- `(yellow) (blue) (   )` - task has been started
+- `(yellow) (blue) (green)` - task has been completed
+
+You can also mark a task complete if you have completed it yourself, and you can remove a task which has already been marked complete. You will see that the buttons at the bottom will change based on what you can do with the task at the moment.
+
+#### Notifications
+
+On the left side, you can see your notifications. These will be sent to you whenever something notable happens regarding a particular task of yours (e.g. a task assistance request has been accepted by your assistant, a task has been completed, etc.). They are colored according to the status of the task they are related to (yellow: accepted, blue: in progress, green: completed), and you can click them to view the task and its comments in full. After you click a notification, it moves to the bottom of the new notifications, turns gray, becomes italicized, and is marked with _(seen)_.
+
+#### Reminders
+
+On the right side, you can see your reminders. These are sent to you by your assistant, and they may or may not be associated with a task. If they are, there will be a link to that particular task, colored according to the status of the task (light gray: requested, yellow: accepted, blue: in progress, green: completed). You can dismiss a reminder you've seen by clicking the red "Dismiss" button, which will remove it from the "New" list. You can view dismissed reminders if you click the "Dismissed" tab (the content will be italicized).
+
+### As an assistant
+
 
 
 ## Contributing
