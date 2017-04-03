@@ -4,7 +4,12 @@ class TasksController < ApplicationController
 
   def index
     authorize Task
-    @tasks = policy_scope(Task)
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+      @tasks = policy_scope(@user.tasks)
+    else
+      @tasks = policy_scope(Task)
+    end
     @task = current_user.tasks.build
   end
 
