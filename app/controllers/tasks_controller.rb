@@ -29,6 +29,7 @@ class TasksController < ApplicationController
       redirect_to @task, notice: 'Task was successfully created.'
     else
       @tasks = policy_scope(Task)
+      flash_errors_for @task
       render :index
     end
   end
@@ -37,6 +38,7 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       redirect_to @task, notice: 'Task was successfully updated.'
     else
+      flash_errors_for @task
       render :edit
     end
   end
