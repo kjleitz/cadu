@@ -1,20 +1,30 @@
 class SessionsController < ApplicationController
 
   def new
+    redirect_to root_path if logged_in?
     @user = User.new
   end
 
   def create
     if auth
       user = User.from_omniauth(auth)
+      if user.save
+        session[:user_id] = user.id
+        redirect_to tasks_path, notice: "Signed in with #{user.provider_name} as #{user.name}."
+      else
+        flash[:error] = user.errors.full_messages.join(". ") + "."
+        redirect_to login_path
+      end
     else
       user = User.find_by(email: params[:user][:email])
-      unless user.try(:authenticate, params[:user][:password])
-        redirect_to login_path, alert: "Incorrect email/password combination."
+      if user.try(:authenticate, params[:user][:password])
+        session[:user_id] = user.id
+        redirect_to tasks_path, notice: "Signed in as #{user.email}."
+      else
+        flash[:error] = "Incorrect email/password combination."
+        redirect_to login_path
       end
     end
-    session[:user_id] = user.id
-    redirect_to root_path, alert: "Signed in as #{user.email}."
   end
 
   def destroy
