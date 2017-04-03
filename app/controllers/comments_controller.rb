@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
       @comment.audience.notify(@comment.task, "#{@comment.author.name} commented on '#{@comment.task.title}'.")
       redirect_to task_path(@task), notice: 'Comment was successfully created.'
     else
-      flash[:error] = @comment.errors.full_messages.join(". ") + "."
+      flash_errors_for @comment
       render 'tasks/show'
     end
   end
