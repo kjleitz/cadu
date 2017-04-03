@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-    def user_not_authorized
+    def user_not_authorized(error)
       if !logged_in?
         redirect_to login_path, alert: "You must be logged in to access Cadu."
       elsif current_user.client? && !current_user.assistant
