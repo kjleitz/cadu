@@ -13,10 +13,6 @@ class Task < ApplicationRecord
 
   default_scope { order(:due_date) }
 
-  # Placeholder: I don't think this is necessary if I have a custom
-  # #labels_attributes= writer method.
-  # accepts_nested_attributes_for :labels
-
   def request_assistance
     requested!
     send_status_notification_to(assistant)
