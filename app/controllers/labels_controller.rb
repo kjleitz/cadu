@@ -14,7 +14,8 @@ class LabelsController < ApplicationController
     if @label.save
       redirect_to label_path(@label), notice: "Label successfully created!"
     else
-      render :new, alert: "Something went wrong."
+      flash_errors_for @label
+      render :new
     end
   end
 
