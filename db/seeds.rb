@@ -52,11 +52,11 @@ User.client.each do |client|
       ["the", "some kind of", "my", "my pet's"].sample,
       Faker::Hacker.adjective,
       Faker::Hacker.noun
-    ].join(" ") + "."
+    ].join(" ")
     yoda_quote = Faker::Yoda.quote
     client.tasks.create!(
       title: command,
-      content: yoda_quote + " But also, don't forget to #{command.downcase}",
+      content: yoda_quote + " But also, don't forget to #{command.downcase}.",
       due_date: Faker::Time.forward(10, :day),
       status: rand(5)
     )
