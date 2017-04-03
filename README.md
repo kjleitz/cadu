@@ -189,6 +189,18 @@ The functionality and navigation as an assistant is very similar to the experien
 
 Before you create your account (whether by signing up with your email, logging in through Facebook/Google, etc.), it must be created with the email address you have discussed with the site administrator. The site administrator needs to associate the "assistant" role with your email address in the `/config/roles.yml` file. Once this has been done, you may create your account normally. If you are asked to select an assistant from a drop-down menu, leave it unselected.
 
+#### Navigation
+
+The main difference here is that you have access to a "User pages" link in the top bar, which will take you directly to a list of profile pages of yourself and your clients.
+
+#### Tasks
+
+You cannot create new tasks, but you can view all the tasks your clients have requested of you, until they are complete. The client who requested the task will be listed above the task contents. You have the ability to accept requested tasks, mark them in progress, and mark them complete, via the buttons at the bottom of each task card. The buttons will change depending on the action you are allowed to perform on the task. There is also a button to remind a client about a task, which will bring you to the reminder creation page (but with the task drop-down already filled out).
+
+#### Reminders
+
+
+
 ## Contributing
 
 Bug reports and pull requests for this project are welcome at its [GitHub page](https://github.com/kjleitz/cadu). If you choose to contribute, please adhere to the [Ruby Community Conduct Guideline](https://www.ruby-lang.org/en/conduct/) so I don't have to go around breaking necks, running out of bubblegum, etc. If you'd like to make a suggestion for new features, make them in the "Issues" section and I'll try to get around to implementing them.
