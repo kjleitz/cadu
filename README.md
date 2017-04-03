@@ -160,10 +160,10 @@ You can edit the task if you click the "Edit" tab. Here you can change the title
 
 To return to the task index, you can either click the "Summary" tab (which will keep you scrolled to the position of the task in the main list) or click the "Tasks" link in the top bar. Here, there is a list of your tasks. If you click the "Request Assistance" button on any task, it will allow your assistant to view the task, accept the request, mark it as "in progress", and mark it complete. You will be notified of each of these events (with a notification), and you can also track the progress of each task by checking the circles at the top right of each task card:
 
-- `(...) (   ) (   )` - task has been requested, but your assistant has not yet accepted it
-- `(yellow) (   ) (   )` - task has been accepted
-- `(yellow) (blue) (   )` - task has been started
-- `(yellow) (blue) (green)` - task has been completed
+- `(...) (   ) (   )` – task has been requested, but your assistant has not yet accepted it
+- `(yellow) (   ) (   )` – task has been accepted
+- `(yellow) (blue) (   )` – task has been started
+- `(yellow) (blue) (green)` – task has been completed
 
 You can also mark a task complete if you have completed it yourself, and you can remove a task which has already been marked complete. You will see that the buttons at the bottom will change based on what you can do with the task at the moment.
 
@@ -183,7 +183,11 @@ On the right side of the screen, you can see your reminders. These are sent to y
 
 ### As an assistant
 
+The functionality and navigation as an assistant is very similar to the experience as a client, so the discussion in this section will be focused on the differences.
 
+#### Account creation
+
+Before you create your account (whether by signing up with your email, logging in through Facebook/Google, etc.), it must be created with the email address you have discussed with the site administrator. The site administrator needs to associate the "assistant" role with your email address in the `/config/roles.yml` file. Once this has been done, you may create your account normally. If you are asked to select an assistant from a drop-down menu, leave it unselected.
 
 ## Contributing
 
