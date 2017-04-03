@@ -195,11 +195,15 @@ The main difference here is that you have access to a "User pages" link in the t
 
 #### Tasks
 
-You cannot create new tasks, but you can view all the tasks your clients have requested of you, until they are complete. The client who requested the task will be listed above the task contents. You have the ability to accept requested tasks, mark them in progress, and mark them complete, via the buttons at the bottom of each task card. The buttons will change depending on the action you are allowed to perform on the task. There is also a button to remind a client about a task, which will bring you to the reminder creation page (but with the task drop-down already filled out).
+You cannot create new tasks, but you can view all the tasks your clients have requested of you, until they are complete. The client who requested the task will be listed above the task contents. You have the ability to accept requested tasks, mark them in progress, and mark them complete, via the buttons at the bottom of each task card. The buttons will change depending on the action you are allowed to perform on the task. There is also a button to remind a client about a task, which will bring you to the reminder creation page (but with the task drop-down already filled out). When you mark a task complete, it will disappear from your task list.
 
 #### Reminders
 
+The reminder sidebar is slightly different as an assistant. It shows reminders you have _sent_ to your clients, and those dismissed by your clients (in the "Dismissed by client" tab). On each sent reminder, there is a button which allows you to "Undo", or delete, a reminder. Under the "Sent" tab (the default), there are a series of links which take you to reminder creation pages for each of your clients. If you click one (or click the "Remind Client" button at the bottom of a task card) you will be shown a form for creating a new reminder. You can write the body of your reminder in the text box, and select a task to associate with it (optional) from the drop-down. If you clicked the "Remind Client" button on a task card to get here, it will auto-select the associated task, so you can just fill in the reminder text and hit "Send Reminder".
 
+### As an administrator
+
+As an administrator, you have access to all the functionality of both a client and an assistant, and you can view, edit, and remove all tasks and user pages, dismiss and undo all reminders, view and mark seen all notifications, etc. Use your power wisely.
 
 ## Contributing
 
