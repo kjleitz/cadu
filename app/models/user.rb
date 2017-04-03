@@ -48,6 +48,7 @@ class User < ApplicationRecord
   def set_role
     roles = YAML.load_file(Rails.root.join('config', 'roles.yml'))
     self.role = roles[email] if roles[email]
+    save
   end
 
   def provider_name
