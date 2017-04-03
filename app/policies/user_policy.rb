@@ -4,6 +4,10 @@ class UserPolicy < ApplicationPolicy
     user unless no_assistant?
   end
 
+  def new?
+    !user
+  end
+
   def show?
     (user.admin? || user == record || user.assistant == record || record_assistant?) unless no_assistant?
   end
