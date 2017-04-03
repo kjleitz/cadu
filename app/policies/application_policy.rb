@@ -2,6 +2,7 @@ class ApplicationPolicy
   attr_reader :user, :record
 
   def initialize(user, record)
+    raise Pundit::NotAuthorizedError unless user
     @user = user
     @record = record
   end
@@ -43,7 +44,7 @@ class ApplicationPolicy
   end
 
   def no_assistant?
-    user.client? && !user.assistant
+    user && user.client? && !user.assistant
   end
 
   def scope
