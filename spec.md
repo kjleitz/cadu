@@ -15,10 +15,10 @@ Specs:
 - [x] Include third party signup/login (how e.g. Devise/OmniAuth) (omniauth, omniauth-facebook-omniauth, and omniauth-google_oauth2 gems)
 - [x] Include nested resource show or index (URL e.g. users/2/recipes) (/users/3/tasks)
 - [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients) (/users/3/reminders/new)
-- [ ] Include form display of validation errors (form URL e.g. /recipes/new)
+- [x] Include form display of validation errors (form URL e.g. /recipes/new) (/signup)
 
 Confirm:
-- [ ] The application is pretty DRY
-- [ ] Limited logic in controllers
-- [ ] Views use helper methods if appropriate
-- [ ] Views use partials if appropriate
+- [x] The application is pretty DRY
+- [x] Limited logic in controllers
+- [x] Views use helper methods if appropriate
+- [x] Views use partials if appropriate
