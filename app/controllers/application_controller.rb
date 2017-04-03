@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
+  def flash_errors_for(object)
+    flash[:error] = object.errors.full_messages.join(". ") + "."
+  end
+
   private
 
     def user_not_authorized(error)
