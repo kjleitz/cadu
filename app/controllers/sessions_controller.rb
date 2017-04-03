@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
         session[:user_id] = user.id
         redirect_to tasks_path, notice: "Signed in with #{user.provider_name} as #{user.name}."
       else
-        flash[:error] = user.errors.full_messages.join(". ") + "."
+        flash_errors_for user
         redirect_to login_path
       end
     else
