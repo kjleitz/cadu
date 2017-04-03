@@ -1,0 +1,4 @@
+<%= link_to "Remind Client", new_user_reminder_path(task.client, task_id: task.id), class: "btn btn-warning float-right" %>
+<%= button_to "Accept Task", task_accept_path(task), class: "btn btn-primary float-right" %>
+<%= button_to "Begin Work", task_start_path(task), class: "btn btn-info request-floater" %>
+<%= button_to "Mark Complete", task_complete_path(task), class: "btn btn-success float-right" %>
