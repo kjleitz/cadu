@@ -2,15 +2,28 @@
 
 ## The task manager for a modern personal assistant
 
-Cadu is 
+Sometimes there's not enough time in the day to finish all the mundane things on your to-do list. Sometimes it's just been a rough day. You'd rather not have to research and buy the cheapest tickets and hotel rooms for that trip you have coming up. You don't have time to be on hold for an hour just to get that little piece of information from your ISP. You have too many things going on to remember your daily schedule, and setting reminders yourself has proved inconsistent.
+
+Don't you wish you had a personal assistant? They could get all those little things done for you. But _man,_ that would be expensive. You don't need a personal assistant, you just need a couple things done a day, just to make your life a little easier.
+
+So, how do you make a personal assistant affordable? Maybe one assistant can assist more than one person. With few enough tasks, maybe one assistant can help _ten_ people. Maybe _fifteen!_ At a tenth the cost, an assistant might be affordable to a large population.
+
+So, how can a personal assistant help that many people? If they only accepted tasks that could be done remotely, which is nearly everything these days, they'd be able to stay in roughly one spot all day and hammer out tasks like nobody's business.
+
+But hey, looks like it's somebody's business, now!
+
+Cadu is the interface between a new type of personal assistant and that assistant's clientele. Using Cadu, an entrepreneurial person who is _good_ at getting things done can become a personal assistant to a bunch of people who are _bad_ at getting things done, but who cannot quite afford an actual assistant.
+
+In the past, such an assistant would have had to build their own website from scratch, or rely on unwieldy methods of communication with their clients, like a mix of email and electronic calendars. But now, all you have to do is set up Cadu, and bam! You're in business.
 
 ## Installation
 
-### What you need
+### What you need/need to know
 
 - Cadu was written and tested with Ruby 2.3.1, but may or may not run on versions higher or lower than this... your mileage may vary
 - This project may or may not work on Windows, but it should be expected to run just fine on Linux and macOS (these instructions are for macOS/Linux)
 - In addition to Ruby (see info on how to install Ruby [here](https://www.ruby-lang.org/en/documentation/installation/)—using RVM is recommended), you need to have bundler installed (`gem install bundler`)
+- When entering the commands detailed in this guide, the initial `$` or `>` before a line represent the prompt in your terminal, and should **not** be included in the command (if you are copying/pasting)
 
 ### Download the project
 
@@ -134,7 +147,60 @@ Navigate to `http://locahost:3000` and you can begin using Cadu!
 <a name="setting_role"></a>
 ### Setting user roles post-signup
 
-If you neglected to add an email address to the `config/roles.yml` file
+If you neglected to add an email address to the `config/roles.yml` file before one of your assistants made an account, you can still make them an assistant after the fact.
+
+Add the email and role to the `config/roles.yml` file like this:
+
+```yaml
+...
+the_users_email@example.com: assistant
+...
+```
+
+Make sure you **save** this file.
+
+Now, open a terminal window and `cd` into the directory where you cloned Cadu. Then, run the following command to open the Rails console:
+
+```
+$ rails c
+```
+
+You will see a prompt that looks like this:
+
+```
+Running via Spring preloader in process 2034
+Loading development environment (Rails 5.0.2)
+2.3.1 :001 > 
+```
+
+Run the following command **(spelling must be absolutely correct)**:
+
+```
+> u = User.find_by(email: "the_users_email@example.com")
+```
+
+Now, set the user's role via the config file with this command:
+
+```
+> u.set_role
+```
+
+If this has been entered successfully, the line **directly above** the new prompt should be `=> true`. Verify that the user is now an assistant with the following command:
+
+```
+> u.role
+```
+
+This should output `=> "assistant"`. If it does, that means the role change was successful.
+
+The last step is removing any assistant that the user may have accidentally assigned to themselves:
+
+```
+> u.assistant = nil
+> u.save
+```
+
+If you did those two commands correctly, the line **directly above** the new prompt should be `=> true` (again). You're all set! Tell your new assistant that they are good to go. If they're stuck on a page requiring them to select an assistant for themselves, they can navigate away from the page and everything should function normally.
 
 ## How to use Cadu
 
