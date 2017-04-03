@@ -1,4 +1,10 @@
-<h2 class="text-center main-heading"><%= current_user.client? ? "#{current_user.name}'s" : "Client" %> tasks</h2>
+<h2 class="text-center main-heading">
+  <% if @user %>
+    <%= @user.name -%>'s tasks
+  <% else %>
+    <%= current_user.client? ? "#{current_user.name}'s" : "Client" %> tasks
+  <% end %>
+</h2>
 
 <%= render partial: 'task_form_card', locals: {task: @task, tabs: false} if policy(@task).create? %>
 
