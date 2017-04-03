@@ -21,9 +21,9 @@ In the past, such an assistant would have had to build their own website from sc
 ### What you need/need to know
 
 - Cadu was written and tested with Ruby 2.3.1, but may or may not run on versions higher or lower than this... your mileage may vary
-- This project may or may not work on Windows, but it should be expected to run just fine on Linux and macOS (these instructions are for macOS/Linux)
+- This program is meant to be _run_ on macOS or Linux, but the website is accessible to anyone with a browser (Chrome 55+ recommended)
 - In addition to Ruby (see info on how to install Ruby [here](https://www.ruby-lang.org/en/documentation/installation/)—using RVM is recommended), you need to have bundler installed (`gem install bundler`)
-- When entering the commands detailed in this guide, the initial `$` or `>` before a line represent the prompt in your terminal, and should **not** be included in the command (if you are copying/pasting)
+- When entering the commands detailed in this guide, the initial `$` or `>` before a line represents the prompt string in your terminal, and should **not** be included in the command if you are copying/pasting
 
 ### Download the project
 
@@ -62,6 +62,7 @@ Each line should be in the format `<email>: <role>`. You may add lines to this f
 
 If someone has already created an account and they need to be made an assistant or an administrator, the only way to set their role is through the rails console. Instructions for this can be found [here](#setting_role), but it is recommended to set the role in `roles.yml` **before** account creation instead.
 
+<a name="db_setup"></a>
 ### Setting up the database
 
 Run the following commands to set up a clean database (these may take a few seconds):
@@ -73,7 +74,7 @@ $ rake db:migrate
 
 #### Setting up a dummy database
 
-**IMPORTANT: Only follow this subsection (_"Setting up a dummy database"_) if you want to create dummy data so you can test the application. If you do this with a production database you may lose/alter existing data, and/or cause bugs.** 
+**IMPORTANT: Only follow this subsection (_"Setting up a dummy database"_) if you want to create dummy data so you can test the application. If you do this with a production database you may lose/alter existing data, and/or cause bugs. To reset your database to a clean slate, start again from the beginning of [_"Setting up the database"_](#db_setup) and skip this subsection.** 
 
 Add the following to your `config/roles.yml` file:
 
