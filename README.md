@@ -167,13 +167,19 @@ To return to the task index, you can either click the "Summary" tab (which will 
 
 You can also mark a task complete if you have completed it yourself, and you can remove a task which has already been marked complete. You will see that the buttons at the bottom will change based on what you can do with the task at the moment.
 
+#### Labels
+
+You can view all tasks associated with a particular label either by clicking a label link underneath a task's title, or by clicking the "Labels" link in the top bar and selecting the label for which you would like to view associated tasks. Either action will yield a list of task cards much like your main task list, only restricted to those which fall under the label you have selected.
+
+You can create a new label by clicking the "Labels" link in the top bar, then clicking "Add a new label" under the heading. Here, you can fill in a new label name, and select existing tasks from your task list to associate with that label (optional).
+
 #### Notifications
 
-On the left side, you can see your notifications. These will be sent to you whenever something notable happens regarding a particular task of yours (e.g. a task assistance request has been accepted by your assistant, a task has been completed, etc.). They are colored according to the status of the task they are related to (yellow: accepted, blue: in progress, green: completed), and you can click them to view the task and its comments in full. After you click a notification, it moves to the bottom of the new notifications, turns gray, becomes italicized, and is marked with _(seen)_.
+On the left side of the screen, you can see your notifications. These will be sent to you whenever something notable happens regarding a particular task of yours (e.g. a task assistance request has been accepted by your assistant, a task has been completed, etc.). They are colored according to the status of the task they are related to (yellow: accepted, blue: in progress, green: completed), and you can click them to view the task and its comments in full. After you click a notification, it moves to the bottom of the new notifications, turns gray, becomes italicized, and is marked with _(seen)_.
 
 #### Reminders
 
-On the right side, you can see your reminders. These are sent to you by your assistant, and they may or may not be associated with a task. If they are, there will be a link to that particular task, colored according to the status of the task (light gray: requested, yellow: accepted, blue: in progress, green: completed). You can dismiss a reminder you've seen by clicking the red "Dismiss" button, which will remove it from the "New" list. You can view dismissed reminders if you click the "Dismissed" tab (the content will be italicized).
+On the right side of the screen, you can see your reminders. These are sent to you by your assistant, and they may or may not be associated with a task. If they are, there will be a link to that particular task, colored according to the status of the task (light gray: requested, yellow: accepted, blue: in progress, green: completed). You can dismiss a reminder you've seen by clicking the red "Dismiss" button, which will remove it from the "New" list. You can view dismissed reminders if you click the "Dismissed" tab (the content will be italicized).
 
 ### As an assistant
 
