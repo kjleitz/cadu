@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :reminders, only: [:new, :create, :destroy], shallow: true do
       post 'dismiss', to: 'reminders#dismiss', as: :dismiss
     end
+    resources :tasks, only: [:index]
   end
 
   resources :tasks do
