@@ -97,7 +97,32 @@ In the left sidebar, click "Add Product", and then hit "Get Started" on Facebook
 
 In the main app's Settings page (the link underneath "Dashboard"), add `localhost` to the input box for "App Domains". Then, in the input box for "Site URL", add `http://localhost:3000/`.
 
+Here you can see your "App ID" and your "App secret" (which is revealed by clicking "Show"). These will come in handy later.
+
+### Setting up Google login
+
+Go to `https://console.developers.google.com`. You may need to set up a developer account if you haven't already. Click the dropdown next to the Google APIs logo and select "Create project". Enter a name for your project, agree to the terms of service, and submit the form.
+
+Use the API search box to search "contacts", then select "Contacts API". Click the "Enable" button. Once it has been enabled, hit the left arrow link next to "Contacts API" to go back.
+
+Use the API search box again to search "google+", then select "Google+ API". Click the "Enable" button. Once it has been enabled, hit the left arrow link next to "Contacts API" to go back.
+
+Click the "Credentials" link in the left sidebar. Click the "OAuth consent screen" tab link and fill in the product name with "Cadu" or whatever you choose, the homepage URL with `http://localhost:3000`, and then hit save.
+
+Now, click "Create credentials" and select "OAuth client ID". Fill in the "Authorized redirect URIs" input box with `http://localhost:3000/auth/google_oauth2/callback` and hit save.
+
+By clicking on your app's OAuth client ID name in the displayed list, you can see the "Client ID" and "Client secret". Those will come in handy later.
+
 ### Starting the server
+
+In a new terminal window, run the following commands, substituting for the keys/secrets found in the Facebook/Google developer consoles discussed previously:
+
+```
+$ export FACEBOOK_KEY=<App ID from Facebook>
+$ export FACEBOOK_SECRET=<App secret from Facebook>
+$ export GOOGLE_CLIENT_ID=<Client ID from Google>
+$ export GOOGLE_CLIENT_SECRET=<Client secret from Facebook>
+```
 
 Finally, start the server:
 
