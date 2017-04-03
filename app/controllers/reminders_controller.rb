@@ -14,6 +14,7 @@ class RemindersController < ApplicationController
     if @reminder.save
       redirect_to tasks_path, notice: "Reminder sent."
     else
+      flash_errors_for @reminder
       render :new
     end
   end
