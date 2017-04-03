@@ -106,9 +106,10 @@ Now, proceed with the rest of the instructions. Logging in with dummy data is ea
 
 Go to `https://developers.facebook.com/apps`. You may need to set up a developer account if you haven't already. Click the "Add a New App" button. Fill in the name of the app ("Cadu" or whatever you want), your email address, and the category "Productivity". Then, submit the form.
 
-In the left sidebar, click "Add Product", and then hit "Get Started" on Facebook Login. On the Settings page for Facebook Login, add `http://localhost:3000/auth/facebook/callback` to the input box for "Valid OAuth redirect URIs", then hit "Save Changes" int he bottom right.
+In the left sidebar, click "Add Product", and then hit "Get Started" on Facebook Login. On the Settings page for Facebook Login, add `http://localhost:3000/auth/facebook/callback` to the input box for "Valid OAuth redirect URIs", then hit "Save Changes" in the bottom right.
 
-In the main app's Settings page (the link underneath "Dashboard"), add `localhost` to the input box for "App Domains". Then, in the input box for "Site URL", add `http://localhost:3000/`.
+In the main app's Settings page (the link underneath "Dashboard"), add `localhost` to the input box for "App Domains". Then, in the input box for "Site URL", add `http://localhost:3000/`, and hit "Save Changes" in the bottom right again.
+
 
 Here you can see your "App ID" and your "App secret" (which is revealed by clicking "Show"). These will come in handy later.
 
@@ -120,7 +121,7 @@ Use the API search box to search "contacts", then select "Contacts API". Click t
 
 Use the API search box again to search "google+", then select "Google+ API". Click the "Enable" button. Once it has been enabled, hit the left arrow link next to "Contacts API" to go back.
 
-Click the "Credentials" link in the left sidebar. Click the "OAuth consent screen" tab link and fill in the product name with "Cadu" or whatever you choose, the homepage URL with `http://localhost:3000`, and then hit save.
+Click the "Credentials" link in the left sidebar. Click the "OAuth consent screen" tab link and fill in the product name with "Cadu" or whatever you choose, fill in the homepage URL with `http://localhost:3000`, and then hit save.
 
 Now, click "Create credentials" and select "OAuth client ID". Fill in the "Authorized redirect URIs" input box with `http://localhost:3000/auth/google_oauth2/callback` and hit save.
 
@@ -229,7 +230,7 @@ Once you create a task, you will be brought to the individual viewing page for t
 
 You can edit the task if you click the "Edit" tab. Here you can change the title, the contents, the due date, and the labels.
 
-To return to the task index, you can either click the "Summary" tab (which will keep you scrolled to the position of the task in the main list) or click the "Tasks" link in the top bar. Here, there is a list of your tasks. If you click the "Request Assistance" button on any task, it will allow your assistant to view the task, accept the request, mark it as "in progress", and mark it complete. You will be notified of each of these events (with a notification), and you can also track the progress of each task by checking the circles at the top right of each task card:
+To return to the task index, you can either click the "Summary" tab (which will keep you scrolled to the position of the task in the main list) or click the "Tasks" link in the top bar. If you click the "Request Assistance" button on any task, it will allow your assistant to view the task, accept the request, mark it as "in progress", and mark it complete. You will be notified of each of these events (with a notification), and you can also track the progress of each task by checking the circles at the top right of each task card:
 
 - `(...) (   ) (   )` – task has been requested, but your assistant has not yet accepted it
 - `(yellow) (   ) (   )` – task has been accepted
@@ -258,7 +259,7 @@ The functionality and navigation as an assistant is very similar to the experien
 
 #### Account creation
 
-Before you create your account (whether by signing up with your email, logging in through Facebook/Google, etc.), it must be created with the email address you have discussed with the site administrator. The site administrator needs to associate the "assistant" role with your email address in the `config/roles.yml` file. Once this has been done, you may create your account normally. If you are asked to select an assistant from a drop-down menu, leave it unselected.
+Before you create your account (whether by signing up with your email, logging in through Facebook/Google, etc.) you must tell the site administrator what email address you intend to use (or the email address associated with the Facebook/Google account you intend to use to sign in). The site administrator **must** associate that email address with an "assistant" role in the `config/roles.yml` file. Once this has been done, you may create your account normally. If you are asked to select an assistant from a drop-down menu, leave it unselected.
 
 #### Navigation
 
@@ -266,7 +267,7 @@ The main difference here is that you have access to a "User pages" link in the t
 
 #### Tasks
 
-You cannot create new tasks, but you can view all the tasks your clients have requested of you, until they are complete. The client who requested the task will be listed above the task contents. You have the ability to accept requested tasks, mark them in progress, and mark them complete, via the buttons at the bottom of each task card. The buttons will change depending on the action you are allowed to perform on the task. There is also a button to remind a client about a task, which will bring you to the reminder creation page (but with the task drop-down already filled out). When you mark a task complete, it will disappear from your task list.
+You cannot create new tasks, but you can view all the tasks your clients have requested of you, until they are complete. The client who requested the task will be listed above the task contents. You have the ability to accept requested tasks, mark them as "in progress", and mark them complete, via the buttons at the bottom of each task card. The buttons will change depending on the action you are allowed to perform on the task. There is also a button to remind a client about a task, which will bring you to the reminder creation page (but with the task drop-down already filled out). When you mark a task complete, it will disappear from your task list.
 
 #### Reminders
 
