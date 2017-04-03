@@ -22,7 +22,8 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  get '/auth/facebook/callback', to: 'sessions#create'
+  get '/auth/:provider/callback', to: 'sessions#create'
+  get '/auth/failure', to: redirect('/')
   delete '/logout', to: 'sessions#destroy'
 
 end
