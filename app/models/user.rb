@@ -50,13 +50,17 @@ class User < ApplicationRecord
     self.role = roles[email] if roles[email]
   end
 
+  def provider_name
+    provider.humanize.split.first.capitalize
+  end
+
   class << self
 
     def from_omniauth(auth)
       where(
         provider: auth['provider'],
         uid:      auth['uid']
-      ).first_or_create(
+      ).first_or_initialize(
         name:     auth['info']['name'],
         email:    auth['info']['email'],
         password: SecureRandom.base64(10)
