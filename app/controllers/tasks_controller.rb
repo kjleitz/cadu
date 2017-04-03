@@ -6,6 +6,7 @@ class TasksController < ApplicationController
     authorize Task
     if params[:user_id]
       @user = User.find(params[:user_id])
+      authorize @user, :show?
       @tasks = policy_scope(@user.tasks)
     else
       @tasks = policy_scope(Task)
