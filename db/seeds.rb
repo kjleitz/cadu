@@ -64,33 +64,6 @@ User.client.each do |client|
 end
 
 
-# Notification seeds
-
-Task.accepted.each do |task|
-  task.notifications.create!(
-    content: task.status_message,
-    receiver: [task.client, task.client, task.client, task.assistant].sample,
-    status: rand(2)
-  )
-end
-
-Task.in_progress.each do |task|
-  task.notifications.create!(
-    content: task.status_message,
-    receiver: [task.client, task.client, task.client, task.assistant].sample,
-    status: rand(2)
-  )
-end
-
-Task.completed.each do |task|
-  task.notifications.create!(
-    content: task.status_message,
-    receiver: [task.client, task.client, task.client, task.assistant].sample,
-    status: rand(2)
-  )
-end
-
-
 # Reminder seeds
 
 User.client.each do |client|
@@ -136,6 +109,27 @@ Task.where("status > 0").each do |task|
       edited: Faker::Boolean.boolean(0.1)
     )
   end
+end
+
+
+# Notification seeds
+
+Task.all.each do |task|
+  task.notifications.create!(
+    content: task.status_message,
+    receiver: task.status == "requested" ? task.assistant : task.client,
+    status: rand(2)
+  )
+end
+
+Comment.all.each do |comment|
+  comment.audience.notify(comment.task, "#{comment.author.name} commented on '#{comment.task.title}'.")
+end
+
+times = Notification.pluck(:created_at).shuffle
+Notification.all.each_with_index do |n, i|
+  n.created_at = times[i]
+  n.save!
 end
 
 
