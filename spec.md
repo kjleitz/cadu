@@ -12,7 +12,7 @@ Specs:
 - [x] Include signup (how e.g. Devise) (rolled my own)
 - [x] Include login (how e.g. Devise) (rolled my own)
 - [x] Include logout (how e.g. Devise) (rolled my own)
-- [x] Include third party signup/login (how e.g. Devise/OmniAuth) (omniauth, omniauth-facebook-omniauth, and omniauth-google_oauth2 gems)
+- [x] Include third party signup/login (how e.g. Devise/OmniAuth) (omniauth, omniauth-facebook, and omniauth-google_oauth2 gems)
 - [x] Include nested resource show or index (URL e.g. users/2/recipes) (/users/3/tasks as long as you're signed in as user 3 or that user's assistant)
 - [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients) (/users/3/reminders/new as long as you're signed in as user 3's assistant)
 - [x] Include form display of validation errors (form URL e.g. /recipes/new) (/signup, /tasks new task form if you're a client, /users/:id/reminders/new if you're an assistant, /tasks/:id new comment form, /labels/new)
