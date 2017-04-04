@@ -94,7 +94,7 @@ end
 # Reminder seeds
 
 User.client.each do |client|
-  rand(5).times do
+  5.times do
     command = [
       [
         "Hey, it's #{client.assistant.name}.",
@@ -141,5 +141,6 @@ end
 
 # Label seeds
 
-10.times { Label.create!(name: Faker::Company.unique.buzzword) }
+labels = %w(phone\ call internet finance relatives email travel paperwork automobile insurance employment)
+labels.each { |label| Label.create!(name: label) }
 Task.all.each { |task| rand(4).times { task.labels << Label.all.sample } }
