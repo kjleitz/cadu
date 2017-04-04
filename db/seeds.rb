@@ -46,7 +46,7 @@ end
 # Task seeds
 
 User.client.each do |client|
-  rand(2..10).times do
+  rand(5..10).times do
     command = [
       Faker::Hacker.verb.capitalize,
       ["the", "some kind of", "my", "my pet's"].sample,
@@ -101,7 +101,7 @@ end
 # Comment seeds
 
 Task.where("status > 0").each do |task|
-  rand(8).times do
+  rand(10).times do
     task.comments.create!(
       content: Faker::TwinPeaks.quote,
       author: [task.client, task.assistant].sample || task.client,
