@@ -25,4 +25,4 @@ facebook_oauth_credentials
 google_oauth_credentials
 
 # Role-determining config file
-/config/roles.yml
+# /config/roles.yml
