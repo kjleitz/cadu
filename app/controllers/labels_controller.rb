@@ -2,7 +2,7 @@ class LabelsController < ApplicationController
   before_action :set_label, only: [:show]
 
   def index
-    @labels = Label.all
+    @labels = params[:user_id] ? User.find(params[:user_id]).labels : Label.all
   end
 
   def new
