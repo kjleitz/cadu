@@ -4,6 +4,8 @@ class User < ApplicationRecord
   belongs_to :assistant, class_name: User, optional: true
   has_many :tasks, foreign_key: :client_id
   has_many :reminders, foreign_key: :client_id
+  # added in for the spec.md, just for show
+  has_many :labels, through: :tasks
 
   # As assistant
   has_many :clients, foreign_key: :assistant_id, class_name: User
