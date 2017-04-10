@@ -26,3 +26,6 @@ google_oauth_credentials
 
 # Role-determining config file
 /config/roles.yml
+
+# Ignore application configuration
+/config/application.yml
