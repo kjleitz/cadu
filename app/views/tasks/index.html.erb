@@ -9,3 +9,15 @@
 <%= render partial: 'task_form_card', locals: {task: @task, tabs: false} if policy(@task).create? %>
 
 <%= render partial: 'task_card', collection: @tasks, as: :task, locals: {tab: :index} %>
+
+<script id="comments-template" type="text/x-handlebars-template">
+  <%= render partial: 'comments/handlebars/comments' %>
+</script>
+
+<script id="comment-card-partial" type="text/x-handlebars-template">
+  <%= render partial: 'comments/handlebars/comment_card' %>
+</script>
+
+<script id="comment-form-card-partial" type="text/x-handlebars-template">
+  <%= render partial: 'comments/handlebars/comment_form_card' %>
+</script>
