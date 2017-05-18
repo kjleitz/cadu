@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     post 'accept', to: 'tasks#accept', as: :accept
     post 'start', to: 'tasks#start', as: :start
     post 'mark_complete', to: 'tasks#mark_complete', as: :complete
-    resources :comments, only: [:create, :destroy], shallow: true
+    resources :comments, only: [:index, :create, :destroy], shallow: true
   end
 
   resources :labels, only: [:index, :show, :new, :create]
