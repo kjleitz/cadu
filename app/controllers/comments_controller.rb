@@ -2,6 +2,11 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:destroy]
   before_action :set_task, only: [:create]
 
+  def index
+    task = Task.find(params[:task_id])
+    render json: task.comments
+  end
+
   def create
     @comment = @task.comments.build(comment_params)
     authorize @comment
