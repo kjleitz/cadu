@@ -8,7 +8,7 @@
     <div class="card-block">
       <div class="row">
         <div class="comment-image col-md-2">
-          <img src="https://placehold.it/75x75/<%= random_color_for(current_user) %>" alt="<%= current_user.name %>">
+          <img src="<%= current_user.avatar_url %>" alt="<%= current_user.name %>">
         </div>
         <div class="new-comment-content col-md-10">
           <textarea placeholder="Write your comment here..." rows="3" name="comment[content]" id="comment_content"></textarea>
