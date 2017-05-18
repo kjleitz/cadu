@@ -84,7 +84,6 @@ function displayCommentsFor(taskId) {
 }
 
 function collapseCommentsFor(taskId) {
-  // debugger
   $('#task_comments_' + taskId).html('');
 }
 
