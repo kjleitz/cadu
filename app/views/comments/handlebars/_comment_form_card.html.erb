@@ -1,9 +1,9 @@
-<%= form_for [Task.new, Comment.new] do |f| %>
+<%= form_tag '#', method: :post do %>
   <article class="card comment-card new-comment-card">
-    <%= f.hidden_field :task_id, value: "{{comment.task.id}}" %>
-    <%= f.hidden_field :author_id, value: current_user.id %>
+    <input type="hidden" value="{{newComment.task.id}}" name="comment[task_id]" id="comment_task_id">
+    <input value="<%= current_user.id %>" type="hidden" name="comment[author_id]" id="comment_author_id">
     <div class="card-header">
-      <h6 class="card-title"><strong>New comment for <em>"{{comment.task.title}}":</em></strong></h6>
+      <h6 class="card-title"><strong>New comment for <em>"{{newComment.task.title}}":</em></strong></h6>
     </div>
     <div class="card-block">
       <div class="row">
@@ -11,13 +11,13 @@
           <img src="https://placehold.it/75x75/<%= random_color_for(current_user) %>" alt="<%= current_user.name %>">
         </div>
         <div class="new-comment-content col-md-10">
-          <%= f.text_area :content, placeholder: "Write your comment here...", rows: 3 %>
+          <textarea placeholder="Write your comment here..." rows="3" name="comment[content]" id="comment_content"></textarea>
         </div>
       </div>
     </div>
     <div class="card-footer">
       <span class="text-muted float-left"><em>Logged in as <%= current_user.name %></em></span>
-      <%= f.submit class: "btn btn-primary float-right" %>
+      <%= submit_tag "Create Comment", class: "btn btn-primary float-right" %>
     </div>
   </article>
 <% end %>
