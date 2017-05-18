@@ -57,6 +57,11 @@ class User < ApplicationRecord
     provider.humanize.split.first.capitalize
   end
 
+  def avatar_url
+    color = Random.new(id).rand(16**5...16**6).to_s(16)
+    "https://placehold.it/75x75/#{color}"
+  end
+
   class << self
 
     def from_omniauth(auth)
