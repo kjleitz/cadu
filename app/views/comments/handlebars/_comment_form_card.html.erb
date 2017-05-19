@@ -1,4 +1,4 @@
-<%= form_tag '#', method: :post do %>
+<%= form_tag '#', method: :post, class: "ajax-comment" do %>
   <article class="card comment-card new-comment-card">
     <input type="hidden" value="{{newComment.task.id}}" name="comment[task_id]" id="comment_task_id">
     <input value="<%= current_user.id %>" type="hidden" name="comment[author_id]" id="comment_author_id">
