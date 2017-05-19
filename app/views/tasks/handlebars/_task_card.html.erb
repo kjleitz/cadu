@@ -1,32 +1,34 @@
-<article id="floating_task_card_{{task.id}}" class="card task-card floating-task-card">
-
-  <div class="card-header">
-    <div class="status-circle-area {{task.status}}">
-      <div class="status-circle completed"></div>
-      <div class="status-circle in_progress"></div>
-      <div class="status-circle accepted"></div>
-    </div>
-    <a href="/tasks/{{task.id}}"><h4 class="task-title">{{task.title}}</h4></a>
-    <h6>
-      {{#each task.labels}}
+<div class="floating-task col-md-10 offset-md-1">
+  <article id="floating_task_card_{{task.id}}" class="card task-card">
+    <span class="close-floater" onclick="closeFloatingTaskCard();">x</span>
+    <div class="card-header">
+      <div class="status-circle-area {{task.status}}">
+        <div class="status-circle completed"></div>
+        <div class="status-circle in_progress"></div>
+        <div class="status-circle accepted"></div>
+      </div>
+      <a href="/tasks/{{task.id}}"><h4 class="task-title">{{task.title}}</h4></a>
+      <h6>
+        {{#each task.labels}}
         <a href="/labels/{{id}}" class="text-muted card-link">{{name}}</a>
-      {{/each}}
-    </h6>
-    {{> floatingTaskCardTabs }}
-  </div>
+        {{/each}}
+      </h6>
+      {{> floatingTaskCardTabs }}
+    </div>
 
-  <div class="card-block">
-    <% unless current_user.client? %>
+    <div class="card-block">
+      <% unless current_user.client? %>
       <h6 class="task-client-header">Task from <a href="/users/{{task.client.id}}">{{task.client.name}}</a>:</h6>
-    <% end %>
-    <p>{{task.content}}</p>
-  </div>
+      <% end %>
+      <p>{{task.content}}</p>
+    </div>
 
-  <div class="card-footer">
-    <span class="task-due-floater text-muted"><em>Due {{task.human_due_date}}</em></span>
-    <%= render partial: "tasks/handlebars/#{current_user.role}_task_buttons" %>
-  </div>
+    <div class="card-footer">
+      <span class="task-due-floater text-muted"><em>Due {{task.human_due_date}}</em></span>
+      <%= render partial: "tasks/handlebars/#{current_user.role}_task_buttons" %>
+    </div>
 
-</article>
-<div id="floating_task_comments_{{task.id}}" class="comment-section">
+  </article>
+  <div id="floating_task_comments_{{task.id}}" class="comment-section">
+  </div>
 </div>
