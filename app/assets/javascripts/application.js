@@ -17,5 +17,5 @@
 //= require cable
 //= require templates
 //= require comments
-//= require notifications
 //= require tasks
+//= require notifications
