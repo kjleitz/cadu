@@ -34,6 +34,20 @@
   background-color: transparent;
 }
 
+.floating-task {
+
+  .close-floater {
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    color: grey;
+  }
+
+  .close-floater:hover {
+    cursor: pointer;
+  }
+}
+
 .task-card {
 
   .status-circle-area {
