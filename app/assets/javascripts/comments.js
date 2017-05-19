@@ -87,4 +87,4 @@ function summaryLinkAction(event) {
 
 // MAIN
 
-$(initCommentPartials);
+$(document).on('turbolinks:load', initCommentPartials);
