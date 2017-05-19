@@ -57,5 +57,8 @@ function floatingTaskTemplate(context) {
 function initCommentPartials() {
   Handlebars.registerPartial('commentCard', $('#comment-card-partial').html());
   Handlebars.registerPartial('commentFormCard', $('#comment-form-card-partial').html());
+}
+
+function initTaskPartials() {
   Handlebars.registerPartial('floatingTaskCardTabs', $('#floating-task-card-tabs-partial').html());
 }
