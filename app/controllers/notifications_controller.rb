@@ -5,7 +5,10 @@ class NotificationsController < ApplicationController
     @notification = @user.notifications.find(params[:id])
     authorize @notification
     @notification.view
-    redirect_to task_path(@notification.task)
+    respond_to do |format|
+      format.html { redirect_to task_path(@notification.task) }
+      format.json { render json: @notification }
+    end
   end
 
 end
