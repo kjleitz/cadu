@@ -10,6 +10,7 @@
         class: "notification-item #{notification.status} task-#{notification.task.status}"
       ),
       user_notification_view_path(notification.receiver, notification),
+      data: { task: notification.task.id },
       method: :post,
       class: "notification-link"
     )
