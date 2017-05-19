@@ -83,13 +83,7 @@ function summaryLinkAction(event) {
   collapseCommentsFor(taskId);
 }
 
-function attachListeners() {
-  $('.comments-link').on('click', commentsLinkAction);
-  $('.summary-link').on('click', summaryLinkAction);
-}
-
 
 // MAIN
 
 $(initCommentPartials);
-$(attachListeners);
