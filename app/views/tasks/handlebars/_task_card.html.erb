@@ -1,5 +1,5 @@
 <div class="floating-task col-md-10 offset-md-1">
-  <article id="floating_task_card_{{task.id}}" class="card task-card">
+  <article id="floating_task_card_{{task.id}}" class="card task-card task_card_{{task.id}}">
     <span class="close-floater" onclick="closeFloatingTaskCard();">x</span>
     <div class="card-header">
       <div class="status-circle-area {{task.status}}">
@@ -29,6 +29,6 @@
     </div>
 
   </article>
-  <div id="floating_task_comments_{{task.id}}" class="comment-section">
+  <div id="floating_task_comments_{{task.id}}" class="comment-section task_comments_{{task.id}}">
   </div>
 </div>
