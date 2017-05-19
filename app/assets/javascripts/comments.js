@@ -1,40 +1,40 @@
 // Handlebars setup stuff
 
-function templateFor(name) {
-  return Handlebars.compile($('#' + name + '-template').html());
-}
-
-function commentsTemplate(context) {
-  // context should be of this format:
-  // {
-  //   comments: [
-  //     {
-  //       id: <comment_id>,
-  //       task_id: <task_id>,
-  //       human_created_at: "<some readable time>",
-  //       content: "content of the comment",
-  //       author: {
-  //         name: "author name",
-  //         avatar_url: "http://avatar.com/avatar"
-  //       }
-  //     },
-  //     // ...
-  //   ],
-  //   newComment: {
-  //     task: {
-  //       id: "task id",
-  //       title: "task title"
-  //     }
-  //   }
-  // }
-
-  return templateFor('comments')(context);
-}
-
-function initCommentPartials() {
-  Handlebars.registerPartial('commentCard', $('#comment-card-partial').html());
-  Handlebars.registerPartial('commentFormCard', $('#comment-form-card-partial').html());
-}
+// function templateFor(name) {
+//   return Handlebars.compile($('#' + name + '-template').html());
+// }
+//
+// function commentsTemplate(context) {
+//   // context should be of this format:
+//   // {
+//   //   comments: [
+//   //     {
+//   //       id: <comment_id>,
+//   //       task_id: <task_id>,
+//   //       human_created_at: "<some readable time>",
+//   //       content: "content of the comment",
+//   //       author: {
+//   //         name: "author name",
+//   //         avatar_url: "http://avatar.com/avatar"
+//   //       }
+//   //     },
+//   //     // ...
+//   //   ],
+//   //   newComment: {
+//   //     task: {
+//   //       id: "task id",
+//   //       title: "task title"
+//   //     }
+//   //   }
+//   // }
+//
+//   return templateFor('comments')(context);
+// }
+//
+// function initCommentPartials() {
+//   Handlebars.registerPartial('commentCard', $('#comment-card-partial').html());
+//   Handlebars.registerPartial('commentFormCard', $('#comment-form-card-partial').html());
+// }
 
 
 // Comment-related objects
@@ -42,7 +42,7 @@ function initCommentPartials() {
 function CommentFor(taskId) {
   this.task = {
     id: taskId,
-    title: $('#task_title_' + taskId).text()
+    title: $('#task_card_' + taskId + ' .task-title').text()
   };
 }
 
@@ -91,6 +91,8 @@ function activateTab(tabName, taskId) {
   var tabsSelector = '#task_card_' + taskId + ' .card-header .nav-item > .nav-link';
   var tabSelector = tabsSelector + '.' + tabName + '-link';
   $(tabsSelector).removeClass('active');
+  $(tabsSelector).addClass('text-muted');
+  $(tabSelector).removeClass('text-muted');
   $(tabSelector).addClass('active');
 }
 
