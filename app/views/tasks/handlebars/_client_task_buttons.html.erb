@@ -1,11 +1,11 @@
 {{# if task.completed}}
-  <a class="btn btn-danger float-right" href="/tasks/{{task.id}}">Remove Completed Task</a>
+  <a class="btn btn-danger float-right" href="/tasks/{{task.id}}" data-method="delete">Remove Completed Task</a>
 {{else}}
-  <%= form_tag '#', data: { action: "mark_complete" }, method: :post, class: "button_to task-action" do %>
+  <%= form_tag '#', data: { action: "mark_complete", task: "{{task.id}}" }, method: :post, class: "button_to task-action" do %>
     <%= submit_tag "Mark Complete", class: "btn btn-success float-right" %>
   <% end %>
   {{#if task.idle}}
-    <%= form_tag '#', data: { action: "request_assistance" }, method: :post, class: "button_to task-action" do %>
+    <%= form_tag '#', data: { action: "request_assistance", task: "{{task.id}}" }, method: :post, class: "button_to task-action" do %>
       <%= submit_tag "Request Assistance", class: "btn btn-primary float-right" %>
     <% end %>
   {{/if}}
