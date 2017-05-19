@@ -7,7 +7,7 @@
       <div class="status-circle in_progress"></div>
       <div class="status-circle accepted"></div>
     </div>
-    <h4 id="task_title_<%= task.id %>"><%= task.title %></h4>
+    <h4 class="task-title"><%= task.title %></h4>
     <h6>
       <% task.labels.each do |label| %>
         <%= link_to label.name, label_path(label), class: "text-muted card-link" %>
