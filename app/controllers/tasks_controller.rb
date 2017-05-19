@@ -15,7 +15,10 @@ class TasksController < ApplicationController
   end
 
   def show
-    @comment = @task.comments.build
+    respond_to do |format|
+      format.html { @comment = @task.comments.build; render :show }
+      format.json { render json: @task }
+    end
   end
 
   def edit
