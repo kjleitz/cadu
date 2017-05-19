@@ -7,10 +7,11 @@
       content_tag(
         :li,
         raw("#{notification.content}<br><em>#{notification.human_created_at}</em>"),
+        id: "notification_#{notification.id}",
         class: "notification-item #{notification.status} task-#{notification.task.status}"
       ),
       user_notification_view_path(notification.receiver, notification),
-      data: { task: notification.task.id },
+      data: { task: notification.task.id, id: notification.id },
       method: :post,
       class: "notification-link"
     )
