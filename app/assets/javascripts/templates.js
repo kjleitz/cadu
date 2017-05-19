@@ -29,7 +29,33 @@ function commentsTemplate(context) {
   return templateFor('comments')(context);
 }
 
+function floatingTaskTemplate(context) {
+  // context should be of this format:
+  // {
+  //   task: {
+  //     id: "task id",
+  //     status: "task status",
+  //     content: "task content",
+  //     human_due_date: "<some readable time>",
+  //     labels: [
+  //       {
+  //         id: "label id",
+  //         name: "label name"
+  //       },
+  //       // ...
+  //     ],
+  //     client: {
+  //       id: "client id",
+  //       name: "client name"
+  //     }
+  //   }
+  // }
+
+  return templateFor('floating-task-card')(context);
+}
+
 function initCommentPartials() {
   Handlebars.registerPartial('commentCard', $('#comment-card-partial').html());
   Handlebars.registerPartial('commentFormCard', $('#comment-form-card-partial').html());
+  Handlebars.registerPartial('floatingTaskCardTabs', $('#floating-task-card-tabs-partial').html());
 }
