@@ -1,5 +1,5 @@
 <a id="task_<%= task.id %>" class="task-card-anchor"></a>
-<article id="task_card_<%= task.id %>" class="card task-card">
+<article id="task_card_<%= task.id %>" class="card task-card task_card_<%= task.id %>">
 
   <div class="card-header">
     <div class="status-circle-area <%= task.status %>">
@@ -29,5 +29,5 @@
   </div>
 
 </article>
-<div id="task_comments_<%= task.id %>" class="comment-section">
+<div id="task_comments_<%= task.id %>" class="comment-section task_comments_<%= task.id %>">
 </div>
