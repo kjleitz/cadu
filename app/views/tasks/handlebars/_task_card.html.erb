@@ -24,9 +24,9 @@
 
   <div class="card-footer">
     <span class="task-due-floater text-muted"><em>Due {{task.human_due_date}}</em></span>
-    <%= render partial: "tasks/#{current_user.role}_task_buttons", locals: {task: task} %>
+    <%= render partial: "tasks/handlebars/#{current_user.role}_task_buttons" %>
   </div>
 
 </article>
-<div id="task_comments_<%= task.id %>" class="comment-section">
+<div id="floating_task_comments_{{task.id}}" class="comment-section">
 </div>
