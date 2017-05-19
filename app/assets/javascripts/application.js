@@ -14,4 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require handlebars-v4.0.8
-//= require_tree .
+//= require cable
+//= require templates
+//= require comments
+//= require notifications
+//= require tasks
