@@ -93,5 +93,5 @@ function attachTaskTabListeners() {
 
 // MAIN
 
-$(initTaskPartials);
-$(attachTaskTabListeners);
+$(document).on('turbolinks:load', initTaskPartials);
+$(document).on('turbolinks:load', attachTaskTabListeners);
