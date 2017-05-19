@@ -1,0 +1,32 @@
+<article id="floating_task_card_{{task.id}}" class="card task-card floating-task-card">
+
+  <div class="card-header">
+    <div class="status-circle-area {{task.status}}">
+      <div class="status-circle completed"></div>
+      <div class="status-circle in_progress"></div>
+      <div class="status-circle accepted"></div>
+    </div>
+    <a href="/tasks/{{task.id}}"><h4 class="task-title">{{task.title}}</h4></a>
+    <h6>
+      {{#each task.labels}}
+        <a href="/labels/{{id}}" class="text-muted card-link">{{name}}</a>
+      {{/each}}
+    </h6>
+    {{> floatingCardTabs }}
+  </div>
+
+  <div class="card-block">
+    <% unless current_user.client? %>
+      <h6 class="task-client-header">Task from <a href="/users/{{task.client.id}}">{{task.client.name}}</a>:</h6>
+    <% end %>
+    <p>{{task.content}}</p>
+  </div>
+
+  <div class="card-footer">
+    <span class="task-due-floater text-muted"><em>Due {{task.human_due_date}}</em></span>
+    <%= render partial: "tasks/#{current_user.role}_task_buttons", locals: {task: task} %>
+  </div>
+
+</article>
+<div id="task_comments_<%= task.id %>" class="comment-section">
+</div>

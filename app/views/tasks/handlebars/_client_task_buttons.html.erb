@@ -1,0 +1,16 @@
+<!-- change to {{}} -->
+<% if task.completed? %>
+  <%= form_tag "/tasks/{{task.id}}", method: :delete, class: "button_to" do %>
+    <%= submit_tag "Remove Completed Task", class: "btn btn-danger float-right" %>
+  <% end %>
+<% else %>
+  <%= form_tag "/tasks/{{task.id}}/mark_complete", method: :post, class: "button_to" do %>
+    <%= submit_tag "Mark Complete", class: "btn btn-success float-right" %>
+  <% end %>
+  <!-- change to {{}} -->
+  <%= if task.idle? %>
+    <%= form_tag "/tasks/{{task.id}}/request_assistance", method: :post, class: "button_to" do %>
+      <%= submit_tag "Request Assistance", class: "btn btn-primary float-right" %>
+    <% end %>
+  <% end %>
+<% end %>

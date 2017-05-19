@@ -1,0 +1,10 @@
+<a class="btn btn-warning float-right" href="/users/{{task.client.id}}/reminders/new?task_id={{task.id}}">Remind Client</a>
+<%= form_tag "/tasks/{{task.id}}/accept", method: :post, class: "button_to" do %>
+  <%= submit_tag "Accept Task", class: "btn btn-primary float-right" %>
+<% end %>
+<%= form_tag "/tasks/{{task.id}}/start", method: :post, class: "button_to" do %>
+  <%= submit_tag "Begin Work", class: "btn btn-info float-right" %>
+<% end %>
+<%= form_tag "/tasks/{{task.id}}/mark_complete", method: :post, class: "button_to" do %>
+  <%= submit_tag "Mark Complete", class: "btn btn-success float-right" %>
+<% end %>
