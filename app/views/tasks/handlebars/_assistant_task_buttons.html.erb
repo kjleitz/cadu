@@ -1,17 +1,14 @@
 <a class="btn btn-warning float-right" href="/users/{{task.client.id}}/reminders/new?task_id={{task.id}}">Remind Client</a>
-<!-- change to {{}} -->
-<% if task.requested? %>
+{{#if task.requested}}
   <%= form_tag "/tasks/{{task.id}}/accept", method: :post, class: "button_to" do %>
     <%= submit_tag "Accept Task", class: "btn btn-primary float-right" %>
   <% end %>
-<!-- change to {{}} -->
-<% elsif task.accepted? %>
+{{else if task.accepted}}
   <%= form_tag "/tasks/{{task.id}}/start", method: :post, class: "button_to" do %>
     <%= submit_tag "Begin Work", class: "btn btn-info float-right" %>
   <% end %>
-<!-- change to {{}} -->
-<% elsif task.in_progress? %>
+{{else if task.in_progress}}
   <%= form_tag "/tasks/{{task.id}}/mark_complete", method: :post, class: "button_to" do %>
     <%= submit_tag "Mark Complete", class: "btn btn-success float-right" %>
   <% end %>
-<% end %>
+{{/if}}
