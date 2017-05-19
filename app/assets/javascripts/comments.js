@@ -71,12 +71,12 @@ function commentsContextFor(taskId, data) {
 
 // UI logic
 
-function displayCommentsFor(taskId) {
+function displayCommentsFor(taskId, isFloater) {
   function placeComments(taskId, data) {
     var context = commentsContextFor(taskId, data);
     var commentsHTML = commentsTemplate(context);
-    var $taskCommentsDiv = $('#task_comments_' + taskId);
-    $taskCommentsDiv.html(commentsHTML);
+    commentsDivSelector = '#' + (isFloater ? 'floating_' : '') + 'task_comments_' + taskId;
+    $(commentsDivSelector).html(commentsHTML);
   }
 
   $.get('/tasks/' + taskId + '/comments.json')
