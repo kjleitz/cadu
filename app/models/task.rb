@@ -9,7 +9,9 @@ class Task < ApplicationRecord
 
   validates :title, :content, :due_date, :status, presence: true
 
-  enum status: [:idle, :requested, :accepted, :in_progress, :completed]
+  STATUSES = [:idle, :requested, :accepted, :in_progress, :completed]
+  enum status: STATUSES
+  STATUSES.each { |state| alias_method state, :"#{state}?" }
 
   default_scope { order(:due_date) }
 
