@@ -3,7 +3,7 @@
 function CommentFor(taskId) {
   this.task = {
     id: taskId,
-    title: $('#task_card_' + taskId + ' .task-title').text()
+    title: $('.task_card_' + taskId + ' .task-title').text()
   };
 }
 
@@ -32,11 +32,11 @@ function commentsContextFor(taskId, data) {
 
 // UI logic
 
-function displayCommentsFor(taskId, isFloater) {
+function displayCommentsFor(taskId) {
   function placeComments(taskId, data) {
     var context = commentsContextFor(taskId, data);
     var commentsHTML = commentsTemplate(context);
-    commentsDivSelector = '#' + (isFloater ? 'floating_' : '') + 'task_comments_' + taskId;
+    var commentsDivSelector = '.task_comments_' + taskId;
     $(commentsDivSelector).html(commentsHTML);
   }
 
@@ -45,11 +45,12 @@ function displayCommentsFor(taskId, isFloater) {
 }
 
 function collapseCommentsFor(taskId) {
-  $('#task_comments_' + taskId).html('');
+  var commentsDivSelector = '.task_comments_' + taskId;
+  $(commentsDivSelector).html('');
 }
 
 function activateTab(tabName, taskId) {
-  var tabsSelector = '#task_card_' + taskId + ' .card-header .nav-item > .nav-link';
+  var tabsSelector = '.task_card_' + taskId + ' .card-header .nav-item > .nav-link';
   var tabSelector = tabsSelector + '.' + tabName + '-link';
   $(tabsSelector).removeClass('active');
   $(tabsSelector).addClass('text-muted');
