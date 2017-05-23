@@ -17,12 +17,24 @@ function createComment(commentData, taskId, callback, errorFn) {
   });
 }
 
+
+// Handlebars helpers
+
+function commentCount(num) {
+  return num + " comment" + (num === 1 ? "" : "s");
+}
+
+function initCommentHelpers() {
+  Handlebars.registerHelper('commentCount', commentCount);
+}
+
+
 // Comment-related objects
 
 function CommentFor(taskId) {
   this.task = {
     id: taskId,
-    title: $('.task_card_' + taskId + ' .task-title').text()
+    title: $('.task_card_' + taskId + ' .task-title').first().text()
   };
 }
 
@@ -107,3 +119,4 @@ function summaryLinkAction(event) {
 // MAIN
 
 $(document).on('turbolinks:load', initCommentPartials);
+$(document).on('turbolinks:load', initCommentHelpers);
