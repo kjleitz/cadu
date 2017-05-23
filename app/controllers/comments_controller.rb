@@ -31,7 +31,10 @@ class CommentsController < ApplicationController
     authorize @comment
     task = @comment.task
     @comment.destroy
-    redirect_to task_path(task), notice: 'Comment was successfully destroyed.'
+    respond_to do |format|
+      format.html { redirect_to task_path(task), notice: 'Comment was successfully destroyed.' }
+      format.json { render json: { message: "Comment was successfully destroyed" } }
+    end
   end
 
   private
