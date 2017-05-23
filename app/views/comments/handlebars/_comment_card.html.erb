@@ -1,7 +1,8 @@
 <article class="card comment-card">
   <div class="card-header">
     <span class="card-subtitle float-right text-right">
-      <em class="text-muted">{{human_created_at}}</em>
+      <em class="text-muted">{{human_created_at}}</em><br>
+      <a class="text-center" data-comment="{{id}}" data-task="{{task_id}}" href="#" onclick="deleteComment(event);">Delete</a>
     </span>
     <h6 class="card-title"><strong>{{author.name}}</strong> <span class="text-muted">wrote:</span></h6>
   </div>
