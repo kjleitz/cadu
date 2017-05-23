@@ -73,4 +73,8 @@ class Task < ApplicationRecord
     end
   end
 
+  def num_comments
+    comments.count
+  end
+
 end
