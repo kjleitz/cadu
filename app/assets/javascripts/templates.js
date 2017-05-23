@@ -14,6 +14,10 @@ function commentsTemplate(context) {
   //       author: {
   //         name: "author name",
   //         avatar_url: "http://avatar.com/avatar"
+  //       },
+  //       task: {
+  //         id: 1
+  //         title: "task title"
   //       }
   //     },
   //     // ...
