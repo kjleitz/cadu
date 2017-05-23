@@ -49,6 +49,10 @@ function commentsContextFor(taskId, data) {
   //     author: {
   //       name: "author name"
   //       avatar_url: "http://avatar.com/avatar"
+  //     },
+  //     task: {
+  //       id: 1
+  //       title: "task title"
   //     }
   //   },
   //   // ...
@@ -59,6 +63,36 @@ function commentsContextFor(taskId, data) {
 
   return Object.assign({}, comments, newComment);
 }
+
+function Comment(commentData) {
+  // yes, I know this is silly and I could use Object.create(), but I'm
+  // doing it the long, inflexible, traditional way on purpose
+  this.id = commentData.id;
+  this.url = '/comments/' + this.id;
+  this.task_id = commentData.task_id;
+  this.content = commentData.content;
+  this.human_created_at = commentData.human_created_at;
+  this.author = {
+    name: commentData.author.name,
+    avatar_url: commentData.author.avatar_url
+  };
+  this.task = {
+    id: commentData.task.id,
+    title: commentData.task.title
+  };
+}
+
+Comment.prototype.destroy = function() {
+  $.ajax({
+    method: 'DELETE',
+    url: this.url,
+    success: [
+      alert.bind(window, 'Comment was successfully deleted.'),
+      displayCommentsFor.bind(null, this.task_id)
+    ],
+    error: alert.bind(window, 'Something went wrong.')
+  });
+};
 
 
 // UI logic
