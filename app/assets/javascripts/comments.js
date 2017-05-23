@@ -1,7 +1,8 @@
 // Comment actions
 
-function submitComment(event, form) {
+function submitComment(event) {
   event.preventDefault();
+  var form = event.target;
   var comment = $(form).serialize();
   var taskId = form.dataset.task;
   createComment(comment, taskId, displayCommentsFor.bind(null, taskId), alert);
@@ -15,6 +16,13 @@ function createComment(commentData, taskId, callback, errorFn) {
   .fail(function() {
     errorFn('Something went wrong.');
   });
+}
+
+function deleteComment(event) {
+  event.preventDefault();
+  var anchor = event.target;
+  var comment = new Comment({ id: anchor.dataset.comment });
+  comment.destroy(displayCommentsFor.bind(null, anchor.dataset.task));
 }
 
 
@@ -73,22 +81,23 @@ function Comment(commentData) {
   this.content = commentData.content;
   this.human_created_at = commentData.human_created_at;
   this.author = {
-    name: commentData.author.name,
-    avatar_url: commentData.author.avatar_url
+    name: commentData.author ? commentData.author.name : null,
+    avatar_url: commentData.author ? commentData.author.avatar_url : null
   };
   this.task = {
-    id: commentData.task.id,
-    title: commentData.task.title
+    id: commentData.task ? commentData.task.id: null,
+    title: commentData.task ? commentData.task.title : null
   };
 }
 
-Comment.prototype.destroy = function() {
+Comment.prototype.destroy = function(callback) {
   $.ajax({
     method: 'DELETE',
     url: this.url,
+    dataType: 'json',
     success: [
       alert.bind(window, 'Comment was successfully deleted.'),
-      displayCommentsFor.bind(null, this.task_id)
+      callback
     ],
     error: alert.bind(window, 'Something went wrong.')
   });
