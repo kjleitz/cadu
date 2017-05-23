@@ -1,3 +1,22 @@
+// Comment actions
+
+function submitComment(event, form) {
+  event.preventDefault();
+  var comment = $(form).serialize();
+  var taskId = form.dataset.task;
+  createComment(comment, taskId, displayCommentsFor.bind(null, taskId), alert);
+}
+
+function createComment(commentData, taskId, callback, errorFn) {
+  $.post('/tasks/' + taskId + '/comments', commentData, null, 'json')
+  .done(function(data) {
+    callback(data);
+  })
+  .fail(function() {
+    errorFn('Something went wrong.');
+  });
+}
+
 // Comment-related objects
 
 function CommentFor(taskId) {
