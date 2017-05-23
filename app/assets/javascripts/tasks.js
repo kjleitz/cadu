@@ -13,6 +13,7 @@ function taskContext(data) {
   //   accepted: <boolean>,
   //   in_progress: <boolean>,
   //   completed: <boolean>,
+  //   num_comments: <number>,
   //   labels: [
   //     {
   //       id: "label id",
