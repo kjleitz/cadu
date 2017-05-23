@@ -12,10 +12,18 @@ class CommentsController < ApplicationController
     authorize @comment
     if @comment.save
       @comment.audience.notify(@comment.task, "#{@comment.author.name} commented on '#{@comment.task.title}'.")
-      redirect_to task_path(@task), notice: 'Comment was successfully created.'
+      respond_to do |format|
+        format.html { redirect_to task_path(@task), notice: 'Comment was successfully created.' }
+        format.json { render json: @comment }
+      end
     else
-      flash_errors_for @comment
-      render 'tasks/show'
+      respond_to do |format|
+        format.html do
+          flash_errors_for @comment
+          render 'tasks/show'
+        end
+        format.json { render json: { error: "Something went wrong." } }
+      end
     end
   end
 
