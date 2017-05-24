@@ -12,6 +12,7 @@ function commentsTemplate(context) {
   //       human_created_at: "<some readable time>",
   //       content: "content of the comment",
   //       author: {
+  //         id: <author id>,
   //         name: "author name",
   //         avatar_url: "http://avatar.com/avatar"
   //       },
