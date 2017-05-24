@@ -92,6 +92,7 @@ function attachTaskTabListeners() {
   $('.summary-link').on('click', summaryLinkAction);
 }
 
+
 // MAIN
 
 $(document).on('turbolinks:load', attachTaskTabListeners);
