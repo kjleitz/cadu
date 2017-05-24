@@ -26,17 +26,6 @@ function deleteComment(event) {
 }
 
 
-// Handlebars helpers
-
-function commentCount(num) {
-  return num + " comment" + (num === 1 ? "" : "s");
-}
-
-function initCommentHelpers() {
-  Handlebars.registerHelper('commentCount', commentCount);
-}
-
-
 // Comment-related objects
 
 function CommentFor(taskId) {
@@ -163,4 +152,3 @@ function summaryLinkAction(event) {
 // MAIN
 
 $(document).on('turbolinks:load', initCommentPartials);
-$(document).on('turbolinks:load', initCommentHelpers);
