@@ -67,3 +67,9 @@ function initCommentPartials() {
 function initTaskPartials() {
   Handlebars.registerPartial('floatingTaskCardTabs', $('#floating-task-card-tabs-partial').html());
 }
+
+
+// MAIN
+
+$(document).on('turbolinks:load', initTaskPartials);
+$(document).on('turbolinks:load', initCommentPartials);
