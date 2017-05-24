@@ -147,8 +147,3 @@ function summaryLinkAction(event) {
   activateSummaryTab(taskId);
   collapseCommentsFor(taskId);
 }
-
-
-// MAIN
-
-$(document).on('turbolinks:load', initCommentPartials);
