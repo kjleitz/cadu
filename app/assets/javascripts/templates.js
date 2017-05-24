@@ -9,6 +9,7 @@ function commentsTemplate(context) {
   //     {
   //       id: <comment_id>,
   //       task_id: <task_id>,
+  //       author_id: <task_id>,
   //       human_created_at: "<some readable time>",
   //       content: "content of the comment",
   //       author: {
