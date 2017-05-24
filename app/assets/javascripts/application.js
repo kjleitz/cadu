@@ -16,6 +16,7 @@
 //= require handlebars-v4.0.8
 //= require cable
 //= require templates
+//= require helpers
 //= require comments
 //= require tasks
 //= require notifications
