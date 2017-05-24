@@ -9,6 +9,13 @@ function submitComment(event) {
 }
 
 function createComment(commentData, taskId, callback, errorFn) {
+  // APPARENTLY, when jQuery tries to JSON-string-ify a JS object with
+  // methods, it _calls_ those methods to try to get a value out of
+  // them!?!?!? which means it tried to do a comment.destroy() when
+  // doing this post. So, I explicitly stringify it here.
+  // EDIT: I was trying to pass it a Comment object as data, before. I
+  // decided to just give it serialized data from the form instead.
+  // Leaving it here for posterity.
   $.post('/tasks/' + taskId + '/comments', commentData, null, 'json')
   .done(function(data) {
     callback(data);
@@ -28,11 +35,13 @@ function deleteComment(event) {
 
 // Comment-related objects
 
-function CommentFor(taskId) {
-  this.task = {
-    id: taskId,
-    title: $('.task_card_' + taskId + ' .task-title').first().text()
-  };
+function commentFor(taskId) {
+  return new Comment({
+    task: {
+      id: taskId,
+      title: $('.task_card_' + taskId + ' .task-title').first().text()
+    }
+  });
 }
 
 function commentsContextFor(taskId, data) {
@@ -41,6 +50,7 @@ function commentsContextFor(taskId, data) {
   //   {
   //     id: <comment id>,
   //     task_id: 1,
+  //     author_id: 1,
   //     human_created_at: "<some readable time>",
   //     content: "content of the comment",
   //     author: {
@@ -56,7 +66,7 @@ function commentsContextFor(taskId, data) {
   //   // ...
   // ]
 
-  var newComment = { newComment: new CommentFor(taskId) };
+  var newComment = { newComment: commentFor(taskId) };
   var comments = { comments: data };
 
   return Object.assign({}, comments, newComment);
@@ -65,12 +75,18 @@ function commentsContextFor(taskId, data) {
 function Comment(commentData) {
   // yes, I know this is silly and I could use Object.create(), but I'm
   // doing it the long, inflexible, traditional way on purpose
+  // I could also do something kind of hacky like this:
+  // Object.assign(this, commentData);
+  // but I'd probably want to explicitly permit keys
+
   this.id = commentData.id;
   this.url = '/comments/' + this.id;
   this.task_id = commentData.task_id;
+  this.author_id = commentData.author_id;
   this.content = commentData.content;
   this.human_created_at = commentData.human_created_at;
   this.author = {
+    id: commentData.author ? commentData.author.id : null,
     name: commentData.author ? commentData.author.name : null,
     avatar_url: commentData.author ? commentData.author.avatar_url : null
   };
@@ -83,7 +99,7 @@ function Comment(commentData) {
 Comment.prototype.destroy = function(callback) {
   $.ajax({
     method: 'DELETE',
-    url: this.url,
+    url: '/comments/' + this.id,
     dataType: 'json',
     success: [
       alert.bind(window, 'Comment was successfully deleted.'),
