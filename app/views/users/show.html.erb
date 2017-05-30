@@ -1,8 +1,10 @@
-<div class="card user-card">
+<div id="user-card" class="card user-card" data-user="<%= @user.id %>">
   <h4>Name</h4>
-  <p><%= @user.name %> <em>(<%= @user.role %>)</em></p>
+  <p class="editable" data-type="name"><%= @user.name %> <em>(<%= @user.role %>)</em></p>
+  <input type="text" style="display: none;" class="form-control user-info user-info-name col-md-11 ml-4" name="user[name]" value="<%= @user.name %>">
   <h4>Email</h4>
-  <p><%= @user.email %></p>
+  <p class="editable" data-type="email"><%= @user.email %></p>
+  <input type="text" style="display: none;" class="form-control user-info user-info-email col-md-11 ml-4" name="user[email]" value="<%= @user.email %>">
 
   <% if @user.client? %>
 
