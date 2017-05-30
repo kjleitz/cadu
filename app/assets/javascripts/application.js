@@ -20,3 +20,4 @@
 //= require comments
 //= require tasks
 //= require notifications
+//= require users
