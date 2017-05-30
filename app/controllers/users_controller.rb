@@ -31,7 +31,10 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: 'User was successfully updated.'
+      respond_to do |format|
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.json { render json: @user }
+      end
     else
       flash_errors_for @user
       render :edit
