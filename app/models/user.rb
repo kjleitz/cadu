@@ -1,14 +1,14 @@
 class User < ApplicationRecord
 
   # As client
-  belongs_to :assistant, class_name: User, optional: true
+  belongs_to :assistant, class_name: 'User', optional: true
   has_many :tasks, foreign_key: :client_id
   has_many :reminders, foreign_key: :client_id
   # added in for the spec.md, just for show
   has_many :labels, through: :tasks
 
   # As assistant
-  has_many :clients, foreign_key: :assistant_id, class_name: User
+  has_many :clients, foreign_key: :assistant_id, class_name: 'User'
 
   # As general user
   has_many :comments, foreign_key: :author_id
@@ -48,7 +48,7 @@ class User < ApplicationRecord
   end
 
   def set_role
-    roles = YAML.load_file(Rails.root.join('config', 'roles.yml'))
+    roles = YAML.load_file(Rails.root.join('config', 'roles.yml')) rescue {}
     self.role = roles[email] if roles[email]
     save
   end

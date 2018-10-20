@@ -1,5 +1,5 @@
 class Task < ApplicationRecord
-  belongs_to :client, class_name: User
+  belongs_to :client, class_name: 'User'
   delegate :assistant, to: :client
   has_many :notifications, dependent: :destroy
   has_many :reminders, dependent: :nullify

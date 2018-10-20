@@ -42,25 +42,28 @@
 
     </main>
 
-    <script id="comments-template" type="text/x-handlebars-template">
-      <%= render partial: 'comments/handlebars/comments' %>
-    </script>
+    <%# this is silly; this layout shouldn't be used this way %>
+    <% if logged_in? %>
+      <script id="comments-template" type="text/x-handlebars-template">
+        <%= render partial: 'comments/handlebars/comments' %>
+      </script>
 
-    <script id="comment-card-partial" type="text/x-handlebars-template">
-      <%= render partial: 'comments/handlebars/comment_card' %>
-    </script>
+      <script id="comment-card-partial" type="text/x-handlebars-template">
+        <%= render partial: 'comments/handlebars/comment_card' %>
+      </script>
 
-    <script id="comment-form-card-partial" type="text/x-handlebars-template">
-      <%= render partial: 'comments/handlebars/comment_form_card' %>
-    </script>
+      <script id="comment-form-card-partial" type="text/x-handlebars-template">
+        <%= render partial: 'comments/handlebars/comment_form_card' %>
+      </script>
 
-    <script id="floating-task-card-template" type="text/x-handlebars-template">
-      <%= render partial: 'tasks/handlebars/task_card' %>
-    </script>
+      <script id="floating-task-card-template" type="text/x-handlebars-template">
+        <%= render partial: 'tasks/handlebars/task_card' %>
+      </script>
 
-    <script id="floating-task-card-tabs-partial" type="text/x-handlebars-template">
-      <%= render partial: 'tasks/handlebars/tabs' %>
-    </script>
+      <script id="floating-task-card-tabs-partial" type="text/x-handlebars-template">
+        <%= render partial: 'tasks/handlebars/tabs' %>
+      </script>
+    <%- end %>
 
     <!-- <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>

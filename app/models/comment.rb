@@ -1,6 +1,6 @@
 class Comment < ApplicationRecord
   belongs_to :task
-  belongs_to :author, class_name: User
+  belongs_to :author, class_name: 'User'
 
   validates :content, presence: true
 

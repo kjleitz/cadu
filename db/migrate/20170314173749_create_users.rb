@@ -4,10 +4,11 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :email
       t.string :password_digest
-      t.belongs_to :assistant, foreign_key: true
+      t.belongs_to :assistant, index: true
       t.integer :role, default: 0
 
       t.timestamps
     end
+    add_foreign_key :users, :users, column: :assistant_id
   end
 end
